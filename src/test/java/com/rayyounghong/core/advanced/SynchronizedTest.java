@@ -40,8 +40,8 @@ public class SynchronizedTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        // 并不是任何时候都会成立，但是大多数时候都会小于 LOOP_MAX_NUM
-        assertTrue(summation.getSum() < LOOP_MAX_NUM);
+        // 并不是任何时候都会小于 LOOP_MAX_NUM，比如 github 的 actions 就会等于
+        assertTrue(summation.getSum() <= LOOP_MAX_NUM);
     }
 
     /**
