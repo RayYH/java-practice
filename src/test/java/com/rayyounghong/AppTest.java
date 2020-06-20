@@ -19,8 +19,7 @@ public class AppTest {
      * @ExtendWith	Register custom extensions
      */
 
-    public static final String TEST_PROMPT =
-        '[' + Color.ANSI_YELLOW + "TEST" + Color.ANSI_RESET + ']';
+    public static final String TEST_PROMPT = '[' + Color.ANSI_YELLOW + "TEST" + Color.ANSI_RESET + ']';
 
     public static final String BANNER_COLOR_FLAG = Color.ANSI_GREEN_BACKGROUND;
 
@@ -52,7 +51,8 @@ public class AppTest {
     /**
      * Output some message to std out.
      *
-     * @param message String output text.
+     * @param message
+     *            String output text.
      */
     public static void print(String message) {
         System.out.println(AppTest.TEST_PROMPT + " " + message);
@@ -112,5 +112,9 @@ public class AppTest {
 
     public static void doWhatEver(String var) {
         System.setProperty("TMP_STRING", var);
+    }
+
+    public static <T> void doWhatEver(T var) {
+        System.setProperty("TMP_T", var.toString());
     }
 }
