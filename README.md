@@ -1,6 +1,8 @@
 # Java Practice
 
-Some java codes. **USE AT YOUR OWN RISK**.
+Some java code. 
+
+> **USE AT YOUR OWN RISK**.
 
 ## Ref Links
 
