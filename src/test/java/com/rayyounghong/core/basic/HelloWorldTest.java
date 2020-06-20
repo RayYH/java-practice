@@ -4,6 +4,7 @@ import com.rayyounghong.StandardIOTest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author ray
@@ -26,6 +27,7 @@ public class HelloWorldTest extends StandardIOTest {
     @Test
     public void testHelloWorld() {
         HelloWorld.main(new String[] {});
-        assertEquals("Hello World!\n", outContent.toString());
+        // windows \r\n
+        assertTrue(outContent.toString().startsWith("Hello World"));
     }
 }

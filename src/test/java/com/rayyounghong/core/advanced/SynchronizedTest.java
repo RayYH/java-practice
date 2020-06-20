@@ -51,8 +51,7 @@ public class SynchronizedTest {
     public void givenMultiThreadWhenSyncMethod() {
         ExecutorService service = Executors.newFixedThreadPool(3);
         SynchronizedDemo summation = new SynchronizedDemo();
-        IntStream.range(0, LOOP_MAX_NUM)
-            .forEach(count -> service.submit(summation::synchronizedCalculate));
+        IntStream.range(0, LOOP_MAX_NUM).forEach(count -> service.submit(summation::synchronizedCalculate));
         try {
             service.awaitTermination(LOOP_MAX_NUM, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
@@ -68,11 +67,10 @@ public class SynchronizedTest {
     public void givenMultiThreadWhenSyncStaticMethod() {
         SynchronizedDemo.staticSum = 0;
         ExecutorService service = Executors.newCachedThreadPool();
-        IntStream.range(0, LOOP_MAX_NUM).forEach(
-            count -> service.submit(SynchronizedDemo::staticSynchronizedCalculate)
-        );
+        IntStream.range(0, LOOP_MAX_NUM)
+            .forEach(count -> service.submit(SynchronizedDemo::staticSynchronizedCalculate));
         try {
-            service.awaitTermination(100, TimeUnit.MILLISECONDS);
+            service.awaitTermination(1000, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -86,11 +84,9 @@ public class SynchronizedTest {
     public void givenMultiThreadWhenSyncBlock() {
         ExecutorService service = Executors.newFixedThreadPool(3);
         SynchronizedDemo synchronizedDemo = new SynchronizedDemo();
-        IntStream.range(0, LOOP_MAX_NUM).forEach(
-            count -> service.submit(synchronizedDemo::performSynchronizedTask)
-        );
+        IntStream.range(0, LOOP_MAX_NUM).forEach(count -> service.submit(synchronizedDemo::performSynchronizedTask));
         try {
-            service.awaitTermination(100, TimeUnit.MILLISECONDS);
+            service.awaitTermination(1000, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -104,11 +100,11 @@ public class SynchronizedTest {
     public void givenMultiThreadWhenSyncStaticBlock() {
         SynchronizedDemo.staticSum = 0;
         ExecutorService service = Executors.newCachedThreadPool();
-        IntStream.range(0, LOOP_MAX_NUM).forEach(
-            count -> service.submit(SynchronizedDemo::performStaticSynchronizedTask)
-        );
+        IntStream.range(0, LOOP_MAX_NUM)
+            .forEach(count -> service.submit(SynchronizedDemo::performStaticSynchronizedTask));
         try {
-            service.awaitTermination(100, TimeUnit.MILLISECONDS);
+            // github actions - windows os is too slow.
+            service.awaitTermination(1000, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
