@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.rayyounghong.AppTest;
-import com.rayyounghong.helper.BooleanContainer;
+import com.rayyounghong.helper.container.BooleanContainer;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +24,7 @@ class OperatorTest {
         assertEquals(anotherInt /= anInt, 3);
         assertEquals(anotherInt %= anInt, 1);
         assertEquals(anotherInt, 1);
-        // there are also &=  ^=  |= operators not mentioned here.
+        // there are also &= ^= |= operators not mentioned here.
     }
 
     /*
@@ -89,11 +89,11 @@ class OperatorTest {
     }
 
     @Test
-        /*
-         * 1. 计算机使用补码存储
-         * 2. 正数的反码和补码都与原码相同 (都等于真值)。
-         * 3. 负数的反码为原码符号位不变，其余各位取反；补码为反码 + 1。
-         */
+    /*
+     * 1. 计算机使用补码存储
+     * 2. 正数的反码和补码都与原码相同 (都等于真值)。
+     * 3. 负数的反码为原码符号位不变，其余各位取反；补码为反码 + 1。
+     */
     void testBitOperator() {
         // 5 = 0000 0101
         int a = 5;
@@ -174,17 +174,11 @@ class OperatorTest {
                 assertEquals(value / 2, value >> 1);
                 // 由于 >>> 是不带符号的移位操作，因此其势必会变成正数 (符号位会变成 0)
                 // 所以其真实的值等于 -(真值/2) + 最大正数值 = (value/2) + 2^(32-1)
-                assertEquals(
-                    (float) (value / 2) + Math.pow(2, Integer.SIZE - 1),
-                    value >>> 1
-                );
+                assertEquals((float)(value / 2) + Math.pow(2, Integer.SIZE - 1), value >>> 1);
                 assertEquals(value * 2, value << 1);
             } else { // 奇数 - 低位是 1
                 assertEquals(value / 2 - 1, value >> 1);
-                assertEquals(
-                    (float) (value / 2 - 1) + Math.pow(2, Integer.SIZE - 1),
-                    value >>> 1
-                );
+                assertEquals((float)(value / 2 - 1) + Math.pow(2, Integer.SIZE - 1), value >>> 1);
                 assertEquals(value * 2, value << 1);
             }
         }
@@ -212,7 +206,7 @@ class OperatorTest {
      * true & true == true
      */
     @Test
-    public void givenTwoTrueBooleans_whenBitwiseAndOperator_thenTrue() {
+    public void givenTwoTrueBooleansWhenBitwiseAndOperatorThenTrue() {
         BooleanContainer booleanContainer = new BooleanContainer(true, true);
         boolean trueBool = booleanContainer.boolOne;
         boolean anotherTrueBool = booleanContainer.boolTwo;
@@ -224,7 +218,7 @@ class OperatorTest {
      * true & false == false
      */
     @Test
-    public void givenOneFalseAndOneTrueBooleans_whenBitwiseAndOperator_thenFalse() {
+    public void givenOneFalseAndOneTrueBooleansWhenBitwiseAndOperatorThenFalse() {
         BooleanContainer booleanContainer = new BooleanContainer(true, false);
         boolean trueBool = booleanContainer.boolOne;
         boolean falseBool = booleanContainer.boolTwo;
@@ -236,11 +230,16 @@ class OperatorTest {
      * false & false == false
      */
     @Test
-    public void givenTwoFalseBooleans_whenBitwiseAndOperator_thenFalse() {
+    public void givenTwoFalseBooleansWhenBitwiseAndOperatorThenFalse() {
         BooleanContainer booleanContainer = new BooleanContainer(false, false);
         boolean falseBool = booleanContainer.boolOne;
         boolean anotherFalseBool = booleanContainer.boolTwo;
         boolean falseAndFalse = falseBool & anotherFalseBool;
         assertFalse(falseAndFalse);
+    }
+
+    @Test
+    void testInstanceOfOperator() {
+        assertFalse(this instanceof Test);
     }
 }

@@ -6,6 +6,7 @@ package com.rayyounghong.core.basic;
  */
 class DefaultValue {
 
+    public boolean aBoolean;
     public byte aByte;
     public short aShort;
     public int anInt;
@@ -14,5 +15,4 @@ class DefaultValue {
     public double aDouble;
     public char aChar;
     public String aString;
-    public boolean aBoolean;
 }

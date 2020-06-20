@@ -16,21 +16,28 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>13</maven.compiler.source>
         <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+        <junit.version>4.13</junit.version>
         <junit.jupiter.version>5.6.2</junit.jupiter.version>
-        <junit.platform.version>1.5.2</junit.platform.version>
+        <junit.vintage.version>5.6.2</junit.vintage.version>
     </properties>
 
     <dependencies>
         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
+            <artifactId>junit-jupiter</artifactId>
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-runner</artifactId>
-            <version>${junit.platform.version}</version>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>${junit.vintage.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

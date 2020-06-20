@@ -1,4 +1,4 @@
-package com.rayyounghong.helper;
+package com.rayyounghong.helper.container;
 
 /**
  * A helper class which can stored two boolean values for test cases.

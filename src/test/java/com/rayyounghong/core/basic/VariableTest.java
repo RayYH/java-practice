@@ -11,6 +11,15 @@ class VariableTest {
 
     public static String staticVariable = "one";
 
+    /*
+     * There are 4 types of variables in Java programming language:
+     *
+     * 1. Instance Variables (Non-Static Fields)
+     * 2. Class Variables (Static Fields)
+     * 3. Local Variables
+     * 4. Parameters
+     */
+
     @Test
     void testArray() {
         // allocate the space then initialize it
@@ -22,16 +31,12 @@ class VariableTest {
             assertEquals(firstArray[i], 10 * (i + 1));
         }
         // use literal to initialize an array
-        int[] secondArray = {
-            10, 20, 30
-        };
+        int[] secondArray = {10, 20, 30};
         for (int i = 0; i < secondArray.length; i++) {
             assertEquals(secondArray[i], 10 * (i + 1));
         }
         // use new int[]
-        int[] thirdArray = new int[]{
-            10, 20, 30
-        };
+        int[] thirdArray = new int[] {10, 20, 30};
         for (int i = 0; i < thirdArray.length; i++) {
             assertEquals(thirdArray[i], 10 * (i + 1));
         }
@@ -40,11 +45,7 @@ class VariableTest {
     @Test
     void testMultipleArray() {
         // initialize a tow-dimensional array
-        int[][] multipleArray = {
-            {10},
-            {20, 21},
-            {30, 31, 32}
-        };
+        int[][] multipleArray = {{10}, {20, 21}, {30, 31, 32}};
         for (int i = 0; i < multipleArray.length; i++) {
             for (int j = 0; j < multipleArray[i].length; j++) {
                 assertEquals(multipleArray[i][j], 10 * (i + 1) + j);

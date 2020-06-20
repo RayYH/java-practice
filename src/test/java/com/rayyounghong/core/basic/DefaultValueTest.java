@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 class DefaultValueTest {
 
     /**
-     * The variables declared but not initialized in Java will have a default value, initializing a
-     * variable when declared it is a best practice.
+     * The variables declared but not initialized in Java will have a default value, initializing a variable when
+     * declared it is a best practice.
      */
     @Test
     void testDefaultValue() {
