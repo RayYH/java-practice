@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
  * check below link to get more information about interface and abstract classes.
  *
  * @author ray
- * @link https://stackoverflow.com/questions/1913098/what-is-the-difference-between-an-interface
- * -and-abstract-class
+ * @link https://stackoverflow.com/questions/1913098/what-is-the-difference-between-an-interface -and-abstract-class
  * @date 2020/1/19
  */
 public class ConceptTest {

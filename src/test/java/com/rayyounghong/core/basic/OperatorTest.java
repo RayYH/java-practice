@@ -4,12 +4,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.rayyounghong.AppTest;
+import com.rayyounghong.helper.DisableInspection;
 import com.rayyounghong.helper.container.BooleanContainer;
+import com.rayyounghong.helper.container.DoubleContainer;
+import com.rayyounghong.helper.container.IntContainer;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
 
+/**
+ * @author ray
+ * @date 2020/5/9
+ */
 class OperatorTest {
 
     @Test
@@ -41,6 +49,7 @@ class OperatorTest {
         assertEquals(3, 13 / 4);
         assertEquals(3.25, aFloat);
         assertEquals(3, 10 % 7);
+        assertEquals(7.5, 15.0 / 2);
         // + can also be used to concentrate strings
         assertEquals("Hello World", "Hello" + " " + "World");
     }
@@ -241,5 +250,24 @@ class OperatorTest {
     @Test
     void testInstanceOfOperator() {
         assertFalse(this instanceof Test);
+    }
+
+    @Test
+    void numberDividedByZero() {
+        IntContainer one = new IntContainer(1);
+        IntContainer zero = new IntContainer(0);
+        assertThrows(ArithmeticException.class, () -> {
+            int a = one.intAttr / zero.intAttr;
+            DisableInspection.doWhatEver(a);
+        });
+
+        DoubleContainer doubleOne = new DoubleContainer(1.0);
+        DoubleContainer doubleZero = new DoubleContainer(0.0);
+        // 1.0/0=Infinity, 0.0/0=NaN
+        double res = doubleOne.doubleAttr / zero.intAttr;
+        assertEquals(Double.valueOf(res).toString(), "Infinity");
+        assertEquals(0, 1 / res);
+        res = doubleZero.doubleAttr / zero.intAttr;
+        assertEquals(Double.valueOf(res).toString(), "NaN");
     }
 }

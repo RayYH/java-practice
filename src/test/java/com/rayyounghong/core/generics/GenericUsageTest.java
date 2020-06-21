@@ -4,6 +4,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+/**
+ * @author ray
+ * @date 2020/5/9
+ */
 class GenericUsageTest {
 
     private static GenericUsage genericUsage;

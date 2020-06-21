@@ -5,6 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
+/**
+ * @author ray
+ * @date 2020/5/9
+ */
 class VariableTest {
 
     String instanceVariable = "one";

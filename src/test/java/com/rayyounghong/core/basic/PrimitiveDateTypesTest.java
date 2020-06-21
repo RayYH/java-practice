@@ -89,5 +89,8 @@ public class PrimitiveDateTypesTest extends StandardIOTest {
         assertEquals(charContainer.charAttr, 'Q');
         charContainer.charAttr = '\u7231';
         assertEquals(charContainer.charAttr, '爱');
+        // some special characters
+        assertEquals('\b', '\u0008');
+        assertEquals('\t', '\u0009');
     }
 }

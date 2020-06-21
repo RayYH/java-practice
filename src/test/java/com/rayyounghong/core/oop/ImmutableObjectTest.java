@@ -110,12 +110,8 @@ public class ImmutableObjectTest {
     void testStringPool() {
         String strOne = "Hello Java!";
         String strTwo = "Hello Java!";
-        String strThree = new String(
-            new char[]{'H', 'e', 'l', 'l', 'o', ' ', 'J', 'a', 'v', 'a', '!'}
-        );
-        String strFour = new String(
-            new char[]{'H', 'e', 'l', 'l', 'o', ' ', 'J', 'a', 'v', 'a', '!'}
-        );
+        String strThree = new String(new char[] {'H', 'e', 'l', 'l', 'o', ' ', 'J', 'a', 'v', 'a', '!'});
+        String strFour = new String(new char[] {'H', 'e', 'l', 'l', 'o', ' ', 'J', 'a', 'v', 'a', '!'});
         /*
          * 1. (strOne == strTwo) is true.
          * 2. (strOne == strThree) is false.
