@@ -199,6 +199,7 @@ class ControlFlowTest {
         int j = 0;
         boolean foundIt = false;
 
+        // java does not support goto, but java supports label
         search:
         for (i = 0; i < arrayOfInts.length; i++) {
             for (j = 0; j < arrayOfInts[i].length; j++) {
