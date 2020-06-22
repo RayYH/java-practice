@@ -74,6 +74,8 @@ public class RotateArray {
         int i, j, k, temp;
         int gcd = Gcd.solutionEuclideanAlgorithmViaModuloOperator(d, n);
 
+        // Let arr[] be {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12} and d is 3
+        // then gcd = 3, i from 0 to 2.
         for (i = 0; i < gcd; i++) {
             /* move i-th values of blocks */
             temp = arr[i];
@@ -83,7 +85,8 @@ public class RotateArray {
                 if (k >= n) {
                     k = k - n;
                 }
-
+                // 这里就已经 break 了，最后一个 arr[j] 并没有赋值，退出循环后需要与第一个值进行交换
+                // 因此才有 temp=arr[i]; arr[j] = temp; 这两行语句
                 if (k == i) {
                     break;
                 }
