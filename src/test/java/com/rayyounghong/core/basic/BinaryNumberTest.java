@@ -17,7 +17,7 @@ public class BinaryNumberTest {
         assertEquals(five, 5);
 
         short three = 0b11;
-        assertEquals((short) 3, three);
+        assertEquals((short)3, three);
 
         int nine = 0B1001;
         assertEquals(9, nine);

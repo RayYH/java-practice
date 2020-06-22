@@ -1,0 +1,23 @@
+package com.rayyounghong.core.generics;
+
+/**
+ * @author ray
+ * @date 2020/6/22
+ */
+public class AdvancedBox<T, S> {
+    private T t;
+    private S s;
+
+    public void add(T t, S s) {
+        this.t = t;
+        this.s = s;
+    }
+
+    public S getS() {
+        return s;
+    }
+
+    public T getT() {
+        return t;
+    }
+}
