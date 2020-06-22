@@ -7,6 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.rayyounghong.AppTest;
+import com.rayyounghong.core.oop.Person;
+import com.rayyounghong.core.oop.Student;
 import com.rayyounghong.helper.DisableInspection;
 import com.rayyounghong.helper.container.BooleanContainer;
 import com.rayyounghong.helper.container.DoubleContainer;
@@ -64,7 +66,9 @@ class OperatorTest {
         assertEquals(1, number);
         number = -number;
         assertEquals(-1, number);
-        // !false = true
+        BooleanContainer booleanContainer = new BooleanContainer(true, false);
+        boolean res = !booleanContainer.boolTwo;
+        assertTrue(res);
 
         int i = 3;
         assertEquals(3, i++);
@@ -78,7 +82,7 @@ class OperatorTest {
     }
 
     @Test
-    void testComparisonOperator() {
+    void testComparisonOperator() { // also nameed relational operator
         // >, >=, <, <=, !=, ==
         Random random = new Random();
         int i = random.nextInt(3);
@@ -160,7 +164,7 @@ class OperatorTest {
         /*
          * 1. >>  带符号右移运算符，向右移动指定位数 (/2^y)，符号位不变
          * 2. >>> 无符号右移运算符，所有移动的位置都补 0 - 这意味着其作用于正数没有任何意义
-         * 1. << 表示向左移动移位，在低位补 0 (*2^y)
+         * 3. << 表示向左移动移位，在低位补 0 (*2^y)
          */
         // Java 没有 `<<<` 操作符
         Random random = new Random();
@@ -192,6 +196,10 @@ class OperatorTest {
             }
         }
     }
+
+    /*
+     * There are also instanceof operator.
+     */
 
     @Test
     void testBitOperatorUsage() {
