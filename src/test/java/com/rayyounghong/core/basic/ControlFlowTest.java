@@ -2,6 +2,7 @@ package com.rayyounghong.core.basic;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.rayyounghong.core.advanced.Month;
 import com.rayyounghong.helper.DisableInspection;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
@@ -31,6 +32,10 @@ class ControlFlowTest {
                 DisableInspection.doWhatEver();
             }
         }
+
+        // We can use a ternary operator as a shorthand expression that works like an if/else statement.
+        i = random.nextInt(6) > 3 ? random.nextInt(6) : random.nextInt(6);
+
         // if-elseif-else
         if (i > 3) {
             DisableInspection.doWhatEver();
@@ -44,6 +49,11 @@ class ControlFlowTest {
     /*
      * the type of value used in case statement can be: byte, short, char, int, enumerated types,
      * String class, and some Wrapper classes: Character, Byte, Short, and Integer.
+     *
+     * We can't pass the null value as an argument to a switch statement. If we do it, the program will throw
+     * NullPointerException.
+     *
+     * switch operator uses the equals() method under the hood, so "A" equals to new String("A")
      */
     @Test
     public void testSwitchCase() {
@@ -76,10 +86,57 @@ class ControlFlowTest {
                 DisableInspection.doWhatEver(3);
                 break;
         }
+
+        // If we use A/B/C in case statement, we must declare String via final keyword.
+        final String A = "A";
+        final String B = "B";
+        final String C = "C";
+
+        switch (getString()) {
+            case A:
+                DisableInspection.doWhatEver(A);
+                break;
+            case B:
+                DisableInspection.doWhatEver(B);
+                break;
+            case C:
+                DisableInspection.doWhatEver(C);
+                break;
+            default:
+                break;
+        }
+
+        assertEquals(newSwitchExpression(Month.JANUARY), 3);
+        assertEquals(newSwitchExpression(Month.JUNE), 3);
+        assertEquals(newSwitchExpression(Month.JULY), 3);
+        assertEquals(newSwitchExpression(Month.OCTOBER), 1);
+        assertEquals(newSwitchExpression(Month.MAY), 4);
+    }
+
+    /**
+     * @since 13
+     */
+    private int newSwitchExpression(Month month) {
+        return switch (month) {
+            case JANUARY, JUNE, JULY -> 3;
+            case FEBRUARY, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER -> 1;
+            case MARCH, MAY, APRIL, AUGUST -> { // use yield keyword
+                int res = 1;
+                res *= 4;
+                yield res;
+            }
+
+            // why there's no default case
+            // because all cases are covered, the switch expression will be valid.
+        };
+    }
+
+    private String getString() {
+        return "D";
     }
 
     @Test
-    public void showCases() {
+    public void showLoopCases() {
         ControlFlowTest.whileLoop();
         ControlFlowTest.doWhileLoop();
         ControlFlowTest.forLoop();
