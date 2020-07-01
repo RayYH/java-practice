@@ -1,6 +1,6 @@
 package com.rayyounghong.core.advanced;
 
-import com.rayyounghong.AppTest;
+import com.rayyounghong.helper.DisableInspection;
 import com.rayyounghong.helper.Order;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -33,7 +33,7 @@ public class TryTest {
         try (Scanner scanner = new Scanner(
             new File(testResourceDir + "/test-try-with-resources.txt"))) {
             while (scanner.hasNext()) {
-                AppTest.doWhatEver(scanner.nextLine());
+                DisableInspection.doWhatEver(scanner.nextLine());
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

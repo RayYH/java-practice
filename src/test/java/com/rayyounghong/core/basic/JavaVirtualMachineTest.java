@@ -1,6 +1,7 @@
 package com.rayyounghong.core.basic;
 
 import com.rayyounghong.core.oop.Student;
+import java.util.HashMap;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import org.junit.jupiter.api.Test;
@@ -45,7 +46,20 @@ public class JavaVirtualMachineTest {
 
     @Test
     void classesWithDifferentTypesLoadedByDifferentClassLoaders() {
+        /*
+         * null reflects Bootstrap ClassLoader.
+         *
+         * When we are trying to load HashMap,
+         * our System ClassLoader delegates it to the Extension ClassLoader.
+         * The extension class loader delegates it to the Bootstrap ClassLoader.
+         * The bootstrap class loader finds the HashMap class and loads it into the JVM memory.
+         */
+        assertNull(HashMap.class.getClassLoader());
         assertNull(String.class.getClassLoader());
+
+        // If one Class file is in CLASSPATH, then the output will be:
+        // xxx.xxx.xxx.$ExtClassLoader@xxxxxx
+
         // On my local machine: jdk.internal.loader.ClassLoaders$AppClassLoader@3d4eac69
         assertNotNull(Student.class.getClassLoader());
     }

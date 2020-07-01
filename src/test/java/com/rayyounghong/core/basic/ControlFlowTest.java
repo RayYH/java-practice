@@ -2,7 +2,7 @@ package com.rayyounghong.core.basic;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.rayyounghong.AppTest;
+import com.rayyounghong.helper.DisableInspection;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
 
@@ -21,23 +21,23 @@ class ControlFlowTest {
         int i = random.nextInt(6);
         // Simple if-else
         if (i > 3) {
-            AppTest.doWhatEver();
+            DisableInspection.doWhatEver();
         } else {
-            AppTest.doWhatEver(i);
+            DisableInspection.doWhatEver(i);
         }
         // nested if
         if (i >= 3) {
             if (i < 4) {
-                AppTest.doWhatEver();
+                DisableInspection.doWhatEver();
             }
         }
         // if-elseif-else
         if (i > 3) {
-            AppTest.doWhatEver();
+            DisableInspection.doWhatEver();
         } else if (i == 3) {
-            AppTest.doWhatEver();
+            DisableInspection.doWhatEver();
         } else {
-            AppTest.doWhatEver();
+            DisableInspection.doWhatEver();
         }
     }
 
@@ -53,27 +53,27 @@ class ControlFlowTest {
         // with no break
         switch (i) {
             case 0:
-                AppTest.doWhatEver();
+                DisableInspection.doWhatEver();
             case 1:
-                AppTest.doWhatEver();
+                DisableInspection.doWhatEver();
             case 2:
-                AppTest.doWhatEver();
+                DisableInspection.doWhatEver();
             default:
-                AppTest.doWhatEver();
+                DisableInspection.doWhatEver();
         }
         // with break
         switch (i) {
             case 0:
-                AppTest.doWhatEver(0);
+                DisableInspection.doWhatEver(0);
                 break;
             case 1:
-                AppTest.doWhatEver(1);
+                DisableInspection.doWhatEver(1);
                 break;
             case 2:
-                AppTest.doWhatEver(2);
+                DisableInspection.doWhatEver(2);
                 break;
             default:
-                AppTest.doWhatEver(3);
+                DisableInspection.doWhatEver(3);
                 break;
         }
     }
@@ -94,7 +94,7 @@ class ControlFlowTest {
         while (i++ < END) {
             res.append(i).append(" ");
         }
-        AppTest.doWhatEver(res.toString());
+        DisableInspection.doWhatEver(res.toString());
     }
 
     public static void doWhileLoop() {
@@ -103,7 +103,7 @@ class ControlFlowTest {
         do {
             res.append(i).append(" ");
         } while (i++ < END);
-        AppTest.doWhatEver(res.toString());
+        DisableInspection.doWhatEver(res.toString());
     }
 
     public static void forLoop() {
@@ -111,7 +111,7 @@ class ControlFlowTest {
         for (int i = START; i < END; i++) {
             res.append(i).append(" ");
         }
-        AppTest.doWhatEver(res.toString());
+        DisableInspection.doWhatEver(res.toString());
     }
 
     public static void foreachLoop() {
@@ -121,7 +121,7 @@ class ControlFlowTest {
         for (String s : strings) {
             res.append(i++).append(s);
         }
-        AppTest.doWhatEver(res.toString());
+        DisableInspection.doWhatEver(res.toString());
     }
 
     public static void breakLoop() {
@@ -132,7 +132,7 @@ class ControlFlowTest {
             }
             res.append(i).append(" ");
         }
-        AppTest.doWhatEver(res.toString());
+        DisableInspection.doWhatEver(res.toString());
     }
 
     public static void continueLoop() {
@@ -143,7 +143,7 @@ class ControlFlowTest {
             }
             res.append(i).append(" ");
         }
-        AppTest.doWhatEver(res.toString());
+        DisableInspection.doWhatEver(res.toString());
     }
 
     /**

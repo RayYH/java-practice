@@ -2,7 +2,7 @@ package com.rayyounghong.core.oop;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.rayyounghong.AppTest;
+import com.rayyounghong.helper.DisableInspection;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -117,9 +117,9 @@ public class ImmutableObjectTest {
          * 2. (strOne == strThree) is false.
          * 3. (strThree == strFour) is false.
          */
-        AppTest.doWhatEver(strOne);
-        AppTest.doWhatEver(strTwo);
-        AppTest.doWhatEver(strThree);
-        AppTest.doWhatEver(strFour);
+        DisableInspection.doWhatEver(strOne);
+        DisableInspection.doWhatEver(strTwo);
+        DisableInspection.doWhatEver(strThree);
+        DisableInspection.doWhatEver(strFour);
     }
 }

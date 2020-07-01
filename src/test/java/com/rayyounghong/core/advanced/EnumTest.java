@@ -1,6 +1,6 @@
 package com.rayyounghong.core.advanced;
 
-import com.rayyounghong.AppTest;
+import com.rayyounghong.helper.DisableInspection;
 import java.io.IOException;
 import java.util.EnumMap;
 import java.util.EnumSet;
@@ -26,7 +26,7 @@ public class EnumTest {
         EnumSet<ThreadStatesEnum> enumSet = EnumSet.allOf(ThreadStatesEnum.class);
         int priority = 1;
         for (ThreadStatesEnum threadStatesEnum : enumSet) {
-            AppTest.doWhatEver(threadStatesEnum);
+            DisableInspection.doWhatEver(threadStatesEnum);
             // System.out.println(threadStatesEnum);
             // Output:
             // START implementation. Priority=1
@@ -47,7 +47,7 @@ public class EnumTest {
         enumMap.put(ThreadStatesEnum.DEAD, "Thread is dead");
         Set<ThreadStatesEnum> keySet = enumMap.keySet();
         for (ThreadStatesEnum key : keySet) {
-            AppTest.doWhatEver(key);
+            DisableInspection.doWhatEver(key);
             // System.out.println("key=" + key.toString() + ":: value=" + enumMap.get(key));
             // Output:
             // key=START implementation. Priority=1:: value=Thread is started

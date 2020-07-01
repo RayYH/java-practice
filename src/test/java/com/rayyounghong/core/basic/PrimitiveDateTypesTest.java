@@ -1,6 +1,7 @@
 package com.rayyounghong.core.basic;
 
 import com.rayyounghong.StandardIOTest;
+import com.rayyounghong.helper.DisableInspection;
 import com.rayyounghong.helper.container.BooleanContainer;
 import com.rayyounghong.helper.container.ByteContainer;
 import com.rayyounghong.helper.container.CharContainer;
@@ -9,9 +10,12 @@ import com.rayyounghong.helper.container.FloatContainer;
 import com.rayyounghong.helper.container.IntContainer;
 import com.rayyounghong.helper.container.LongContainer;
 import com.rayyounghong.helper.container.ShortContainer;
+import java.math.BigInteger;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * @author ray
@@ -24,6 +28,12 @@ public class PrimitiveDateTypesTest extends StandardIOTest {
         BooleanContainer booleanContainer = new BooleanContainer(true, false);
         boolean result = booleanContainer.boolOne;
         assertTrue(result);
+        booleanContainer.boolOne = Math.random() > 1;
+        booleanContainer.boolTwo = Math.random() > 100000;
+        assertEquals(!(booleanContainer.boolOne || booleanContainer.boolTwo),
+            !booleanContainer.boolOne && !booleanContainer.boolTwo);
+        assertEquals(!(booleanContainer.boolOne && booleanContainer.boolTwo),
+            !booleanContainer.boolOne || !booleanContainer.boolTwo);
     }
 
     @Test
@@ -64,10 +74,34 @@ public class PrimitiveDateTypesTest extends StandardIOTest {
 
     @Test
     void testDouble() {
+        // see https://en.wikipedia.org/wiki/IEEE_754
         // double-precision 64-bit floating-point.
+        // the smallest positive value a double can have is Math.pow(2, -1074), which is equal to 4.9e-324
         double value = -12.34;
         DoubleContainer doubleContainer = new DoubleContainer(value);
         assertEquals(doubleContainer.doubleAttr, -12.34);
+        /*
+         * a double value has only a limited number of significant bits. If we increase the value of a large double
+         * value by only one, we do not change any of the significant bits.
+         */
+        assertEquals(Double.MAX_VALUE + 1, Double.MAX_VALUE);
+        double doubleMax = Double.MAX_VALUE;
+        double doubleOne = doubleMax * 2;
+        double doubleTwo = doubleMax * -2;
+        assertEquals(doubleOne, Double.POSITIVE_INFINITY);
+        assertEquals(doubleTwo, Double.NEGATIVE_INFINITY);
+
+        for (int i = 1070; i <= 1074; i++) {
+            assertNotEquals(Math.pow(2, -i), 0.0);
+        }
+
+        for (int i = 1075; i <= 1080; i++) {
+            assertEquals(Math.pow(2, -i), 0.0);
+        }
+
+        for (int i = 1075; i <= 1081; i += 2) {
+            assertEquals(Math.pow(-2, -i), -0.0);
+        }
     }
 
     @Test
@@ -92,5 +126,52 @@ public class PrimitiveDateTypesTest extends StandardIOTest {
         // some special characters
         assertEquals('\b', '\u0008');
         assertEquals('\t', '\u0009');
+    }
+
+    @Test
+    void useBigIntegerToHandleIntegerOverflow() {
+        BigInteger largeValue = new BigInteger(Integer.MAX_VALUE + "");
+        for (int i = 0; i < 4; i++) {
+            largeValue = largeValue.add(BigInteger.ONE);
+            assertEquals(i + 1, largeValue.intValue() - Integer.MAX_VALUE);
+        }
+    }
+
+    /**
+     * the methods addExact, subtractExact, multiplyExact, and toIntExact throw an ArithmeticException when the results
+     * overflow.
+     */
+    @Test
+    void useMethodForExactArithmeticOperators() {
+        assertThrows(ArithmeticException.class, () -> {
+            int value = Integer.MAX_VALUE;
+            value = Math.addExact(value, 1);
+            DisableInspection.doWhatEver(value);
+        });
+    }
+
+    @Test
+    void castFromBigIntegerToIntOrLong() {
+        BigInteger largeValue = BigInteger.TEN;
+        long longValue = largeValue.longValueExact();
+        assertEquals(longValue, 10);
+        int intValue = largeValue.intValueExact();
+        assertEquals(intValue, 10);
+    }
+
+    @Test
+    void testPositiveAndNegativeZero() {
+        double a = +0f;
+        double b = -0f;
+        DoubleContainer doubleContainerA = new DoubleContainer(a);
+        DoubleContainer doubleContainerB = new DoubleContainer(b);
+        assertNotEquals(doubleContainerA.doubleAttr, doubleContainerB.doubleAttr);
+        BooleanContainer booleanContainer =
+            new BooleanContainer(doubleContainerA.doubleAttr == doubleContainerB.doubleAttr, true);
+        assertTrue(booleanContainer.boolOne);
+        booleanContainer.boolOne = (1 / doubleContainerA.doubleAttr == Double.POSITIVE_INFINITY);
+        booleanContainer.boolTwo = (1 / doubleContainerB.doubleAttr == Double.NEGATIVE_INFINITY);
+        assertTrue(booleanContainer.boolOne && booleanContainer.boolTwo);
+        assertNotEquals(1 / doubleContainerA.doubleAttr, 1 / doubleContainerB.doubleAttr, 0.0);
     }
 }

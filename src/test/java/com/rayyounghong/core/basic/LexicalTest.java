@@ -2,7 +2,7 @@ package com.rayyounghong.core.basic;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.rayyounghong.AppTest;
+import com.rayyounghong.helper.DisableInspection;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -57,22 +57,22 @@ class LexicalTest {
         boolean[] aBooleanArray = new boolean[] {true, false};
         char[] aCharArray = new char[] {'a', '%', '\t', '\\', '\'', '\u03a9', '\uFFFF', '\177', '™'};
         for (int elem : anIntArray) {
-            AppTest.doWhatEver(elem);
+            DisableInspection.doWhatEver(elem);
         }
         for (long elem : aLongArray) {
-            AppTest.doWhatEver(elem);
+            DisableInspection.doWhatEver(elem);
         }
         for (float elem : aFloatArray) {
-            AppTest.doWhatEver(elem);
+            DisableInspection.doWhatEver(elem);
         }
         for (double elem : aDoubleArray) {
-            AppTest.doWhatEver(elem);
+            DisableInspection.doWhatEver(elem);
         }
         for (boolean elem : aBooleanArray) {
-            AppTest.doWhatEver(elem);
+            DisableInspection.doWhatEver(elem);
         }
         for (char elem : aCharArray) {
-            AppTest.doWhatEver(elem);
+            DisableInspection.doWhatEver(elem);
         }
     }
 

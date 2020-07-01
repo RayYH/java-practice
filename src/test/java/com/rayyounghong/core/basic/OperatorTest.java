@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.rayyounghong.AppTest;
+import com.rayyounghong.helper.DisableInspection;
 import com.rayyounghong.core.oop.Person;
 import com.rayyounghong.core.oop.Student;
 import com.rayyounghong.helper.DisableInspection;
@@ -215,7 +215,7 @@ class OperatorTest {
         for (int value : positiveNumbers) {
             // Ternary operator
             res = ((value & 1) == 1) ? " odd" : "even";
-            AppTest.doWhatEver("[" + res + "] " + value);
+            DisableInspection.doWhatEver("[" + res + "] " + value);
         }
     }
 
