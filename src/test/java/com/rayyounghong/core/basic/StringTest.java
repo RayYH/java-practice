@@ -32,4 +32,22 @@ public class StringTest {
         assertSame(sConstantOne, sConstantTwo); // == returns true
         assertEquals(sConstantOne, sConstantTwo); // equals returns true
     }
+
+    @Test
+    void testConcentrateStrings() {
+        assertEquals("Hello World", "Hello" + " " + "World");
+        assertEquals("Hello13", "Hello" + 13);
+        assertEquals("Hello/World", String.join("/", "Hello", "World"));
+    }
+
+    @Test
+    void testBuildString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        String str = "B";
+        stringBuilder.append(1);
+        stringBuilder.append('A');
+        stringBuilder.insert(2, str);
+        String s = stringBuilder.toString();
+        assertEquals(s, "1AB");
+    }
 }

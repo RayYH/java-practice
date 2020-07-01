@@ -90,4 +90,10 @@ class VariableTest {
         // use class to access a static variable is recommended.
         assertEquals(staticVariable, VariableTest.staticVariable);
     }
+
+    @Test
+    void testCast() {
+        assertEquals(9, (int)9.997);
+        assertEquals(10, (int)Math.round(9.997));
+    }
 }

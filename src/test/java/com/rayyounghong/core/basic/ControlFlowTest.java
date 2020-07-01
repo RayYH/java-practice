@@ -71,20 +71,13 @@ class ControlFlowTest {
             default:
                 DisableInspection.doWhatEver();
         }
-        // with break
+
+        // with break via enhanced switch statement since java 13
         switch (i) {
-            case 0:
-                DisableInspection.doWhatEver(0);
-                break;
-            case 1:
-                DisableInspection.doWhatEver(1);
-                break;
-            case 2:
-                DisableInspection.doWhatEver(2);
-                break;
-            default:
-                DisableInspection.doWhatEver(3);
-                break;
+            case 0 -> DisableInspection.doWhatEver(0);
+            case 1 -> DisableInspection.doWhatEver(1);
+            case 2 -> DisableInspection.doWhatEver(2);
+            default -> DisableInspection.doWhatEver(3);
         }
 
         // If we use A/B/C in case statement, we must declare String via final keyword.
