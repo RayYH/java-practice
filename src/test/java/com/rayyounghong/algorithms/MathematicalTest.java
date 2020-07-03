@@ -15,6 +15,7 @@ public class MathematicalTest {
         assertEquals("[2]", Mathematical.getAllPrimeFactors(2).toString());
         assertEquals("[11]", Mathematical.getAllPrimeFactors(11).toString());
         assertEquals("[2, 2, 9]", Mathematical.getAllPrimeFactors(36).toString());
+        assertEquals("[2, 2, 3]", Mathematical.getAllPrimeFactors(12).toString());
     }
 
     @Test
@@ -29,5 +30,7 @@ public class MathematicalTest {
     void testLeastPrimeFactor() {
         assertEquals("{1=1, 2=2, 3=3, 4=2, 5=5, 6=2, 7=7, 8=2, 9=3, 10=2}",
             Mathematical.leastPrimeFactor(10).toString());
+        assertEquals("{1=1, 2=2, 3=3, 4=2, 5=5, 6=2, 7=7, 8=2, 9=3, 10=2, 11=11, 12=2, 13=13, 14=2}",
+            Mathematical.leastPrimeFactor(14).toString());
     }
 }

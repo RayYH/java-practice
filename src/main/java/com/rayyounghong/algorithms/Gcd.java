@@ -3,6 +3,8 @@ package com.rayyounghong.algorithms;
 import java.util.List;
 
 /**
+ * 最大公约数。
+ *
  * GCD (Greatest Common Divisor) or HCF (Highest Common Factor) of two numbers is the largest number that divides both
  * of them.
  *
@@ -11,6 +13,15 @@ import java.util.List;
  */
 public class Gcd {
 
+    /**
+     * 第一种算法是很直观的算法，其思想就是找出 a 和 b 的所有因数，然后取共有的因数的最大值即可。
+     *
+     * @param a
+     *            first value
+     * @param b
+     *            second value
+     * @return the gcd
+     */
     public static int solutionTraverseAllDivisors(int a, int b) {
         if (a == 0) {
             return 0;
@@ -49,6 +60,15 @@ public class Gcd {
         return gcd;
     }
 
+    /**
+     * 算法2 ，即更相减损术：如果 a>b，则 gcd(a-b, b) = gcd(a, b)
+     *
+     * @param a
+     *            first number
+     * @param b
+     *            second number
+     * @return the gcd
+     */
     public static int solutionEuclideanAlgorithm(int a, int b) {
         // Everything divides 0
         if (a == 0) {
@@ -71,6 +91,15 @@ public class Gcd {
         }
     }
 
+    /**
+     * 欧几里得算法(推荐使用该算法): gcd(a % b) = gcd(a, b)。
+     *
+     * @param a
+     *            first number
+     * @param b
+     *            second number
+     * @return the gcd
+     */
     public static int solutionEuclideanAlgorithmViaModuloOperator(int a, int b) {
         if (b == 0) {
             return a;

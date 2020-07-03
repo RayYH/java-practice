@@ -36,11 +36,22 @@ public class InputTest {
     @Test
     void testInputString() {
         InputStream original = System.in;
-        ByteArrayInputStream in = new ByteArrayInputStream("Hello".getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream("Hello World".getBytes());
         System.setIn(in);
         Scanner input = new Scanner(System.in);
-        String aString = input.next();
+        String aString = input.next(); // next 遇到空格即停止
         assertEquals(aString, "Hello");
+        System.setIn(original);
+    }
+
+    @Test
+    void testNextLine() {
+        InputStream original = System.in;
+        ByteArrayInputStream in = new ByteArrayInputStream("Hello World".getBytes());
+        System.setIn(in);
+        Scanner input = new Scanner(System.in);
+        String aString = input.nextLine();
+        assertEquals(aString, "Hello World");
         System.setIn(original);
     }
 }

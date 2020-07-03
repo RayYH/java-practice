@@ -32,6 +32,10 @@ public class RotateArrayTest {
         int[] arr2 = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
         RotateArray.leftRotateSolutionThree(arr2, 3, 12);
         assertEquals(Arrays.toString(arr2), "[4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3]");
+
+        int[] arr3 = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+        RotateArray.leftRotateSolutionThree(arr3, 36, 12);
+        assertEquals(Arrays.toString(arr3), "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]");
     }
 
     @Test
@@ -54,5 +58,9 @@ public class RotateArrayTest {
         int[] arr2 = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
         RotateArray.leftRotateSolutionFive(arr2, 3, 12);
         assertEquals(Arrays.toString(arr2), "[4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3]");
+
+        int[] arr3 = new int[] {1, 2, 3, 4, 5, 6, 7};
+        RotateArray.leftRotateSolutionFive(arr3, 3, 7);
+        assertEquals(Arrays.toString(arr3), "[4, 5, 6, 7, 1, 2, 3]");
     }
 }

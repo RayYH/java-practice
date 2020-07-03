@@ -21,5 +21,6 @@ public class GcdTest {
         assertEquals(14, Gcd.solutionEuclideanAlgorithmViaModuloOperator(98, 56));
         assertEquals(3, Gcd.solutionEuclideanAlgorithmViaModuloOperator(3, 6));
         assertEquals(1, Gcd.solutionEuclideanAlgorithmViaModuloOperator(3, 116));
+        assertEquals(11, Gcd.solutionEuclideanAlgorithmViaModuloOperator(11, 33));
     }
 }

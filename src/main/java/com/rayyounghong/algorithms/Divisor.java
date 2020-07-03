@@ -4,10 +4,19 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
 /**
+ * 求给定正整数 n 的所有因数，solutionOne 从 1 遍历至 n，solutionTwo 从 1 遍历至 sqrt(n).
+ *
+ * solutionOne 使用 LinkedHashSort 保证了从 1 到 n，所有满足条件的因数递增加入到 set 中。
+ *
+ * solutionTwo 加入的因数是无序的，因为如果 x*y=n，则会同时将 x 和 y 都加入到 set，从而是无序的。
+ *
+ * solutionThree 基于 solutionTwo，但是保证了返回的 List 是排序后的。
+ *
  * @author ray
  * @date 2020/6/22
  */
@@ -21,7 +30,8 @@ public class Divisor {
      * @return set
      */
     public static Set<Integer> solutionOne(int n) {
-        Set<Integer> set = new HashSet<>();
+        // 使用 LinkedHashSet 为了保证有序
+        Set<Integer> set = new LinkedHashSet<>();
 
         if (n == 0) {
             return set;
