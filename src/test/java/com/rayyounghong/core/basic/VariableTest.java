@@ -2,6 +2,7 @@ package com.rayyounghong.core.basic;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.rayyounghong.helper.DisableInspection;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
@@ -28,22 +29,35 @@ class VariableTest {
     void testArray() {
         // allocate the space then initialize it
         int[] firstArray = new int[3];
+        // default value is zero
+        for (int value : firstArray) {
+            assertEquals(0, value);
+        }
         firstArray[0] = 10;
         firstArray[1] = 20;
         firstArray[2] = 30;
         for (int i = 0; i < firstArray.length; i++) {
-            assertEquals(firstArray[i], 10 * (i + 1));
+            assertEquals(10 * (i + 1), firstArray[i]);
         }
+        assertEquals("[10, 20, 30]", Arrays.toString(firstArray));
         // use literal to initialize an array
         int[] secondArray = {10, 20, 30};
         for (int i = 0; i < secondArray.length; i++) {
-            assertEquals(secondArray[i], 10 * (i + 1));
+            assertEquals(10 * (i + 1), secondArray[i]);
         }
         // use new int[]
         int[] thirdArray = new int[] {10, 20, 30};
         for (int i = 0; i < thirdArray.length; i++) {
-            assertEquals(thirdArray[i], 10 * (i + 1));
+            assertEquals(10 * (i + 1), thirdArray[i]);
         }
+    }
+
+    @Test
+    void testArraySort() {
+        int[] arr = new int[] {4, 9, 1, 35, 12};
+        // optimized quick sort
+        Arrays.sort(arr);
+        assertEquals("[1, 4, 9, 12, 35]", Arrays.toString(arr));
     }
 
     @Test
@@ -52,7 +66,14 @@ class VariableTest {
         int[][] multipleArray = {{10}, {20, 21}, {30, 31, 32}};
         for (int i = 0; i < multipleArray.length; i++) {
             for (int j = 0; j < multipleArray[i].length; j++) {
-                assertEquals(multipleArray[i][j], 10 * (i + 1) + j);
+                assertEquals(10 * (i + 1) + j, multipleArray[i][j]);
+            }
+        }
+
+        // for in loop
+        for (int[] row : multipleArray) {
+            for (int value : row) {
+                DisableInspection.doWhatEver(value);
             }
         }
     }

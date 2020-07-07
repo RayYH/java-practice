@@ -97,17 +97,11 @@ public class EnumTest {
     }
 
     private String usingEnumInSwitch(ThreadStatesEnum th) {
-        switch (th) {
-            case START:
-                return "START thread";
-            case WAITING:
-                return "WAITING thread";
-            case RUNNING:
-                return "RUNNING thread";
-            case DEAD:
-                return "DEAD thread";
-            default:
-                return "";
-        }
+        return switch (th) {
+            case START -> "START thread";
+            case WAITING -> "WAITING thread";
+            case RUNNING -> "RUNNING thread";
+            case DEAD -> "DEAD thread";
+        };
     }
 }

@@ -14,11 +14,12 @@ I learn a lot from some sites, please refer to below links to get more informati
 
 #### basic
 
-- [x] data types: literals, default values, data range, type cast
+- [x] data types: literals, default values, data range, type cast, BigInteger
 - [x] operators
 - [x] static blocks
 - [x] constants
-- [ ] format output: int, string, float, datetime
+- [x] format output: int, string, float, datetime
+- [x] control flows: if while for break continue switch label
 
 
 #### advanced
