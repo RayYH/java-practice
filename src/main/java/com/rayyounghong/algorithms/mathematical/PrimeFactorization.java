@@ -1,4 +1,4 @@
-package com.rayyounghong.algorithms;
+package com.rayyounghong.algorithms.mathematical;
 
 import java.util.Vector;
 

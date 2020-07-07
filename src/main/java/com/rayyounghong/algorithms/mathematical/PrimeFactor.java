@@ -1,4 +1,4 @@
-package com.rayyounghong.algorithms;
+package com.rayyounghong.algorithms.mathematical;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +9,7 @@ import java.util.Map;
  * @author ray
  * @date 2020/6/22
  */
-public class Mathematical {
+public class PrimeFactor {
 
     /**
      * 分解正整数，例如 12 = 2*2*3.

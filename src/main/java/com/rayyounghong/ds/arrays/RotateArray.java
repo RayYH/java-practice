@@ -1,6 +1,6 @@
 package com.rayyounghong.ds.arrays;
 
-import com.rayyounghong.algorithms.Gcd;
+import com.rayyounghong.algorithms.mathematical.Gcd;
 
 /**
  * Function to left rotate arr[] of size n by d.

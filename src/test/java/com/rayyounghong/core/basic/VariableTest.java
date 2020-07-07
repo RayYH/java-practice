@@ -79,6 +79,14 @@ class VariableTest {
     }
 
     @Test
+    void testLocalVariable() {
+        // variables inside function are called local variables
+        // local variable must be initialized before using it
+        int a = 1;
+        assertEquals(1, a);
+    }
+
+    @Test
     void testInstanceVariable() {
         assertEquals(instanceVariable, "one");
         this.instanceVariable = "two";
@@ -95,5 +103,10 @@ class VariableTest {
     void testCast() {
         assertEquals(9, (int)9.997);
         assertEquals(10, (int)Math.round(9.997));
+        char c = 'A';
+        int n = c + 1;
+        assertEquals(66, n);
+        byte b = (byte)n;
+        assertEquals(66, b);
     }
 }
