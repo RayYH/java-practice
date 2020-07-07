@@ -2,6 +2,7 @@ package com.rayyounghong.core.basic;
 
 import com.rayyounghong.helper.container.BooleanContainer;
 import java.util.Calendar;
+import java.util.TimeZone;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -114,6 +115,7 @@ public class FormatTest {
     void testFormatDateTime() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(1078884319047L);
+        calendar.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
         // full datetime
         assertEquals("Wed Mar 10 10:05:19 CST 2004", String.format("%tc", calendar));
         // ISO 8601
