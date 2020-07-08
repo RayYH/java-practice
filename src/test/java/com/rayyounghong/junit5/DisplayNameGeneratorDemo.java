@@ -12,7 +12,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 /**
  * @author ray
- * @date 2020/6/20
  */
 public class DisplayNameGeneratorDemo {
 

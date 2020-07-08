@@ -33,10 +33,9 @@ import java.util.Stack;
  * nodes on every root to leaf paths is the same and there are no adjacent red nodes. Balanced Binary Search trees are
  * performance-wise good as they provide O(log n) time for search, insert and delete.
  *
- * @link https://en.wikipedia.org/wiki/Binary_tree#Types_of_binary_trees
- * @link https://en.wikipedia.org/wiki/Tree_traversal
+ * @see <a href="https://en.wikipedia.org/wiki/Binary_tree#Types_of_binary_trees">Types of binary trees.</a>
+ * @see <a href="https://en.wikipedia.org/wiki/Tree_traversal">Tree traversal.</a>
  * @author ray
- * @date 2020/7/6
  */
 public class BinaryTree {
     Node root;

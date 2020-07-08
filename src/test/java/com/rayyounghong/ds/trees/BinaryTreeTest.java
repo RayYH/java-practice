@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 /**
  * @author ray
- * @date 2020/7/6
  */
 public class BinaryTreeTest {
 

@@ -4,7 +4,6 @@ package com.rayyounghong;
  * Java Practice!
  *
  * @author ray
- * @date 2020/06/19
  */
 public class App {
 

@@ -12,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * @author ray
- * @date 2020/6/21
  */
 public class JavaVirtualMachineTest {
 

@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @author ray
- * @date 2020/6/21
  */
 public class MainTest extends StandardIOTest {
 

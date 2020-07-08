@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @author ray
- * @date 2020/1/20
  */
 public class ConstructorTest {
 

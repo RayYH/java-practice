@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 
 /**
  * @author ray
- * @date 2020/6/20
  */
 public class StandardIOTest {
 

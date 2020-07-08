@@ -2,7 +2,6 @@ package com.rayyounghong.core.basic;
 
 /**
  * @author ray
- * @date 2020/6/20
  */
 public class NamingConversions {
 

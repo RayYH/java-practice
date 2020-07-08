@@ -2,7 +2,6 @@ package com.rayyounghong.core.oop;
 
 /**
  * @author ray
- * @date 2020/7/7
  */
 public class SpecialClass {
 

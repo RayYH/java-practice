@@ -6,7 +6,6 @@ import java.time.LocalDate;
  * POJO: Plain Old Java Object.
  *
  * @author ray
- * @date 2020/7/1
  */
 public class EmployeePojo {
 

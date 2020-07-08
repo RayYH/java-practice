@@ -2,9 +2,8 @@ package com.rayyounghong.algorithms.mathematical;
 
 /**
  *
- * @link https://en.wikipedia.org/wiki/Catalan_number
+ * @see <a href="https://en.wikipedia.org/wiki/Catalan_number">Catalan Number.</a>
  * @author ray
- * @date 2020/7/6
  */
 public class CatalanNumber {
     public int catalan(int n) {

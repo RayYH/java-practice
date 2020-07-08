@@ -9,7 +9,6 @@ import com.rayyounghong.helper.DisableInspection;
 
 /**
  * @author ray
- * @date 2020/6/19
  */
 public class ColorTest {
 

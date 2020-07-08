@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 /**
  * @author ray
- * @date 2020/6/21
  */
 public class MathTest {
     @Test

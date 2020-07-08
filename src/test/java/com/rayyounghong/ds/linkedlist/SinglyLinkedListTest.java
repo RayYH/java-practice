@@ -9,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author ray
- * @date 2020/7/3
  */
 public class SinglyLinkedListTest extends StandardIOTest {
 

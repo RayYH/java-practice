@@ -2,7 +2,6 @@ package com.rayyounghong.core.advanced;
 
 /**
  * @author ray
- * @date 2020/7/7
  */
 public class VolatileData {
     private volatile int counter = 0;

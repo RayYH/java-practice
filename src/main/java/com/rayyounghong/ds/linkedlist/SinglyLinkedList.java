@@ -5,7 +5,6 @@ import java.util.Stack;
 
 /**
  * @author ray
- * @date 2020/7/3
  */
 public class SinglyLinkedList {
 
@@ -189,6 +188,8 @@ public class SinglyLinkedList {
     /**
      * Check if given value exists in given linked list.
      *
+     * @param head
+     *            head node
      * @param needle
      *            given value
      * @return true if founded, otherwise false.

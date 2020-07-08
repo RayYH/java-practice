@@ -12,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  *
  * @link https://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html
  * @author ray
- * @date 2020/7/2
  */
 public class FormatTest {
 

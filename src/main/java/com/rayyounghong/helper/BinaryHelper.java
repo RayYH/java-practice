@@ -2,7 +2,6 @@ package com.rayyounghong.helper;
 
 /**
  * @author ray
- * @date 2020/5/9
  */
 public class BinaryHelper {
 

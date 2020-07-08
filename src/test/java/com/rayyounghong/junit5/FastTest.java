@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @author ray
- * @date 2020/6/19
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

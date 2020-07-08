@@ -18,7 +18,6 @@ import java.util.Set;
  * solutionThree 基于 solutionTwo，但是保证了返回的 List 是排序后的。
  *
  * @author ray
- * @date 2020/6/22
  */
 public class Divisor {
 

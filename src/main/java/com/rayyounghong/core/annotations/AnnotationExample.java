@@ -6,7 +6,6 @@ import java.util.List;
 
 /**
  * @author ray
- * @date 2020/6/20
  */
 public class AnnotationExample {
     @Override

@@ -14,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 /**
  * @author ray
- * @date 2020/1/21
  */
 public class TryTest {
 

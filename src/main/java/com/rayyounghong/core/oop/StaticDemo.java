@@ -2,7 +2,6 @@ package com.rayyounghong.core.oop;
 
 /**
  * @author ray
- * @date 2020/1/20
  */
 public class StaticDemo {
     /*

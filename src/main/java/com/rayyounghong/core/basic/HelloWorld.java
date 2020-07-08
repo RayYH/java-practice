@@ -6,7 +6,6 @@ package com.rayyounghong.core.basic;
  * </code>
  *
  * @author ray
- * @date 2020/6/20
  */
 public class HelloWorld {
 

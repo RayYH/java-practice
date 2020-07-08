@@ -5,7 +5,6 @@ package com.rayyounghong.ds.stack;
  * may be LIFO(Last In First Out) or FILO(First In Last Out).
  *
  * @author ray
- * @date 2020/7/5
  */
 public class Stack {
 

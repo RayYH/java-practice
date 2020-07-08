@@ -4,7 +4,6 @@ import com.rayyounghong.helper.Order;
 
 /**
  * @author ray
- * @date 2020/1/21
  */
 public class MyResourceTwo implements AutoCloseable {
 

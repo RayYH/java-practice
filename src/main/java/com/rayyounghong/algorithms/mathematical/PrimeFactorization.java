@@ -4,7 +4,6 @@ import java.util.Vector;
 
 /**
  * @author ray
- * @date 2020/6/22
  */
 public class PrimeFactorization {
 

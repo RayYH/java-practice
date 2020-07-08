@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author ray
- * @date 2020/6/20
  */
 public class AssertionsTest {
     @Test

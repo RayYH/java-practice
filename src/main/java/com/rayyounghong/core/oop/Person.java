@@ -4,7 +4,6 @@ import java.util.Date;
 
 /**
  * @author ray
- * @date 2020/1/19
  */
 public class Person {
 

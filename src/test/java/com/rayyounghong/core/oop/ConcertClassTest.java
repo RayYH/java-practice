@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author ray
- * @date 2020/7/2
  */
 public class ConcertClassTest {
 

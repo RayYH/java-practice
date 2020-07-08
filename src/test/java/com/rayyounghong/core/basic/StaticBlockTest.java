@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @author ray
- * @date 2020/7/7
  */
 public class StaticBlockTest extends StandardIOTest {
     @Test

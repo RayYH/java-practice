@@ -2,7 +2,6 @@ package com.rayyounghong.core.basic;
 
 /**
  * @author ray
- * @date 2019/12/29
  */
 class DefaultValue {
 

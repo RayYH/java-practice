@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @author ray
- * @date 2020/5/9
  */
 class LexicalTest {
 

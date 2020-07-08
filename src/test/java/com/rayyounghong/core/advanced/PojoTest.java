@@ -9,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author ray
- * @date 2020/7/1
  */
 public class PojoTest {
 

@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author ray
- * @date 2020/6/19
  * @see <a href="https://devqa.io/junit-5-annotations/">JUnit 5 Annotations With Examples</a>
  * @see <a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations">Annotations</a>
  */

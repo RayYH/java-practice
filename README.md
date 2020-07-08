@@ -28,6 +28,10 @@ I learn a lot from some sites, please refer to below links to get more informati
 
 ### Data Structure
 
+#### arrays
+
+- [ ]
+
 #### Stack
 
 - [x] push - adds an item in the stack
@@ -39,12 +43,19 @@ I learn a lot from some sites, please refer to below links to get more informati
 
 - [x] Traversals: inorder, preorder, postorder
 
+#### Queue
+
+- [x] front, rear, enqueue, dequeue
+
 ### Algorithms
 
 #### Mathematical
 
 - [x] Calculate [Catalan numbers](https://en.wikipedia.org/wiki/Catalan_number)
 
+#### Searching
+
+- [x] linear search
 
 ## LICENSE
 

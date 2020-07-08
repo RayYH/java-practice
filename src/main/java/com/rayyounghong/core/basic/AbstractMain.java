@@ -5,7 +5,6 @@ package com.rayyounghong.core.basic;
  * created by JVM.
  *
  * @author ray
- * @date 2020/6/21
  */
 abstract class AbstractMain {
     public static void main(String[] args) {

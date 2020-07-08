@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author ray
- * @date 2020/6/20
  */
 public class AnnotationTest {
     @Test

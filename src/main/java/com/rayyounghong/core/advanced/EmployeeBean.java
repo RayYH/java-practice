@@ -5,7 +5,6 @@ import java.time.LocalDate;
 
 /**
  * @author ray
- * @date 2020/7/1
  */
 public class EmployeeBean implements Serializable {
 

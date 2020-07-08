@@ -4,7 +4,6 @@ package com.rayyounghong.ds.stack;
  * We also use linked list to implement a stack.
  *
  * @author ray
- * @date 2020/7/6
  */
 public class StackAsLinkedList {
 

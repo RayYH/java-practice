@@ -8,7 +8,6 @@ import com.rayyounghong.algorithms.mathematical.Gcd;
  * 将长度为 n 的数组 arr 中的元素整体向左移动 d 个位置。
  *
  * @author ray
- * @date 2020/6/22
  */
 public class RotateArray {
 
@@ -55,7 +54,7 @@ public class RotateArray {
      * 算法 2
      *
      * <ol>
-     * <li>所有数组整体左移依次，即，arr[v1,v2,...vn] -> arr[v2,v3,...vn,v1]</li>
+     * <li>所有数组整体左移依次，即，{@code arr[v1,v2,...vn] -> arr[v2,v3,...vn,v1]}</li>
      * <li>对上面的步骤重复 d 次</li>
      * </ol>
      *

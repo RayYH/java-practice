@@ -4,7 +4,6 @@ package com.rayyounghong.algorithms.sorting;
  * 选择排序，将数组分为已排序和未排序两部分，依次从未排序数组中找到最小值并放入已排序数组中。
  *
  * @author ray
- * @date 2020/7/3
  */
 public class SelectionSort {
 

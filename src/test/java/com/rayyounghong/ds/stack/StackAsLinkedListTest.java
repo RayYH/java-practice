@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @author ray
- * @date 2020/7/6
  */
 public class StackAsLinkedListTest {
 

@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @author ray
- * @date 2020/6/20
  * @see <a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-display-names">Display
  * Names</a>
  */

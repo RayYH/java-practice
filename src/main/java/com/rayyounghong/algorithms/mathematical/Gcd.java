@@ -9,7 +9,6 @@ import java.util.List;
  * of them.
  *
  * @author ray
- * @date 2020/6/22
  */
 public class Gcd {
 
@@ -61,7 +60,7 @@ public class Gcd {
     }
 
     /**
-     * 算法2 ，即更相减损术：如果 a>b，则 gcd(a-b, b) = gcd(a, b)
+     * 算法2 ，即更相减损术：如果 {@code a>b}，则 {@code gcd(a-b, b) = gcd(a, b)}
      *
      * @param a
      *            first number

@@ -9,7 +9,6 @@ import java.lang.annotation.Target;
 
 /**
  * @author ray
- * @date 2020/6/20
  * @see <a href="https://www.journaldev.com/721/java-annotations">Java Annotations</a>
  */
 @Documented

@@ -15,7 +15,6 @@ import org.junit.jupiter.api.Test;
  * <a href="https://www.baeldung.com/java-string-pool">Guide to Java String Pool</a>
  *
  * @author ray
- * @date 2020/1/26
  */
 public class ImmutableObjectTest {
 

@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Tag;
 
 /**
  * @author ray
- * @date 2020/6/19
  */
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)

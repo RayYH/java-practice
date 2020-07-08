@@ -2,7 +2,6 @@ package com.rayyounghong.core.advanced;
 
 /**
  * @author ray
- * @date 2020/1/22
  */
 public class SynchronizedDemo {
 

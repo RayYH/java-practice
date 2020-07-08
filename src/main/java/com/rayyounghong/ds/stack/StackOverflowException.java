@@ -2,7 +2,6 @@ package com.rayyounghong.ds.stack;
 
 /**
  * @author ray
- * @date 2020/7/5
  */
 public class StackOverflowException extends RuntimeException {
     private static final long serialVersionUID = 1123440597410968370L;
