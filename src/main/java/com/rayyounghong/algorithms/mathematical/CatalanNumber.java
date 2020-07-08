@@ -1,11 +1,20 @@
 package com.rayyounghong.algorithms.mathematical;
 
 /**
+ * {@link CatalanNumber} provides method to calculate the n-th catalan number.
  *
- * @see <a href="https://en.wikipedia.org/wiki/Catalan_number">Catalan Number.</a>
+ * @see <a href="https://en.wikipedia.org/wiki/Catalan_number">Catalan number</a>
  * @author ray
  */
 public class CatalanNumber {
+
+    /**
+     * Find nth catalan number.
+     *
+     * @param n
+     *            given number
+     * @return the {@code n}-th catalan number
+     */
     public int catalan(int n) {
         int res = 0;
 
@@ -20,5 +29,4 @@ public class CatalanNumber {
         return res;
     }
 
-    // TODO: more efficient solutions, https://www.geeksforgeeks.org/program-nth-catalan-number/
 }
