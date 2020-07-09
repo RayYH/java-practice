@@ -2,6 +2,7 @@ package com.rayyounghong.core.oop;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.Objects;
 
 /**
  * @author ray
@@ -31,7 +32,12 @@ public class Employee {
         this(name, salary, 2000, Month.JANUARY, 1);
     }
 
-    public String getName() {
+    /**
+     * Cannot be overridden.
+     *
+     * @return returns name
+     */
+    public final String getName() {
         return name;
     }
 
@@ -58,5 +64,29 @@ public class Employee {
 
     public static int getNextId() {
         return nextId;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getName() + "[name=" + getName() + ",salary=" + getSalary() + ",hireDay=" + hireDay.toString()
+            + "]";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Employee employee = (Employee)o;
+        return Double.compare(employee.salary, salary) == 0 && name.equals(employee.name)
+            && hireDay.equals(employee.hireDay);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, salary, hireDay);
     }
 }

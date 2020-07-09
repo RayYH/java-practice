@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 /**
  * @author ray
@@ -22,6 +21,13 @@ public class EmployeeTest {
         for (Employee e : staff) {
             assertEquals(-1, e.getId());
         }
+
+        assertEquals("com.rayyounghong.core.oop.Employee[name=Carl Cracker,salary=75000.0,hireDay=1987-11-15]",
+            staff[0].toString());
+        assertEquals("com.rayyounghong.core.oop.Employee[name=Harry Hacker,salary=50000.0,hireDay=1989-10-01]",
+            staff[1].toString());
+        assertEquals("com.rayyounghong.core.oop.Employee[name=Tony Tester,salary=40000.0,hireDay=1990-03-15]",
+            staff[2].toString());
 
         staff[0].setId();
         assertEquals(1, staff[0].getId());
@@ -43,5 +49,9 @@ public class EmployeeTest {
 
         Employee e = new Employee("Ray", 100.0);
         assertEquals("2000-01-01", e.getHireDay().toString());
+
+        Employee firstStaff = new Employee("Tony Tester", 40000, 1990, Month.MARCH, 15);
+        Employee secondStaff = new Employee("Tony Tester", 40000, 1990, Month.MARCH, 15);
+        assertEquals(firstStaff, secondStaff);
     }
 }

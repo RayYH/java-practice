@@ -3,6 +3,7 @@ package com.rayyounghong.core.basic;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
@@ -48,5 +49,17 @@ public class StringTest {
         stringBuilder.insert(2, str);
         String s = stringBuilder.toString();
         assertEquals(s, "1AB");
+    }
+
+    @Test
+    void testHashCode() {
+        String s = "Ok";
+        StringBuilder sb = new StringBuilder(s);
+        String t = "Ok";
+        StringBuilder tb = new StringBuilder(t);
+        // 字符串的散列码是由内容导出的
+        assertEquals(s.hashCode(), t.hashCode());
+        // StringBuilder 类没有重写 hashCode 方法，散列码是由 Object 类的 hashCode 方法导出的对象存储地址
+        assertNotEquals(sb.hashCode(), tb.hashCode());
     }
 }
