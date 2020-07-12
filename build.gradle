@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'maven-publish'
     id 'application'
     id 'com.adarshr.test-logger' version '2.1.0'
 }
@@ -31,14 +30,6 @@ dependencies {
 group = 'com.rayyounghong'
 version = '1.0-SNAPSHOT'
 description = 'java-practice'
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-            from(components.java)
-        }
-    }
-}
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
