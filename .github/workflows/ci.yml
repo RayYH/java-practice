@@ -18,17 +18,12 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v1
         with:
-          java-version: 13
+          java-version: 14
 
-      - name: Cache Maven packages
-        uses: actions/cache@v2
+      - name: run gradlw
+      - uses: eskatos/gradle-command-action@v1
         with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
-
-      - name: Run tests with Maven
-        run: mvn -B test --file pom.xml
+          arguments: build
   run:
     runs-on: 'ubuntu-latest'
     name: run app
@@ -41,14 +36,9 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v1
         with:
-          java-version: 13
+          java-version: 14
 
-      - name: Cache Maven packages
-        uses: actions/cache@v2
+      - name: run gradlw
+      - uses: eskatos/gradle-command-action@v1
         with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
-
-      - name: Run app with Maven
-        run: mvn -B compile && mvn -B exec:java -Dexec.mainClass=com.rayyounghong.App
+          arguments: build

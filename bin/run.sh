@@ -3,10 +3,10 @@
 project_dir=$(dirname "$0")
 cd "$(dirname "${project_dir}")" || exit
 
-if command -v mvn &>/dev/null; then
-    mvn compile && mvn exec:java -Dexec.mainClass=com.rayyounghong.App
+if command -v gradle &>/dev/null; then
+    gradle run
 else
-    echo "Install maven first!"
+    echo "Install gradle first!"
 fi
 
 exit

@@ -39,6 +39,7 @@ public class JavadocExample {
      * @see <a href="google.com">Google</a>
      * @return returned value.
      */
+    @Deprecated
     public int deprecatedMethod() {
         return 0;
     }
