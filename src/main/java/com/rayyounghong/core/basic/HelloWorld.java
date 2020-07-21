@@ -2,8 +2,8 @@ package com.rayyounghong.core.basic;
 
 /**
  * The name of the class and filename should match in Java. main method signature:
- * <code> public static void main(String[] args) { ... }
- * </code>
+ *
+ * {@code public static void main(String[] args) { ... }}
  *
  * @author ray
  */
