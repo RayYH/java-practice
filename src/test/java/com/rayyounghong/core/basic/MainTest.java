@@ -13,6 +13,6 @@ public class MainTest extends StandardIOTest {
     @Test
     void testJvmWontCreateObjectOfMainClassSinceMainMethodIsAStaticMethod() {
         AbstractMain.main(new String[] {});
-        assertTrue(outContent.toString().startsWith("Main"));
+        assertTrue(outContent.toString().startsWith("main method inside abstract class AbstractMain"));
     }
 }
