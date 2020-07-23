@@ -1,12 +1,11 @@
-package com.rayyounghong.helper;
+package com.rayyounghong.misc;
 
 /**
  * @author ray
  */
-public class BinaryHelper {
+public class NumberSystem {
 
     public static Integer convertDecimalToBinary(Integer decimalNumber) {
-
         if (decimalNumber == 0) {
             return decimalNumber;
         }

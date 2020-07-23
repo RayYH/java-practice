@@ -1,4 +1,4 @@
-package com.rayyounghong.std;
+package com.rayyounghong.std.java.util;
 
 import java.util.LinkedList;
 import java.util.Queue;

@@ -4,7 +4,6 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -47,9 +46,7 @@ public class AnnotationsTest {
     @RepeatedTest(value = 5, name = "{displayName} {currentRepetition}/{totalRepetitions}")
     @DisplayName("RepeatingTest")
     void customDisplayName(RepetitionInfo repInfo, TestInfo testInfo) {
-        System.out.println(testInfo.getDisplayName() +
-            " --> " + repInfo.getCurrentRepetition()
-        );
+        System.out.println(testInfo.getDisplayName() + " --> " + repInfo.getCurrentRepetition());
 
         assertEquals(repInfo.getCurrentRepetition(), index++);
     }
@@ -60,8 +57,7 @@ public class AnnotationsTest {
      */
     @Test
     @DisplayName("Custom test name")
-    void testWithDisplayName() {
-    }
+    void testWithDisplayName() {}
 
     @Test
     @DisplayName("Print test name")
@@ -74,6 +70,5 @@ public class AnnotationsTest {
      * The @Disabled annotation is used to disable or skip tests at class or method level.
      */
     @Disabled
-    void doSomething() {
-    }
+    void doSomething() {}
 }

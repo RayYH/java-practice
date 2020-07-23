@@ -8,6 +8,6 @@ package com.rayyounghong.core.basic;
  */
 abstract class AbstractMain {
     public static void main(String[] args) {
-        System.out.println("Main");
+        System.out.println("main method inside abstract class AbstractMain");
     }
 }

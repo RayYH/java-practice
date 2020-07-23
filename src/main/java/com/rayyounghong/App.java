@@ -1,7 +1,7 @@
 package com.rayyounghong;
 
 /**
- * Java Practice!
+ * Welcome to Java Practice!
  *
  * @author ray
  */

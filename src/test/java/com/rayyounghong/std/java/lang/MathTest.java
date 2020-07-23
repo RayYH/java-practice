@@ -1,4 +1,4 @@
-package com.rayyounghong.std;
+package com.rayyounghong.std.java.lang;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;

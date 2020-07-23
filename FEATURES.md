@@ -17,6 +17,7 @@
 - [x] rest parameters
 - [x] static block
 - [x] string: literal, `StringBuilder`, `equals`, `==`
+- [x] javadoc example
 
 ### Advanced
 
@@ -25,4 +26,28 @@
 
 ### OOP
 
+- [x] Overloading
+
 ### Generics
+
+## Data Structure
+
+### arrays
+
+- [ ] rotate array
+
+### linked lists
+
+### queues
+
+### stacks
+
+### trees
+
+## Algorithms
+
+### Mathematical
+
+### searching
+
+### sorting

@@ -1,9 +1,11 @@
 package com.rayyounghong;
 
-import com.rayyounghong.helper.Color;
 import com.rayyounghong.helper.DisableInspection;
 import org.junit.jupiter.api.*;
 
+/**
+ * This class shows some basic junit annotations.
+ */
 public class AppTest {
     /*
      * see: https://www.journaldev.com/20834/junit5-tutorial
@@ -19,11 +21,6 @@ public class AppTest {
      * @Tag	        Declare tags for filtering tests
      * @ExtendWith	Register custom extensions
      */
-
-    public static final String TEST_PROMPT = '[' + Color.ANSI_YELLOW + "TEST" + Color.ANSI_RESET + ']';
-
-    public static final String BANNER_COLOR_FLAG = Color.ANSI_GREEN_BACKGROUND;
-
     @BeforeAll
     static void setup() {
         DisableInspection.doWhatEver("@BeforeAll executed.");

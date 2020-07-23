@@ -3,11 +3,9 @@ package com.rayyounghong.junit5;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-
 /**
  * @author ray
- * @see <a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-display-names">Display
- * Names</a>
+ * @see <a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-display-names">Display Names</a>
  */
 public class DisplayNameDemo {
 
@@ -19,16 +17,13 @@ public class DisplayNameDemo {
 
     @Test
     @DisplayName("Custom test name containing spaces")
-    void testWithDisplayNameContainingSpaces() {
-    }
+    void testWithDisplayNameContainingSpaces() {}
 
     @Test
     @DisplayName("╯°□°）╯")
-    void testWithDisplayNameContainingSpecialCharacters() {
-    }
+    void testWithDisplayNameContainingSpecialCharacters() {}
 
     @Test
     @DisplayName("😱")
-    void testWithDisplayNameContainingEmoji() {
-    }
+    void testWithDisplayNameContainingEmoji() {}
 }
