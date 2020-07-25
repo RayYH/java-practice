@@ -20,9 +20,9 @@ Some code about **core java/data structure/algorithms**. This code may be terrib
 gradle tasks
 ```
 
-## Features
+## ToC
 
-see [Features](FEATURES.md).
+see [ToC](toc.md).
 
 ## LICENSE
 
