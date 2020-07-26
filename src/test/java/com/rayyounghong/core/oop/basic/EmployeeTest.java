@@ -1,4 +1,4 @@
-package com.rayyounghong.core.oop;
+package com.rayyounghong.core.oop.basic;
 
 import com.rayyounghong.helper.DisableInspection;
 import java.time.Month;
@@ -22,11 +22,11 @@ public class EmployeeTest {
             assertEquals(-1, e.getId());
         }
 
-        assertEquals("com.rayyounghong.core.oop.Employee[name=Carl Cracker,salary=75000.0,hireDay=1987-11-15]",
+        assertEquals("com.rayyounghong.core.oop.basic.Employee[name=Carl Cracker,salary=75000.0,hireDay=1987-11-15]",
             staff[0].toString());
-        assertEquals("com.rayyounghong.core.oop.Employee[name=Harry Hacker,salary=50000.0,hireDay=1989-10-01]",
+        assertEquals("com.rayyounghong.core.oop.basic.Employee[name=Harry Hacker,salary=50000.0,hireDay=1989-10-01]",
             staff[1].toString());
-        assertEquals("com.rayyounghong.core.oop.Employee[name=Tony Tester,salary=40000.0,hireDay=1990-03-15]",
+        assertEquals("com.rayyounghong.core.oop.basic.Employee[name=Tony Tester,salary=40000.0,hireDay=1990-03-15]",
             staff[2].toString());
 
         staff[0].setId();

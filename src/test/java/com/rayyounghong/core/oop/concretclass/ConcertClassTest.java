@@ -1,4 +1,4 @@
-package com.rayyounghong.core.oop;
+package com.rayyounghong.core.oop.concretclass;
 
 import org.junit.jupiter.api.Test;
 

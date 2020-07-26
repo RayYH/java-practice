@@ -1,4 +1,4 @@
-package com.rayyounghong.core.oop;
+package com.rayyounghong.core.oop.staticmembers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

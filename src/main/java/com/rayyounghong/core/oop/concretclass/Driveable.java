@@ -1,9 +1,9 @@
-package com.rayyounghong.core.oop;
+package com.rayyounghong.core.oop.concretclass;
 
 /**
  * @author ray
  */
-interface Driveable {
+public interface Driveable {
 
     /**
      * Hook.

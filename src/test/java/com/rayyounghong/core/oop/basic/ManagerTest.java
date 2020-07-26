@@ -1,4 +1,4 @@
-package com.rayyounghong.core.oop;
+package com.rayyounghong.core.oop.basic;
 
 import java.time.Month;
 import org.junit.jupiter.api.Test;
@@ -21,6 +21,7 @@ public class ManagerTest {
         Employee[] staff = new Employee[3];
         Manager boss = new Manager("Carl Cracker", 75000, 1987, Month.NOVEMBER, 15);
         boss.setBonus(15000);
+        assertEquals(15000, boss.getBonus());
         // cannot use staff[0] = new Manager(...);
         staff[0] = boss;
         staff[1] = new Employee("Harry Hacker", 50000, 1989, Month.OCTOBER, 1);

@@ -1,4 +1,4 @@
-package com.rayyounghong.core.oop;
+package com.rayyounghong.core.oop.overloading;
 
 /**
  * Java doesn’t allow user-defined overloaded operators.
@@ -9,7 +9,7 @@ package com.rayyounghong.core.oop;
  *
  * @author ray
  */
-public class Overloading {
+public class Container {
     public int sum(int x, int y) {
         return (x + y);
     }

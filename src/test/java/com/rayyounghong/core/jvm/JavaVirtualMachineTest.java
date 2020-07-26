@@ -1,6 +1,6 @@
 package com.rayyounghong.core.jvm;
 
-import com.rayyounghong.core.oop.Student;
+import com.rayyounghong.core.oop.basic.Student;
 import java.util.HashMap;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -19,7 +19,7 @@ public class JavaVirtualMachineTest {
     void jvmWillCreateClassObjectWhenLoadingDotClassFile() {
         Student s = new Student("Ray", 24, 96.0f);
         Class<?> c = s.getClass();
-        assertEquals(c.getName(), "com.rayyounghong.core.oop.Student");
+        assertEquals(c.getName(), "com.rayyounghong.core.oop.basic.Student");
 
         // Although student class extends person
         // when iterate methods or fields, only own methods & own fields can be accessed

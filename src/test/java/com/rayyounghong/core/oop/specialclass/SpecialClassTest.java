@@ -1,6 +1,7 @@
-package com.rayyounghong.core.oop;
+package com.rayyounghong.core.oop.specialclass;
 
-import com.rayyounghong.core.oop.SpecialClass.StaticClass;
+import com.rayyounghong.core.oop.concretclass.Driveable;
+import com.rayyounghong.core.oop.specialclass.SpecialClass.StaticClass;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

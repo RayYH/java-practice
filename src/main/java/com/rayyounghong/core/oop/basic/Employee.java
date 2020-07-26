@@ -1,10 +1,12 @@
-package com.rayyounghong.core.oop;
+package com.rayyounghong.core.oop.basic;
 
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Objects;
 
 /**
+ * Java does not support finalize method.
+ *
  * @author ray
  */
 public class Employee {
@@ -14,10 +16,12 @@ public class Employee {
     private final LocalDate hireDay;
     private int id;
 
+    // class initialization block
     static {
         nextId = 1;
     }
 
+    // object initialization block - NOT COMMON
     {
         id = -1;
     }

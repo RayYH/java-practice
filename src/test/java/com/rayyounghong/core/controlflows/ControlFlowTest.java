@@ -167,6 +167,9 @@ class ControlFlowTest {
         String[] strings = {" ", " ", " "};
         int i = START;
         for (String s : strings) {
+            // For-each loops are not appropriate when you want to modify the array
+            // For-each loops do not keep track of index. So we can not obtain array index using For-Each loop
+            // For-each only iterates forward over the array in single steps
             res.append(i++).append(s);
         }
         DisableInspection.doWhatEver(res.toString());

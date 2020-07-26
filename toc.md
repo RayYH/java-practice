@@ -9,6 +9,8 @@
 - [x] variables: instance variables, static variables, default value of variables
 - [x] constants
 - [x] data types, primitive data types, literals/lexical
+- [x] arrays
+- [x] string: literal, `StringBuilder`, `equals`, `==`
 - [x] control flows
 - [x] operators
 - [x] string formatter
@@ -16,7 +18,6 @@
 - [x] the `null` keyword
 - [x] rest parameters
 - [x] static block
-- [x] string: literal, `StringBuilder`, `equals`, `==`
 - [x] javadoc example
 
 ### Advanced

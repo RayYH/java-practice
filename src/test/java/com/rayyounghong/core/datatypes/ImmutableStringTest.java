@@ -1,4 +1,4 @@
-package com.rayyounghong.core.oop;
+package com.rayyounghong.core.datatypes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
  *
  * @author ray
  */
-public class ImmutableObjectTest {
+public class ImmutableStringTest {
 
     /*
      * ---------------------------------------------------------------------------------------------
