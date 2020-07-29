@@ -2,8 +2,6 @@
 
 ## Core
 
-### Basic
-
 - [x] hello world program
 - [x] the `main` method in java
 - [x] variables: instance variables, static variables, default value of variables
@@ -19,36 +17,14 @@
 - [x] rest parameters
 - [x] static block
 - [x] javadoc example
-
-### Advanced
-
 - [x] the `volatile` keyword
 - [x] enums
-
-### OOP
-
 - [x] Overloading
-
-### Generics
-
-## Data Structure
-
-### arrays
-
-- [ ] rotate array
-
-### linked lists
-
-### queues
-
-### stacks
-
-### trees
-
-## Algorithms
-
-### Mathematical
-
-### searching
-
-### sorting
+- [x] Abstract
+- [x] Final
+- [x] Object class
+- [x] Inheritance
+- [x] Special Class
+- [x] Static class
+- [x] Generics
+- [ ] Reflection

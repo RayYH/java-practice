@@ -3,6 +3,10 @@ package com.rayyounghong.core.oop.basic;
 import java.util.Date;
 
 /**
+ * Visibility: private (only current class), public (all classes), protected (current ans extended classes), default
+ * (with no keyword, current package).
+ *
+ *
  * @author ray
  */
 public class Person {
@@ -14,8 +18,10 @@ public class Person {
     /**
      * Constructor has same name as the class and looks like this in a java code.。
      *
-     * @param name name
-     * @param age  age
+     * @param name
+     *            name
+     * @param age
+     *            age
      */
     Person(String name, int age) {
         this.name = name;
@@ -23,10 +29,11 @@ public class Person {
     }
 
     /**
-     * Copy constructor - shallow copy, which is fine since all of our fields – an int and a String
-     * in this case – are either primitive types or immutable types.
+     * Copy constructor - shallow copy, which is fine since all of our fields – an int and a String in this case – are
+     * either primitive types or immutable types.
      *
-     * @param p another person.
+     * @param p
+     *            another person.
      */
     Person(Person p) {
         this.age = p.age;

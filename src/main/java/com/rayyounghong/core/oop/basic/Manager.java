@@ -3,6 +3,8 @@ package com.rayyounghong.core.oop.basic;
 import java.time.Month;
 
 /**
+ * super keyword can be used to call methods (including constructor) in BaseClass.
+ *
  * @author ray
  */
 public class Manager extends Employee {

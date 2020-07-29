@@ -23,7 +23,7 @@ public class ManagerTest {
         boss.setBonus(15000);
         assertEquals(15000, boss.getBonus());
         // cannot use staff[0] = new Manager(...);
-        staff[0] = boss;
+        staff[0] = boss; // polymorphism
         staff[1] = new Employee("Harry Hacker", 50000, 1989, Month.OCTOBER, 1);
         staff[2] = new Employee("Tony Tester", 40000, 1990, Month.MARCH, 15);
         assertEquals(90000, staff[0].getSalary());
