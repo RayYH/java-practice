@@ -27,4 +27,4 @@
 - [x] Special Class
 - [x] Static class
 - [x] Generics
-- [ ] Reflection
+- [x] Reflection
