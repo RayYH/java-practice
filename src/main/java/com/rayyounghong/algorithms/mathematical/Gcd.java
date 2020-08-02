@@ -3,8 +3,6 @@ package com.rayyounghong.algorithms.mathematical;
 import java.util.List;
 
 /**
- * 最大公约数。
- *
  * GCD (Greatest Common Divisor) or HCF (Highest Common Factor) of two numbers is the largest number that divides both
  * of them.
  *
@@ -13,7 +11,7 @@ import java.util.List;
 public class Gcd {
 
     /**
-     * 第一种算法是很直观的算法，其思想就是找出 a 和 b 的所有因数，然后取共有的因数的最大值即可。
+     * An intuitive solution: calculate all common divisors of a & b, then find the greatest common divisor.
      *
      * @param a
      *            first value
@@ -36,8 +34,9 @@ public class Gcd {
 
         int i, j, gcd = 1;
         int compare;
-        List<Integer> aPrimeFactors = Divisor.solutionThree(a);
-        List<Integer> bPrimeFactors = Divisor.solutionThree(b);
+
+        List<Integer> aPrimeFactors = Divisor.orderedDivisors(a);
+        List<Integer> bPrimeFactors = Divisor.orderedDivisors(b);
 
         int aSize = aPrimeFactors.size();
         int bSize = bPrimeFactors.size();
@@ -60,7 +59,7 @@ public class Gcd {
     }
 
     /**
-     * 算法2 ，即更相减损术：如果 {@code a>b}，则 {@code gcd(a-b, b) = gcd(a, b)}
+     * Chinese remainder theorem if {@code a>b}, then {@code gcd(a-b, b) = gcd(a, b)}.
      *
      * @param a
      *            first number
@@ -68,7 +67,7 @@ public class Gcd {
      *            second number
      * @return the gcd
      */
-    public static int solutionEuclideanAlgorithm(int a, int b) {
+    public static int solutionChineseRemainderTheorem(int a, int b) {
         // Everything divides 0
         if (a == 0) {
             return 0;
@@ -84,14 +83,14 @@ public class Gcd {
         }
 
         if (a > b) {
-            return solutionEuclideanAlgorithm(a - b, b);
+            return solutionChineseRemainderTheorem(a - b, b);
         } else {
-            return solutionEuclideanAlgorithm(a, b - a);
+            return solutionChineseRemainderTheorem(a, b - a);
         }
     }
 
     /**
-     * 欧几里得算法(推荐使用该算法): gcd(a % b) = gcd(a, b)。
+     * Euclidean algorithm (suggested), {@code gcd(a % b) = gcd(a, b)}.
      *
      * @param a
      *            first number
@@ -99,11 +98,11 @@ public class Gcd {
      *            second number
      * @return the gcd
      */
-    public static int solutionEuclideanAlgorithmViaModuloOperator(int a, int b) {
+    public static int solutionEuclideanAlgorithm(int a, int b) {
         if (b == 0) {
             return a;
         }
 
-        return solutionEuclideanAlgorithmViaModuloOperator(b, a % b);
+        return solutionEuclideanAlgorithm(b, a % b);
     }
 }

@@ -121,7 +121,7 @@ public class RotateArray {
         d = d % n;
 
         int i, j, k, temp;
-        int gcd = Gcd.solutionEuclideanAlgorithmViaModuloOperator(d, n);
+        int gcd = Gcd.solutionEuclideanAlgorithm(d, n);
 
         // Let arr[] be {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12} and d is 3
         // then gcd = 3, i from 0 to 2.
