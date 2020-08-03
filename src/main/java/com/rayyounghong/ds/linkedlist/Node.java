@@ -1,7 +1,7 @@
 package com.rayyounghong.ds.linkedlist;
 
 /**
- *
+ * Node in linked-lists.
  *
  * @author ray
  */

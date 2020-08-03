@@ -14,7 +14,7 @@ import java.util.Set;
  */
 public class Divisor {
     /**
-     * Time Complexity : O(sqrt(n)) Auxiliary Space : O(1)
+     * Time Complexity: {@code O(sqrt(n))}, Auxiliary Space: {@code O(1)}.
      *
      * @param n
      *            given number
@@ -23,7 +23,7 @@ public class Divisor {
     public static Set<Integer> disorderedDivisors(int n) {
         Set<Integer> set = new HashSet<>();
 
-        if (n == 0) {
+        if (n <= 0) {
             return set;
         }
 
@@ -33,7 +33,7 @@ public class Divisor {
     }
 
     /**
-     * Time Complexity : O(sqrt(n)) Auxiliary Space : O(1)
+     * Time Complexity: {@code O(sqrt(n))}, Auxiliary Space: {@code O(1)}
      *
      * @param n
      *            given number
@@ -42,7 +42,7 @@ public class Divisor {
     public static List<Integer> orderedDivisors(int n) {
         List<Integer> list = new ArrayList<>();
 
-        if (n == 0) {
+        if (n <= 0) {
             return list;
         }
 

@@ -71,6 +71,7 @@ public class ReflectionTest {
     }
 
     @Test
+    @SuppressWarnings({"deprecated"})
     void testGetPublicMemberClasses() {
         Class<?> concreteClass = ConcreteClass.class;
         // getClasses method returns an array of Class objects including
@@ -90,6 +91,7 @@ public class ReflectionTest {
     }
 
     @Test
+    @SuppressWarnings({"deprecated"})
     void testGetDeclaredClasses() {
         Class<?> concreteClass = ConcreteClass.class;
         // returns an array of Class objects reflecting all the classes and interfaces declared as members of the class
@@ -127,6 +129,7 @@ public class ReflectionTest {
     }
 
     @Test
+    @SuppressWarnings({"deprecated"})
     void testGetClassModifiers() throws ClassNotFoundException {
         Class<?> concreteClass = ConcreteClass.class;
         assertEquals("public", Modifier.toString(concreteClass.getModifiers()));
@@ -202,6 +205,7 @@ public class ReflectionTest {
     }
 
     @Test
+    @SuppressWarnings({"deprecated"})
     void testGetAndSetPublicFieldValue() throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
         Field field = Class.forName(CONCRETE_CLASS).getField("publicInt");
         ConcreteClass concreteClass = new ConcreteClass(5);
@@ -211,6 +215,7 @@ public class ReflectionTest {
     }
 
     @Test
+    @SuppressWarnings({"deprecated"})
     void testGetAndSetPrivateFieldValue() throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
         // here should use getDeclaredField instead of getField
         Field privateField = Class.forName(CONCRETE_CLASS).getDeclaredField("privateString");

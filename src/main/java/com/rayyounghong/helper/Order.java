@@ -3,7 +3,7 @@ package com.rayyounghong.helper;
 import java.util.ArrayList;
 
 /**
- * This class can be used to test the orders of method calls.
+ * This class can be used for scenarios that need to verify the execution order.
  *
  * @author ray
  */

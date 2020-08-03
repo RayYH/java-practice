@@ -1,6 +1,9 @@
 package com.rayyounghong.helper;
 
 /**
+ * Use ANSI escape codes to use color in output, only works for Unix shell prompts. For windows user, you can try
+ * <a href="https://github.com/microsoft/terminal"> microsoft terminal. </a>.
+ *
  * @author ray
  * @see <a href= "https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println">
  *      how-to-print-color-in-console-using-system-out-println </a>
