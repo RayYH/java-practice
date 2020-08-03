@@ -11,9 +11,10 @@ public class PrimeFactorTest {
     @Test
     void testGetAllPrimeFactors() {
         assertEquals("[3, 3, 5, 7]", PrimeFactor.getAllPrimeFactors(315).toString());
+        assertEquals("[5, 5]", PrimeFactor.getAllPrimeFactors(25).toString());
         assertEquals("[2]", PrimeFactor.getAllPrimeFactors(2).toString());
         assertEquals("[11]", PrimeFactor.getAllPrimeFactors(11).toString());
-        assertEquals("[2, 2, 9]", PrimeFactor.getAllPrimeFactors(36).toString());
+        assertEquals("[2, 2, 3, 3]", PrimeFactor.getAllPrimeFactors(36).toString());
         assertEquals("[2, 2, 3]", PrimeFactor.getAllPrimeFactors(12).toString());
     }
 

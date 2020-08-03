@@ -8,6 +8,14 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * <ol>
+ * <li>Annotation methods can’t have parameters.</li>
+ * <li>Annotation methods return types are limited to primitives, String, Enums, Annotation or array of these.</li>
+ * <li>Java Annotation methods can have default values.</li>
+ * <li>Annotations can have meta annotations attached to them. Meta annotations are used to provide information about
+ * the annotation.</li>
+ * </ol>
+ *
  * @author ray
  * @see <a href="https://www.journaldev.com/721/java-annotations">Java Annotations</a>
  */
@@ -24,16 +32,3 @@ public @interface MethodInfo {
 
     String comments();
 }
-
-/*
-************************************************************************************************************************
-Source: https://www.journaldev.com/721/java-annotations
-
-1. Annotation methods can’t have parameters.
-2. Annotation methods return types are limited to primitives, String, Enums, Annotation or array of these.
-3. Java Annotation methods can have default values.
-4. Annotations can have meta annotations attached to them. Meta annotations are used to provide information about the
-   annotation.
-
-************************************************************************************************************************
-*/

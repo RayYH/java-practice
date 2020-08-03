@@ -11,7 +11,7 @@ import java.util.List;
 public class Gcd {
 
     /**
-     * An intuitive solution: calculate all common divisors of a & b, then find the greatest common divisor.
+     * An intuitive solution: calculate all common divisors of a and b, then find the greatest common divisor.
      *
      * @param a
      *            first value
@@ -59,7 +59,7 @@ public class Gcd {
     }
 
     /**
-     * Chinese remainder theorem if {@code a>b}, then {@code gcd(a-b, b) = gcd(a, b)}.
+     * Chinese remainder theorem: if {@code a>b}, then {@code gcd(a-b, b) = gcd(a, b)}.
      *
      * @param a
      *            first number
@@ -90,7 +90,7 @@ public class Gcd {
     }
 
     /**
-     * Euclidean algorithm (suggested), {@code gcd(a % b) = gcd(a, b)}.
+     * Euclidean algorithm (suggested): {@code gcd(a % b) = gcd(a, b)}.
      *
      * @param a
      *            first number

@@ -6,21 +6,28 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * Given a number {@code n}, write an efficient function to print all prime factors of {@code n}. For example, if the
+ * input number is {@code 12}, then output should be {@code 2 2 3}, since {@code 12 = 2 * 2 * 3} And if the input number
+ * is {@code 315}, then output should be {@code 3 3 5 7}.
+ *
+ * <a href="https://www.geeksforgeeks.org/print-all-prime-factors-of-a-given-number/">Efficient program to print all
+ * prime factors of a given number</a>
+ *
  * @author ray
  */
 public class PrimeFactor {
 
     /**
-     * 分解正整数，例如 {@code 12 = 2*2*3.}
+     * Following are the steps to find all prime factors.
      *
-     * 算法的逻辑很简单，我们先用 {@code 2} 去除，除完之后，我们用 {@code [3...sqrt(n)]} 的每一个数去除，注意 {@code i+=2}。
-     *
-     * 另外还有一点需要注意的就是，如果在上述操作之后 {@code n > 2}，则需要把它自身加入，因为他本身可能只有它一个因子。
-     *
-     * A function to print all prime factors of a given number n
-     *
-     * <a href="https://www.geeksforgeeks.org/print-all-prime-factors-of-a-given-number/">Efficient program to print all
-     * prime factors of a given number</a>
+     * <ol>
+     * <li>While {@code n} is divisible by {@code 2}, add {@code 2} to the list and divide {@code n} by {@code 2}.</li>
+     * <li>After step 1, {@code n} must be odd. Now start a loop from {@code i = 3} to square root of {@code n}. While
+     * {@code i} divides {@code n}, print {@code i} and divide {@code n} by {@code i}. After {@code i} fails to divide
+     * {@code n}, increment {@code i} by {@code 2} and continue .</li>
+     * <li>If {@code n} is a prime number and is greater than {@code 2}, then {@code n} will not become {@code 1} by
+     * above two steps. So add {@code n} if it is greater than {@code 2}.</li>
+     * </ol>
      *
      * @param n
      *            given number
@@ -31,15 +38,15 @@ public class PrimeFactor {
 
         int minusPrimeNumber = 2;
 
-        // Print the number of 2s that divide n
+        // Get the number of 2s that divide n
         while (n % minusPrimeNumber == 0) {
             list.add(minusPrimeNumber);
             n /= minusPrimeNumber;
         }
 
         // n must be odd at this point. So we can skip one element (Note i = i +2)
-        for (int i = 3; i < Math.sqrt(n); i += minusPrimeNumber) {
-            // While i divides n, divide n
+        for (int i = 3; i <= Math.sqrt(n); i += minusPrimeNumber) {
+            // While i divides n, add i and divide n
             while (n % i == 0) {
                 list.add(i);
                 n /= i;
@@ -54,13 +61,24 @@ public class PrimeFactor {
     }
 
     /**
-     * 埃拉托色尼筛选法，找出小于或等于 n 的所有质数，核心思想就是逐步筛选掉质数的倍数：
+     * In mathematics, the sieve of Eratosthenes is an ancient algorithm for finding all prime numbers up to any given
+     * limit.
      *
-     * 1) 删除 2 及 2 的所有倍数 2) 删除 3 及 3 的所有倍数 3) 删除 5 及 5 的所有倍数 (跳过 4 是因为 4 是 2 的倍数，已经被标记为合数)
-     *
-     * Given a number n, print all primes smaller than or equal to n. It is also given that n is a small number.
+     * To find all the prime numbers less than or equal to a given integer n by Eratosthenes' method:
+     * <ol>
+     * <li>Create a list of consecutive integers from {@code 2} through {@code n}: {@code 2, 3, 4, ..., n}.</li>
+     * <li>Initially, let {@code p} equal {@code 2}, the smallest prime number.</li>
+     * <li>Enumerate the multiples of {@code p} by counting in increments of {@code p} from {@code 2p} to {@code n}, and
+     * mark them in the list (these will be {@code 2p}, {@code 3p}, {@code 4p}, ...; the {@code p} itself should not be
+     * marked) .</li>
+     * <li>Find the smallest number in the list greater than {@code p} that is not marked. If there was no such number,
+     * stop. Otherwise, let p now equal this new number (which is the next prime), and repeat from step 3.</li>
+     * <li>When the algorithm terminates, the numbers remaining not marked in the list are all the primes below
+     * {@code n}.</li>
+     * </ol>
      *
      * <a href="https://www.geeksforgeeks.org/sieve-of-eratosthenes/">Sieve of Eratosthenes</a>
+     * <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">Sieve of Eratosthenes</a>
      *
      * @param n
      *            given number
@@ -69,29 +87,27 @@ public class PrimeFactor {
     public static List<Integer> sieveOfEratosthenes(int n) {
         List<Integer> list = new ArrayList<>();
 
-        // Create a boolean array "prime[0..n]" and initialize all entries it as true. A value in prime[i] will
-        // finally be false if i is Not a prime, else true.
-        // 先假设所有的数都是质数
+        // Create a boolean array "prime[0..n]" and initialize all entries it as true (which means marked prime
+        // factors) A value in prime[i] will finally be false if i is Not a prime, else true.
         boolean[] prime = new boolean[n + 1];
         for (int i = 0; i <= n; i++) {
             prime[i] = true;
         }
 
-        // 为什么要 p^2 <= n ? 仔细看内部循环，内部循环是从 p*p 开始，如果 p*p > n 则超出了我们的考虑范围
         for (int p = 2; p * p <= n; p++) {
-            // If prime[p] is not changed, then it is a prime
-            // 如果为 true 则代表是质数，需要进一步判断
-            // p 自身一定是质数，因此只需从 p*p 开始
+            // If prime[p] is not changed, then it is a prime, then the multiples of p should be marked false
             if (prime[p]) {
-                // Update all multiples of p
-                // 所有为 p 的倍数
+                // Update all multiples of p greater than or equal to the square of it numbers which are multiple of
+                // p and are less than p^2 are already been marked.
+                // [p^2, p^2+p, p^2+2p, ...]
+                // starting from p^2, as all the smaller multiples of p will have already been marked at that point
                 for (int i = p * p; i <= n; i += p) {
                     prime[i] = false;
                 }
             }
         }
 
-        // 从 2 开始是因为当前数学界认为 1 既不是质数，也不是合数
+        // Every positive integer is composite, prime, or the unit 1, so 1 is neither a primer nor a composite.
         for (int i = 2; i <= n; i++) {
             if (prime[i]) {
                 list.add(i);
@@ -102,13 +118,13 @@ public class PrimeFactor {
     }
 
     /**
-     * 最小质因数，即找出一系列数 [1...n] 中每个数的最小质因数，作为一个例外情况，针对 1 我们返回 1，虽然 1 不是质数。
-     *
-     * 我们也可以通过这个找出 {@code <= n} 的所有质数(最小质因数=自身) 即为质数。
-     *
-     * 这个算法和上面提到的 Eratosthenes 筛选法的核心思想是一致的。
-     *
      * Given a number n, print least prime factors of all numbers from 1 to n. We need to return 1 for 1.
+     *
+     * <p>
+     * {2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, 2, 17, 2, 19, 2, 3, 2, 23, 2, 5, 2, 3, 2, 29, 2, 31, 2, 3, ...}
+     * </p>
+     *
+     * <a href="https://oeis.org/wiki/Least_prime_factor_of_n">Least prime factor of n</a>
      *
      * @param n
      *            given number
@@ -117,24 +133,22 @@ public class PrimeFactor {
     public static Map<Integer, Integer> leastPrimeFactor(int n) {
         Map<Integer, Integer> map = new HashMap<>(n);
 
-        int two = 2;
-
-        // Create a vector to store least primes. Initialize all entries as 0.
+        // Create an array to store least primes.
+        // Initialize all entries as 0.
         int[] leastPrime = new int[n + 1];
 
         for (int i = 0; i <= n; i++) {
             leastPrime[i] = 0;
         }
 
-        // We need to print 1 for 1.
+        // We need to return 1 for 1.
         leastPrime[1] = 1;
 
         for (int i = 2; i * i <= n; i++) {
-            // leastPrime[i] == 0 means it i is prime
+            // leastPrime[i] == 0 means i is prime
             if (leastPrime[i] == 0) {
                 // marking the prime number as its own lpf
                 leastPrime[i] = i;
-
                 // mark it as a divisor for all its multiples if not already marked
                 for (int j = i * i; j <= n; j += i) {
                     if (leastPrime[j] == 0) {
@@ -146,7 +160,7 @@ public class PrimeFactor {
 
         for (int i = 1; i <= n; i++) {
             if (leastPrime[i] == 0) {
-                // 自身即为最小质因数
+                // the prime number as its own lpf
                 map.put(i, i);
             } else {
                 map.put(i, leastPrime[i]);

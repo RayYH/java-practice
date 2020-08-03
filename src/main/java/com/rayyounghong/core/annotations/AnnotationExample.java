@@ -5,6 +5,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Built-in annotations in Java:
+ *
+ * <ul>
+ * <li>{@code @Override}</li>
+ * <li>{@code @Deprecated}</li>
+ * <li>{@code @SuppressWarning}</li>
+ * <li>{@code @FunctionalInterface}</li>
+ * <li>{@code @SafeVarargs}</li>
+ * </ul>
+ *
+ * <ol>
+ * <li>{@code RetentionPolicy.RUNTIME}: The annotation should be available at runtime, for inspection via java
+ * reflection.</li>
+ * <li>{@code RetentionPolicy.CLASS}: The annotation would be in the {@code .class} file but it would not be available
+ * at runtime.</li>
+ * <li>{@code RetentionPolicy.SOURCE}: The annotation would be available in the source code of the program, it would
+ * neither be in * the {@code .class} file nor be available at the runtime.</li>
+ * </ol>
+ *
  * @author ray
  */
 public class AnnotationExample {
@@ -27,22 +46,3 @@ public class AnnotationExample {
         DisableInspection.doWhatEver(list);
     }
 }
-
-/*
-************************************************************************************************************************
-
-Built-in annotations in Java
-
-1. @Override
-2. @Deprecated
-3. @SuppressWarning
-4. @FunctionalInterface
-5. @SafeVarargs
-
-1. RetentionPolicy.RUNTIME: The annotation should be available at runtime, for inspection via java reflection.
-2. RetentionPolicy.CLASS: The annotation would be in the .class file but it would not be available at runtime.
-3. RetentionPolicy.SOURCE: The annotation would be available in the source code of the program, it would neither be in
-   the .class file nor be available at the runtime.
-
-************************************************************************************************************************
-*/

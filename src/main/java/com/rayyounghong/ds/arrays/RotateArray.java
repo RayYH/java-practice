@@ -5,8 +5,6 @@ import com.rayyounghong.algorithms.mathematical.Gcd;
 /**
  * Function to left rotate arr[] of size n by d.
  *
- * 将长度为 n 的数组 arr 中的元素整体向左移动 d 个位置。
- *
  * @author ray
  */
 public class RotateArray {

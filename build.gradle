@@ -49,3 +49,8 @@ test {
     useJUnitPlatform()
     maxHeapSize = '1G'
 }
+
+javadoc.options {
+    addBooleanOption('-enable-preview', true)
+    addStringOption('-release', '14')
+}

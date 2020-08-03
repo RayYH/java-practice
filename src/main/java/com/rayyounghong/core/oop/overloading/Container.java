@@ -1,7 +1,7 @@
 package com.rayyounghong.core.oop.overloading;
 
 /**
- * Java doesn’t allow user-defined overloaded operators.
+ * Java DOSE NOT allow user-defined overloaded operators.
  *
  * Overloading is about same function have different signatures. Overriding is about same function, same signature but
  * different classes connected through inheritance. Overloading is an example of compiler time polymorphism and

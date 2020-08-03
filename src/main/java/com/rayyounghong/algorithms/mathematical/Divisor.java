@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -62,7 +61,7 @@ public class Divisor {
      *            given number
      */
     private static void addDivisors(Collection<Integer> collection, int n) {
-        // Note that this loop runs till square root
+        // Notice here: this loop runs till square root
         for (int i = 1; i <= Math.sqrt(n); i++) {
             if (n % i == 0) {
                 if (n / i == i) {
