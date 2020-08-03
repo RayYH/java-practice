@@ -13,7 +13,6 @@ import java.util.HashMap;
  * @author ray
  */
 public class TwoSum {
-
     public int[] twoSum(int[] nums, int target) throws IllegalArgumentException {
         HashMap<Integer, Integer> map = new HashMap<>(nums.length);
         for (int i = 0; i < nums.length; i++) {
