@@ -20,16 +20,12 @@ public class Gcd {
      * @return the gcd
      */
     public static int solutionTraverseAllDivisors(int a, int b) {
-        if (a == 0) {
-            return 0;
+        if (a < 0 || b < 0) {
+            throw new ArithmeticException();
         }
 
-        if (b == 0) {
-            return 0;
-        }
-
-        if (a == b) {
-            return a;
+        if (a == 0 || b == 0) {
+            return Math.abs(a - b);
         }
 
         int i, j, gcd = 1;
@@ -68,18 +64,12 @@ public class Gcd {
      * @return the gcd
      */
     public static int solutionChineseRemainderTheorem(int a, int b) {
-        // Everything divides 0
-        if (a == 0) {
-            return 0;
+        if (a < 0 || b < 0) {
+            throw new ArithmeticException();
         }
 
-        if (b == 0) {
-            return 0;
-        }
-
-        // base case
-        if (a == b) {
-            return a;
+        if (a == 0 || b == 0) {
+            return Math.abs(a - b);
         }
 
         if (a > b) {
@@ -99,10 +89,57 @@ public class Gcd {
      * @return the gcd
      */
     public static int solutionEuclideanAlgorithm(int a, int b) {
-        if (b == 0) {
-            return a;
+        if (a < 0 || b < 0) {
+            throw new ArithmeticException();
+        }
+
+        if (a == 0 || b == 0) {
+            return Math.abs(a - b);
         }
 
         return solutionEuclideanAlgorithm(b, a % b);
+    }
+
+    /**
+     * Get greatest common divisor - iterate
+     *
+     * @param a
+     *            the first number
+     * @param b
+     *            the second number
+     * @return gcd
+     */
+    public static int gcd(int a, int b) {
+        if (a < 0 || b < 0) {
+            throw new IllegalArgumentException();
+        }
+
+        if (a == 0 || b == 0) {
+            return Math.abs(a - b);
+        }
+
+        while (a % b != 0) {
+            int remainder = a % b;
+            a = b;
+            b = remainder;
+        }
+
+        return b;
+    }
+
+    /**
+     * get greatest common divisor in array
+     *
+     * @param numbers
+     *            an array contains numbers
+     * @return gcd
+     */
+    public static int gcd(int[] numbers) {
+        int result = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            result = gcd(result, numbers[i]);
+        }
+
+        return result;
     }
 }

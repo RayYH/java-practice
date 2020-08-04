@@ -28,3 +28,11 @@
 - [x] Static class
 - [x] Generics
 - [x] Reflection
+
+## Algorithms
+
+### Mathematical
+
+- [x] [Absolute value, min, max](src/main/java/com/rayyounghong/algorithms/mathematical/Absolute.java).
+- [x] [GCD](src/main/java/com/rayyounghong/algorithms/mathematical/Gcd.java).
+- [x] [Factorial, Catalan number](src/main/java/com/rayyounghong/algorithms/mathematical/PositiveInteger.java).

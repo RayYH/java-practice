@@ -18,7 +18,7 @@ public class PositiveInteger {
      */
     public static long factorial(long n) {
         if (n < 0) {
-            throw new IllegalArgumentException("given value cannot be negative");
+            throw new ArithmeticException("given value cannot be negative");
         }
 
         // Binomial coefficient use this functions will pass an argument with value 0
@@ -28,6 +28,29 @@ public class PositiveInteger {
         }
 
         return n * factorial(n - 1);
+    }
+
+    /**
+     * Get the factorial of given number n - Tail call optimization.
+     *
+     * @param n
+     *            given number n.
+     * @param total
+     *            current total
+     * @return return the factorial of n.
+     */
+    public static long factorial(long n, long total) {
+        if (n < 0) {
+            throw new ArithmeticException("given value cannot be negative");
+        }
+
+        // Binomial coefficient use this functions will pass an argument with value 0
+        // we should return 1 since 1C0 should produce 1
+        if (n == 1) {
+            return total;
+        }
+
+        return factorial(n - 1, n * total);
     }
 
     /**

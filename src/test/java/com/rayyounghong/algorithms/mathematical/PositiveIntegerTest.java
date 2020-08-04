@@ -12,12 +12,15 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class PositiveIntegerTest {
     @Test
     void testFactorial() {
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(ArithmeticException.class, () -> {
             PositiveInteger.factorial(-1);
         });
         assertEquals(120, PositiveInteger.factorial(5));
         assertEquals(720, PositiveInteger.factorial(6));
         assertEquals(5040, PositiveInteger.factorial(7));
+        assertEquals(120, PositiveInteger.factorial(5, 1));
+        assertEquals(720, PositiveInteger.factorial(6, 1));
+        assertEquals(5040, PositiveInteger.factorial(7, 1));
     }
 
     @Test

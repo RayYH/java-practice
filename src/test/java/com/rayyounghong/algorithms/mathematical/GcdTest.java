@@ -12,14 +12,29 @@ public class GcdTest {
         assertEquals(14, Gcd.solutionTraverseAllDivisors(98, 56));
         assertEquals(3, Gcd.solutionTraverseAllDivisors(3, 6));
         assertEquals(1, Gcd.solutionTraverseAllDivisors(3, 116));
+        assertEquals(11, Gcd.solutionTraverseAllDivisors(11, 33));
+        assertEquals(3, Gcd.solutionTraverseAllDivisors(3, 3));
 
         assertEquals(14, Gcd.solutionChineseRemainderTheorem(98, 56));
         assertEquals(3, Gcd.solutionChineseRemainderTheorem(3, 6));
         assertEquals(1, Gcd.solutionChineseRemainderTheorem(3, 116));
+        assertEquals(11, Gcd.solutionChineseRemainderTheorem(11, 33));
+        assertEquals(3, Gcd.solutionChineseRemainderTheorem(3, 3));
 
         assertEquals(14, Gcd.solutionEuclideanAlgorithm(98, 56));
         assertEquals(3, Gcd.solutionEuclideanAlgorithm(3, 6));
         assertEquals(1, Gcd.solutionEuclideanAlgorithm(3, 116));
         assertEquals(11, Gcd.solutionEuclideanAlgorithm(11, 33));
+        assertEquals(3, Gcd.solutionEuclideanAlgorithm(3, 3));
+
+        assertEquals(14, Gcd.gcd(98, 56));
+        assertEquals(3, Gcd.gcd(3, 6));
+        assertEquals(1, Gcd.gcd(3, 116));
+        assertEquals(11, Gcd.gcd(11, 33));
+        assertEquals(3, Gcd.gcd(3, 3));
+
+        assertEquals(14, Gcd.gcd(new int[] {98, 56, 14}));
+        assertEquals(7, Gcd.gcd(new int[] {98, 56, 14, 7}));
+        assertEquals(1, Gcd.gcd(new int[] {98, 56, 14, 7, 3}));
     }
 }
