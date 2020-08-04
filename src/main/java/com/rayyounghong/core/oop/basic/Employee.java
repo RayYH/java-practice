@@ -9,7 +9,7 @@ import java.util.Objects;
  *
  * @author ray
  */
-public class Employee {
+public class Employee implements Comparable<Employee>, Cloneable {
     private static int nextId;
     private final String name;
     private double salary;
@@ -92,5 +92,22 @@ public class Employee {
     @Override
     public int hashCode() {
         return Objects.hash(name, salary, hireDay);
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        return this.id - o.id;
+    }
+
+    @Override
+    public Employee clone() throws CloneNotSupportedException {
+        Employee cloned = (Employee)(super.clone());
+        cloned.setId();
+
+        return cloned;
+    }
+
+    public static void setNextId(int i) {
+        nextId = i;
     }
 }

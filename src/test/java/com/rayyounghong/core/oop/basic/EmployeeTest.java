@@ -2,6 +2,7 @@ package com.rayyounghong.core.oop.basic;
 
 import com.rayyounghong.helper.DisableInspection;
 import java.time.Month;
+import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -53,5 +54,28 @@ public class EmployeeTest {
         Employee firstStaff = new Employee("Tony Tester", 40000, 1990, Month.MARCH, 15);
         Employee secondStaff = new Employee("Tony Tester", 40000, 1990, Month.MARCH, 15);
         assertEquals(firstStaff, secondStaff);
+    }
+
+    @Test
+    void testComparator() {
+        Employee[] staff = new Employee[3];
+        staff[0] = new Employee("Carl Cracker", 75000, 1987, Month.NOVEMBER, 15);
+        staff[1] = new Employee("Harry Hacker", 50000, 1989, Month.OCTOBER, 1);
+        staff[2] = new Employee("Tony Tester", 40000, 1990, Month.MARCH, 15);
+        staff[1].setId();
+        staff[0].setId();
+        staff[2].setId();
+        Arrays.sort(staff);
+        assertEquals("Harry Hacker", staff[0].getName());
+    }
+
+    @Test
+    void testClone() throws CloneNotSupportedException {
+        Employee.setNextId(1);
+        Employee employee = new Employee("Carl Cracker", 75000, 1987, Month.NOVEMBER, 15);
+        employee.setId();
+        assertEquals(employee.getId(), 1);
+        Employee newEmployee = employee.clone();
+        assertEquals(newEmployee.getId(), 2);
     }
 }
