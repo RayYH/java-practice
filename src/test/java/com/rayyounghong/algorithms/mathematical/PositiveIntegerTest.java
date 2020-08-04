@@ -21,6 +21,9 @@ public class PositiveIntegerTest {
         assertEquals(120, PositiveInteger.factorial(5, 1));
         assertEquals(720, PositiveInteger.factorial(6, 1));
         assertEquals(5040, PositiveInteger.factorial(7, 1));
+        assertEquals(120, PositiveInteger.factorialViaIterativeLoops(5));
+        assertEquals(720, PositiveInteger.factorialViaIterativeLoops(6));
+        assertEquals(5040, PositiveInteger.factorialViaIterativeLoops(7));
     }
 
     @Test

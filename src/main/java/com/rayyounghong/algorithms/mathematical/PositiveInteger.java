@@ -31,7 +31,7 @@ public class PositiveInteger {
     }
 
     /**
-     * Get the factorial of given number n - Tail call optimization.
+     * Get the factorial of given number n - Though jvm does not support tail optimization.
      *
      * @param n
      *            given number n.
@@ -51,6 +51,20 @@ public class PositiveInteger {
         }
 
         return factorial(n - 1, n * total);
+    }
+
+    public static long factorialViaIterativeLoops(long n) {
+        if (n < 0) {
+            throw new ArithmeticException("given value cannot be negative");
+        }
+
+        long res = 1;
+
+        while (n > 1) {
+            res = res * n--;
+        }
+
+        return res;
     }
 
     /**
