@@ -107,6 +107,10 @@ public class Employee implements Comparable<Employee>, Cloneable {
         return cloned;
     }
 
+    public static void setNextId() {
+        nextId = 1;
+    }
+
     public static void setNextId(int i) {
         nextId = i;
     }

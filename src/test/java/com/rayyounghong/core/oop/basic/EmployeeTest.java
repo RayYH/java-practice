@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class EmployeeTest {
     @Test
     void testEmployInstances() {
+        Employee.setNextId();
         Employee[] staff = new Employee[3];
         staff[0] = new Employee("Carl Cracker", 75000, 1987, Month.NOVEMBER, 15);
         staff[1] = new Employee("Harry Hacker", 50000, 1989, Month.OCTOBER, 1);
