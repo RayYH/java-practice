@@ -21,8 +21,6 @@ public class PositiveInteger {
             throw new ArithmeticException("given value cannot be negative");
         }
 
-        // Binomial coefficient use this functions will pass an argument with value 0
-        // we should return 1 since 1C0 should produce 1
         if (n == 1 || n == 0) {
             return 1;
         }
@@ -44,8 +42,6 @@ public class PositiveInteger {
             throw new ArithmeticException("given value cannot be negative");
         }
 
-        // Binomial coefficient use this functions will pass an argument with value 0
-        // we should return 1 since 1C0 should produce 1
         if (n == 1) {
             return total;
         }
@@ -53,6 +49,13 @@ public class PositiveInteger {
         return factorial(n - 1, n * total);
     }
 
+    /**
+     * Get the factorial of given number n.
+     *
+     * @param n
+     *            given number n.
+     * @return return the factorial of n.
+     */
     public static long factorialViaIterativeLoops(long n) {
         if (n < 0) {
             throw new ArithmeticException("given value cannot be negative");
