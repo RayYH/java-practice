@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
+ * lambda expression: deferred execution.
+ *
  * @author ray
  */
 public class FooTest {
@@ -13,7 +15,11 @@ public class FooTest {
         Foo foo = parameter -> parameter + " from lambda";
         UseFoo useFoo = new UseFoo();
         assertEquals("message from lambda", useFoo.add("message", foo));
-        Function<String, String> fn = parameter -> parameter + " from lambda";
+        Function<String, String> fn = (parameter) -> {
+            // this -> outer class
+            assertEquals(this.getClass(), FooTest.class);
+            return parameter + " from lambda";
+        };
         assertEquals(useFoo.anotherAdd("Message", fn), "Message from lambda");
     }
 
