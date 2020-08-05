@@ -9,21 +9,6 @@ import org.junit.jupiter.api.Test;
  * @author ray
  */
 class LexicalTest {
-
-    /*
-     * The primitive types.
-     *
-     * byte(1)
-     * short(2)
-     * int(4)
-     * long(8)
-     * float(4)
-     * double(8)
-     * char(2)
-     * boolean(1)
-     *
-     */
-
     @Test
     void testIntRange() {
         int maxValue = Integer.MAX_VALUE;
@@ -49,7 +34,7 @@ class LexicalTest {
 
     @Test
     void someValidLiterals() {
-        int[] anIntArray = new int[] {0, 2, 0xDada_Cafe, 1996, 0x00_FF__00_FF, 0b10010};
+        int[] anIntArray = new int[] {0, 2, 0xDada_Cafe, 1996, 0x00_FF__00_FF, 0b10010, 5_______2};
         long[] aLongArray = new long[] {0L, 0x100000000L, 2_147_483_648L, 0xC0B0L};
         float[] aFloatArray = new float[] {1e1f, 2.f, .3f, 0f, 3.14f, 6.022137e+23f};
         double[] aDoubleArray = new double[] {1e1, 2., .3, 0.0, 3.14, 1e-9d, 1e137};

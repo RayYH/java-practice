@@ -32,6 +32,20 @@ public class AutoBoxingTest {
         assertEquals(25, sumOdd);
     }
 
+    /**
+     * {@code new Integer(123)} will create a new class, while {@code Integer.valueOf(123)} always get a ref to same
+     * objects from the cache pool.
+     *
+     * <ul>
+     * <li>boolean values {@code true} and {@code false}</li>
+     * <li>all byte values</li>
+     * <li>short values between {@code -128} and {@code 127}</li>
+     * <li>int values between {@code -128} and {@code 127}</li>
+     * <li>char in the range {@code \u0000} to {@code \u007F}</li>
+     * </ul>
+     *
+     * We can use {@code -XX:AutoBoxCacheMax=<size>} to specify the cache size.
+     */
     @Test
     void testTwoIntegerObjects() {
         Integer x = 400, y = 400;

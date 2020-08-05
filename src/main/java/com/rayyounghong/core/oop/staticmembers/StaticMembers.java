@@ -13,15 +13,17 @@ package com.rayyounghong.core.oop.staticmembers;
  * <li>Static variables can be accessed directly in Static method.</li>
  * <li>Static Methods can access class variables(static variables) without using object(instance) of the class</li>
  * <li>A class can be made static only if it is a nested class.</li>
+ * <li>A static method cannot be abstract at the same time.</li>
  * </ul>
  *
  * @author ray
  */
-public class StaticDemo {
+public class StaticMembers {
 
     static int age;
     static String name;
 
+    // when class (not object) initialized, will exec statements inside this block.
     static {
         age = 23;
         name = "ray";

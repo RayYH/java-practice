@@ -7,6 +7,18 @@ import org.junit.jupiter.api.Test;
 /**
  * check below link to get more information about interface and abstract classes.
  *
+ * <p>
+ * Execution order:
+ * </p>
+ * <ul>
+ * <li>Base class (static members, blocks)</li>
+ * <li>Sub Class (static members, blocks)</li>
+ * <li>Base class (instance members, regular statements)</li>
+ * <li>Base class (constructors)</li>
+ * <li>Sub Class (instance members, regular statements)</li>
+ * <li>Sub Class (constructors)</li>
+ * </ul>
+ *
  * @author ray
  * @link https://stackoverflow.com/questions/1913098/what-is-the-difference-between-an-interface -and-abstract-class
  */

@@ -44,9 +44,11 @@ class ControlFlowTest {
         }
     }
 
-    /*
-     * the type of value used in case statement can be: byte, short, char, int, enumerated types,
-     * String class, and some Wrapper classes: Character, Byte, Short, and Integer.
+    /**
+     * the type of value used in case statement can be: byte, short, char, int, enumerated types, String class, and some
+     * Wrapper classes: Character, Byte, Short, and Integer.
+     *
+     * Notice: <b>NOT INCLUDE {@code Long}</b>
      *
      * We can't pass the null value as an argument to a switch statement. If we do it, the program will throw
      * NullPointerException.

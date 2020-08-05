@@ -18,9 +18,25 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
+ * The primitive types.
+ *
+ * byte(1) short(2) int(4) long(8) float(4) double(8) char(2) boolean(1)
+ *
  * @author ray
  */
 public class PrimitiveDateTypesTest extends StandardIOTest {
+
+    /**
+     * Although the Java Virtual Machine defines a {@code boolean} type, it only provides very limited support for it.
+     * There are no Java Virtual Machine instructions solely dedicated to operations on {@code boolean} values. Instead,
+     * expressions in the Java programming language that operate on {@code boolean} values are compiled to use values of
+     * the Java Virtual Machine {@code int} data type.
+     *
+     * The Java Virtual Machine does directly support boolean arrays. Arrays of type boolean are accessed and modified
+     * using the byte array instructions <i>baload</i> and <i>bastore</i> ({@code §baload, §bastore}).
+     *
+     * <a href="https://docs.oracle.com/javase/specs/jvms/se8/jvms8.pdf">The Java® Virtual Machine Specification</a>
+     */
     @Test
     void testBoolean() {
         // The boolean data type has two possible values, either true or false.
@@ -172,5 +188,16 @@ public class PrimitiveDateTypesTest extends StandardIOTest {
         booleanContainer.boolTwo = (1 / doubleContainerB.doubleAttr == Double.NEGATIVE_INFINITY);
         assertTrue(booleanContainer.boolOne && booleanContainer.boolTwo);
         assertNotEquals(1 / doubleContainerA.doubleAttr, 1 / doubleContainerB.doubleAttr, 0.0);
+    }
+
+    /**
+     * A compound assignment expression of the form {@code E1 op= E2} is equivalent to{@code  E1 = (T)((E1) op (E2))},
+     * where {@code T} is the type of {@code E1}, except that {@code E1} is evaluated only once.
+     */
+    @Test
+    void testCasting() {
+        short x = 3;
+        x += 4.6;
+        assertEquals(x, 7);
     }
 }
