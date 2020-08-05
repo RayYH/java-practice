@@ -5,7 +5,8 @@ package com.rayyounghong.core.helloworld;
  *
  * main method signature: {@code public static void main(String[] args) { ... }}
  *
- * Java Program(.java) ---(Java Compiler)---> Java Bytecode(.class file) ---(JVM)---> Machine Code ---(CPU)---> Output.
+ * {@code Java Program(.java) ---(Java Compiler)---> Java Bytecode(.class file) ---(JVM)---> Machine Code ---(CPU)--->
+ * Output.}
  * <ul>
  * <li>JVM (Java Virtual Machine) is an abstract machine that enables your computer to run a Java program.</li>
  * <li>JRE (Java Runtime Environment) = JVM + Class Libraries.</li>

@@ -17,6 +17,19 @@ import org.junit.jupiter.api.Test;
  * @author ray
  */
 class OperatorTest {
+    @Test
+    void testArithmeticOperator() {
+        float aFloat = 13.0f / 4;
+        assertEquals(3, 1 + 2);
+        assertEquals(1, 2 - 1);
+        assertEquals(6, 2 * 3);
+        assertEquals(3, 13 / 4);
+        assertEquals(3.25, aFloat);
+        assertEquals(3, 10 % 7);
+        assertEquals(7.5, 15.0 / 2);
+        // + can also be used to concentrate strings
+        assertEquals("Hello World", "Hello" + " " + "World");
+    }
 
     @Test
     void testAssignmentOperator() {
@@ -31,25 +44,6 @@ class OperatorTest {
         assertEquals(anotherInt %= anInt, 1);
         assertEquals(anotherInt, 1);
         // there are also &= ^= |= operators not mentioned here.
-    }
-
-    /*
-     * There are some chinese description I don't want to translate now.
-     * When my English is good enough, I'll finish the work.
-     */
-
-    @Test
-    void testArithmeticOperator() {
-        float aFloat = 13.0f / 4;
-        assertEquals(3, 1 + 2);
-        assertEquals(1, 2 - 1);
-        assertEquals(6, 2 * 3);
-        assertEquals(3, 13 / 4);
-        assertEquals(3.25, aFloat);
-        assertEquals(3, 10 % 7);
-        assertEquals(7.5, 15.0 / 2);
-        // + can also be used to concentrate strings
-        assertEquals("Hello World", "Hello" + " " + "World");
     }
 
     @Test

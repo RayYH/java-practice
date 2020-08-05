@@ -5,12 +5,10 @@ plugins {
 }
 
 apply plugin: "java"
-ext {
-    javaMainClass = "com.rayyounghong.App"
-}
+apply plugin: 'application'
 
 application {
-    mainClassName = javaMainClass
+    mainClassName = "com.rayyounghong.App"
 }
 
 repositories {
@@ -36,7 +34,6 @@ tasks.withType(JavaCompile) {
     options.compilerArgs += "--enable-preview"
 }
 
-
 tasks.withType(Test) {
     jvmArgs += "--enable-preview"
 }
@@ -50,7 +47,7 @@ test {
     maxHeapSize = '1G'
 }
 
-javadoc.options {
-    addBooleanOption('-enable-preview', true)
-    addStringOption('-release', '14')
+javadoc {
+    options.addBooleanOption('-enable-preview', true)
+    options.addStringOption('-release', '14')
 }
