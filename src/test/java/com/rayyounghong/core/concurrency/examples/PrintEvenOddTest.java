@@ -24,7 +24,7 @@ public class PrintEvenOddTest extends StandardIOTest {
         executorService.submit(taskEven);
         executorService.submit(taskOdd);
         try {
-            // 7.5 s
+            // 1.5 s
             int MAX_TIME_OUT = 1500;
             executorService.awaitTermination(MAX_TIME_OUT, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
