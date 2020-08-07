@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
  */
 public class SynchronizedTest {
 
-    static final int LOOP_MAX_NUM = 2000;
+    static final int MAX_TIME_OUT = 2000;
 
     /*
      * see: https://stackoverflow.com/questions/21812396/what-is-the-use-of-static-synchronized-method-in-java
@@ -33,14 +33,14 @@ public class SynchronizedTest {
     public void givenMultiThreadWhenNonSyncMethod() {
         ExecutorService service = Executors.newFixedThreadPool(3);
         SynchronizedDemo summation = new SynchronizedDemo();
-        IntStream.range(0, LOOP_MAX_NUM).forEach(count -> service.submit(summation::calculate));
+        IntStream.range(0, MAX_TIME_OUT).forEach(count -> service.submit(summation::calculate));
         try {
-            service.awaitTermination(LOOP_MAX_NUM, TimeUnit.MILLISECONDS);
+            service.awaitTermination(MAX_TIME_OUT, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        // 并不是任何时候都会小于 LOOP_MAX_NUM，比如 github 的 actions 就会等于
-        assertTrue(summation.getSum() <= LOOP_MAX_NUM);
+        // 并不是任何时候都会小于 MAX_TIME_OUT，比如 github 的 actions 就会等于
+        assertTrue(summation.getSum() <= MAX_TIME_OUT);
     }
 
     /**
@@ -50,13 +50,13 @@ public class SynchronizedTest {
     public void givenMultiThreadWhenSyncMethod() {
         ExecutorService service = Executors.newFixedThreadPool(3);
         SynchronizedDemo summation = new SynchronizedDemo();
-        IntStream.range(0, LOOP_MAX_NUM).forEach(count -> service.submit(summation::synchronizedCalculate));
+        IntStream.range(0, MAX_TIME_OUT).forEach(count -> service.submit(summation::synchronizedCalculate));
         try {
-            service.awaitTermination(LOOP_MAX_NUM, TimeUnit.MILLISECONDS);
+            service.awaitTermination(MAX_TIME_OUT, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        assertEquals(LOOP_MAX_NUM, summation.getSum());
+        assertEquals(MAX_TIME_OUT, summation.getSum());
     }
 
     /**
@@ -66,14 +66,14 @@ public class SynchronizedTest {
     public void givenMultiThreadWhenSyncStaticMethod() {
         SynchronizedDemo.staticSum = 0;
         ExecutorService service = Executors.newCachedThreadPool();
-        IntStream.range(0, LOOP_MAX_NUM)
+        IntStream.range(0, MAX_TIME_OUT)
             .forEach(count -> service.submit(SynchronizedDemo::staticSynchronizedCalculate));
         try {
             service.awaitTermination(1000, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        assertEquals(LOOP_MAX_NUM, SynchronizedDemo.staticSum);
+        assertEquals(MAX_TIME_OUT, SynchronizedDemo.staticSum);
     }
 
     /**
@@ -83,13 +83,13 @@ public class SynchronizedTest {
     public void givenMultiThreadWhenSyncBlock() {
         ExecutorService service = Executors.newFixedThreadPool(3);
         SynchronizedDemo synchronizedDemo = new SynchronizedDemo();
-        IntStream.range(0, LOOP_MAX_NUM).forEach(count -> service.submit(synchronizedDemo::performSynchronizedTask));
+        IntStream.range(0, MAX_TIME_OUT).forEach(count -> service.submit(synchronizedDemo::performSynchronizedTask));
         try {
             service.awaitTermination(1000, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        assertEquals(LOOP_MAX_NUM, synchronizedDemo.getSum());
+        assertEquals(MAX_TIME_OUT, synchronizedDemo.getSum());
     }
 
     /**
@@ -99,7 +99,7 @@ public class SynchronizedTest {
     public void givenMultiThreadWhenSyncStaticBlock() {
         SynchronizedDemo.staticSum = 0;
         ExecutorService service = Executors.newCachedThreadPool();
-        IntStream.range(0, LOOP_MAX_NUM)
+        IntStream.range(0, MAX_TIME_OUT)
             .forEach(count -> service.submit(SynchronizedDemo::performStaticSynchronizedTask));
         try {
             // github actions - windows os is too slow.
@@ -107,6 +107,6 @@ public class SynchronizedTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        assertEquals(LOOP_MAX_NUM, SynchronizedDemo.staticSum);
+        assertEquals(MAX_TIME_OUT, SynchronizedDemo.staticSum);
     }
 }

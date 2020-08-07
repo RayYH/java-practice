@@ -16,10 +16,10 @@ public class Absolute {
     }
 
     /**
-     * get the value, return the absolute max value
+     * get the value, return the absolute max value.
      *
      * @param numbers
-     *            contains elements
+     *            elements
      * @return the absolute max value
      */
     public static int absMax(int[] numbers) {
@@ -38,10 +38,10 @@ public class Absolute {
     }
 
     /**
-     * get the value, returns the absolute min value min
+     * get the value, returns the absolute min value.
      *
      * @param numbers
-     *            contains elements
+     *            elements
      * @return the absolute min value
      */
     public static int absMin(int[] numbers) {

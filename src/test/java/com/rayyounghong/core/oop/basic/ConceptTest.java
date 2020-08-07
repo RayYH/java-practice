@@ -19,11 +19,12 @@ import org.junit.jupiter.api.Test;
  * <li>Sub Class (constructors)</li>
  * </ul>
  *
+ * <a href="https://stackoverflow.com/questions/1913098/what-is-the-difference-between-an-interface-and-abstract-class">
+ * What is the difference between an interface and abstract class?</a>
+ *
  * @author ray
- * @link https://stackoverflow.com/questions/1913098/what-is-the-difference-between-an-interface -and-abstract-class
  */
 public class ConceptTest {
-
     @Test
     void testPerson() {
         Person person = new Person("ray", 23);
@@ -34,5 +35,4 @@ public class ConceptTest {
         assertEquals("rayyh", person.getName());
         assertEquals(24, person.getAge());
     }
-
 }

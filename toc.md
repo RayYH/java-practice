@@ -29,6 +29,11 @@
 - [x] Generics
 - [x] Reflection
 
+### Concurrency
+
+- [x] creating threads: extends `Thread` class or implement `Runnable` interface
+- [x] wait and notify
+
 ## Algorithms
 
 ### Mathematical
