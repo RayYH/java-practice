@@ -31,8 +31,6 @@ public class PrintEvenOddTest extends StandardIOTest {
             e.printStackTrace();
         }
 
-        assertEquals("pool-1-thread-2:1\n" + "pool-1-thread-1:2\n" + "pool-1-thread-2:3\n" + "pool-1-thread-1:4\n"
-            + "pool-1-thread-2:5\n" + "pool-1-thread-1:6\n" + "pool-1-thread-2:7\n" + "pool-1-thread-1:8\n"
-            + "pool-1-thread-2:9\n" + "pool-1-thread-1:10\n", outContent.toString());
+        assertEquals("1 2 3 4 5 6 7 8 9 10 ", outContent.toString());
     }
 }

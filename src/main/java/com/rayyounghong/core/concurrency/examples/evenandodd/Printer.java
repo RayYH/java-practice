@@ -14,7 +14,7 @@ public class Printer {
                 e.printStackTrace();
             }
         }
-        System.out.println(Thread.currentThread().getName() + ":" + number);
+        System.out.print(number + " ");
         isOdd = true;
         notify();
     }
@@ -27,7 +27,7 @@ public class Printer {
                 Thread.currentThread().interrupt();
             }
         }
-        System.out.println(Thread.currentThread().getName() + ":" + number);
+        System.out.print(number + " ");
         isOdd = false;
         notify();
     }
