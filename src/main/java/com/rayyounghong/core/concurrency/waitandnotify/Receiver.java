@@ -16,7 +16,7 @@ public class Receiver implements Runnable {
     public void run() {
         String endString = "END";
         for (String message = load.receive(); !endString.equals(message); message = load.receive()) {
-            System.out.println(message);
+            System.out.print(message + " ");
             try {
                 Thread.sleep(ThreadLocalRandom.current().nextInt(500, 1500));
             } catch (InterruptedException e) {

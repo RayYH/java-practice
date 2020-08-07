@@ -27,7 +27,6 @@ public class SenderReceiverTest extends StandardIOTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        assertEquals("First packet\n" + "Second packet\n" + "Third packet\n" + "Fourth packet\n" + "End\n",
-            outContent.toString());
+        assertEquals("First packet Second packet Third packet Fourth packet End ", outContent.toString());
     }
 }
