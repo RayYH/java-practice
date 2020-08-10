@@ -67,4 +67,74 @@ public class Array {
 
         return n - 1;
     }
+
+    public static int max(int[] arr) {
+        if (arr.length == 0) {
+            throw new IllegalArgumentException();
+        }
+
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+
+        return max;
+    }
+
+    public static int min(int[] arr) {
+        if (arr.length == 0) {
+            throw new IllegalArgumentException();
+        }
+
+        int min = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+
+        return min;
+    }
+
+    public static int sum(int[] arr) {
+        int sum = 0;
+        for (int j : arr) {
+            sum += j;
+        }
+
+        return sum;
+    }
+
+    public static int average(int[] arr) {
+        if (arr.length == 0) {
+            return 0;
+        }
+
+        return sum(arr) / (arr.length);
+    }
+
+    public static int[] copy(int[] arr) {
+        int[] copied = new int[arr.length];
+
+        // here used system provided array copy method
+        System.arraycopy(arr, 0, copied, 0, arr.length);
+        // for (int i = 0; i < arr.length; i++) {
+        // copied[i] = arr[i];
+        // }
+
+        return copied;
+    }
+
+    public static void reverse(int[] arr) {
+        int length = arr.length;
+        int halfLength = length / 2;
+        int temp;
+        for (int i = 0; i < halfLength; i++) {
+            temp = arr[i];
+            arr[i] = arr[length - 1 - i];
+            arr[length - 1 - i] = temp;
+        }
+    }
 }

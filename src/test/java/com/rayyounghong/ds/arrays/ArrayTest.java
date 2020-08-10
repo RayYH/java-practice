@@ -3,6 +3,8 @@ package com.rayyounghong.ds.arrays;
 import com.rayyounghong.helper.DisableInspection;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -53,5 +55,17 @@ public class ArrayTest {
         int res = Array.deleteElement(arr, n, key);
         assertEquals(res, n - 1);
         assertEquals(Arrays.toString(arr), "[10, 50, 40, 20, 0]");
+    }
+
+    @Test
+    void testBasicMethodsOfArray() {
+        int[] arr = {10, 50, 30, 40, 20};
+        assertEquals(50, Array.max(arr));
+        assertEquals(10, Array.min(arr));
+        assertEquals(150, Array.sum(arr));
+        assertEquals(30, Array.average(arr));
+        assertArrayEquals(new int[]{10, 50, 30, 40, 20}, Array.copy(arr));
+        Array.reverse(arr);
+        assertArrayEquals(new int[]{20, 40, 30, 50, 10}, arr);
     }
 }
