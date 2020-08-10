@@ -32,6 +32,8 @@ dependencies {
 group = 'com.rayyounghong'
 version = '1.0-SNAPSHOT'
 description = 'java-practice'
+sourceCompatibility = 14
+targetCompatibility = 14
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'

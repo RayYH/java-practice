@@ -39,4 +39,11 @@ public class Color {
             + ANSI_WHITE + ANSI_BLACK_BACKGROUND + ANSI_RED_BACKGROUND + ANSI_GREEN_BACKGROUND + ANSI_YELLOW_BACKGROUND
             + ANSI_BLUE_BACKGROUND + ANSI_PURPLE_BACKGROUND + ANSI_CYAN_BACKGROUND + ANSI_WHITE_BACKGROUND;
     }
+
+    public static void main(String[] args) {
+        System.out.println(ANSI_GREEN + "This text has green text but a default background!" + ANSI_RESET);
+        System.out.println(ANSI_RED + "This text has red text but a default background!" + ANSI_RESET);
+        System.out.println(
+            ANSI_GREEN_BACKGROUND + ANSI_WHITE + "This text has a green background and white text!" + ANSI_RESET);
+    }
 }
