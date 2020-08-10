@@ -44,5 +44,5 @@
 
 ### Sorting
 
-- [x] Selection Sort
-- [x] Quick Sort
+- [x] [Selection Sort](src/main/java/com/rayyounghong/algorithms/sorting/Selection.java)
+- [x] [Quick Sort](src/main/java/com/rayyounghong/algorithms/sorting/Quick.java)
