@@ -15,11 +15,13 @@ repositories {
     mavenLocal()
     maven {
         url = uri('https://repo.maven.apache.org/maven2')
+        url = uri('https://dl.bintray.com/algs4/maven')
     }
 }
 
 dependencies {
     implementation 'commons-beanutils:commons-beanutils:1.9.4'
+    implementation 'edu.princeton.cs:algs4:1.0.4'
     testImplementation 'junit:junit:4.13'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.6.2'
     testImplementation 'org.junit.vintage:junit-vintage-engine:5.6.2'
