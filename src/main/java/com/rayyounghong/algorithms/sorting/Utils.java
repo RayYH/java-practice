@@ -5,7 +5,7 @@ import java.util.Comparator;
 /**
  * @author ray
  */
-public class Base {
+public final class Utils {
     /**
      * Is v < w ?
      *
@@ -15,7 +15,7 @@ public class Base {
      *            object w
      * @return true if v < w, otherwise false.
      */
-    public static boolean less(Comparable<Object> v, Comparable<Object> w) {
+    public static <T extends Comparable<T>> boolean less(T v, T w) {
         return v.compareTo(w) < 0;
     }
 
@@ -30,7 +30,7 @@ public class Base {
      *            object w
      * @return true if v < w, otherwise false.
      */
-    public static boolean less(Comparator<Object> comparator, Object v, Object w) {
+    public static <T extends Comparable<T>> boolean less(Comparator<T> comparator, T v, T w) {
         return comparator.compare(v, w) < 0;
     }
 
@@ -44,8 +44,8 @@ public class Base {
      * @param j
      *            the second index
      */
-    public static void exchange(Object[] a, int i, int j) {
-        Object swap = a[i];
+    public static <T extends Comparable<T>> void exchange(T[] a, int i, int j) {
+        T swap = a[i];
         a[i] = a[j];
         a[j] = swap;
     }
@@ -57,7 +57,7 @@ public class Base {
      *            given array
      * @return true if sorted, otherwise false
      */
-    public static boolean isSorted(Comparable<Object>[] a) {
+    public static <T extends Comparable<T>> boolean isSorted(T[] a) {
         return isSorted(a, 0, a.length - 1);
     }
 
@@ -72,7 +72,7 @@ public class Base {
      *            high index
      * @return true if sorted, otherwise false
      */
-    public static boolean isSorted(Comparable<Object>[] a, int lo, int hi) {
+    public static <T extends Comparable<T>> boolean isSorted(T[] a, int lo, int hi) {
         for (int i = lo + 1; i <= hi; i++) {
             if (less(a[i], a[i - 1])) {
                 return false;
@@ -90,7 +90,7 @@ public class Base {
      *            given comparator
      * @return true if sorted, otherwise false
      */
-    public static boolean isSorted(Object[] a, Comparator<Object> comparator) {
+    public static <T extends Comparable<T>> boolean isSorted(T[] a, Comparator<T> comparator) {
         return isSorted(a, comparator, 0, a.length - 1);
     }
 
@@ -107,13 +107,25 @@ public class Base {
      *            high index
      * @return true if sorted, otherwise false
      */
-    public static boolean isSorted(Object[] a, Comparator<Object> comparator, int lo, int hi) {
+    public static <T extends Comparable<T>> boolean isSorted(T[] a, Comparator<T> comparator, int lo, int hi) {
         for (int i = lo + 1; i <= hi; i++) {
             if (less(comparator, a[i], a[i - 1])) {
                 return false;
             }
         }
         return true;
+    }
+
+    /**
+     * Print elements.
+     *
+     * @param a
+     *            given array.
+     */
+    public static <T extends Comparable<T>> void show(T[] a) {
+        for (T objectComparable : a) {
+            System.out.println(objectComparable);
+        }
     }
 }
 

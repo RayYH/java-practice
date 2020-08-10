@@ -6,13 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 /**
  * @author ray
  */
-public class SelectionSortTest {
-
+public class QuickSortTest {
     @Test
     void testSort() {
-        Selection selection = new Selection();
+        Quick quick = new Quick();
         Integer[] arr = {3, 1, 2, 4, 6};
-        selection.sort(arr);
+        quick.sort(arr);
         assertArrayEquals(new Integer[] {1, 2, 3, 4, 6}, arr);
     }
 }

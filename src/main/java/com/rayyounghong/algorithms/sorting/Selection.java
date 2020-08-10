@@ -14,22 +14,19 @@ package com.rayyounghong.algorithms.sorting;
  *
  * @author ray
  */
-public class SelectionSort {
-
-    public static void sort(int[] arr) {
-        int n = arr.length;
+public class Selection implements Sortable {
+    @Override
+    public <T extends Comparable<T>> void sort(T[] unsorted) {
+        int length = unsorted.length;
         int i, j, minIndex;
-
-        for (i = 0; i < n - 1; i++) {
+        for (i = 0; i < length; i++) {
             minIndex = i;
-            for (j = i + 1; j < n; j++) {
-                if (arr[minIndex] > arr[j]) {
+            for (j = i + 1; j < length; j++) {
+                if (Utils.less(unsorted[j], unsorted[minIndex])) {
                     minIndex = j;
                 }
             }
-
-            Helper.swap(arr, i, minIndex);
+            Utils.exchange(unsorted, i, minIndex);
         }
     }
-
 }
