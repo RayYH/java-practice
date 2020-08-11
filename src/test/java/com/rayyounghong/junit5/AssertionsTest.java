@@ -1,5 +1,6 @@
 package com.rayyounghong.junit5;
 
+import java.time.Duration;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,5 +16,15 @@ public class AssertionsTest {
         assertEquals("String", "String");
         assertSame("String", "String");
         assertNotSame("String", new String("String"));
+    }
+
+    @Test
+    void testAssertTimeout() {
+        assertTimeout(Duration.ofMinutes(2), () -> {
+            // Perform task that takes less than 2 minutes.
+        });
+        assertTimeout(Duration.ofMillis(2), () -> {
+            // Perform task that takes less than 10 ms.
+        });
     }
 }
