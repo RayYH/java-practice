@@ -14,11 +14,6 @@ public class SinglyLinkedList {
     Node head;
 
     /**
-     * attrs for check if given list is palindrome
-     */
-    Node slowPtrForPalindrome, fastPtrForPalindrome, secondHalfForPalindrome;
-
-    /**
      * Print items of linked list one by one.
      */
     public void printList() {

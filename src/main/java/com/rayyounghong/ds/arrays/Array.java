@@ -1,5 +1,7 @@
 package com.rayyounghong.ds.arrays;
 
+import com.rayyounghong.algorithms.searching.BinarySearch;
+
 /**
  * @author ray
  */
@@ -11,7 +13,18 @@ public class Array {
 
         for (int i = 0; i < length; i++) {
             if (arr[i] == key) {
-                // return index if founded
+                // return index if found
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public static int findElement(int[] arr, int key) {
+        int length = arr.length;
+        for (int i = 0; i < length; i++) {
+            if (arr[i] == key) {
                 return i;
             }
         }
@@ -20,25 +33,11 @@ public class Array {
     }
 
     public static int binarySearch(int[] arr, int low, int high, int key) {
-        if (arr == null) {
-            return -1;
-        }
+        return BinarySearch.search(arr, low, high, key);
+    }
 
-        if (high < low) {
-            return -1;
-        }
-
-        // low + (high - low)/2
-        int mid = (low + high) / 2;
-        if (key == arr[mid]) {
-            return mid;
-        }
-
-        if (key > arr[mid]) {
-            return binarySearch(arr, mid + 1, high, key);
-        }
-
-        return binarySearch(arr, low, mid - 1, key);
+    public static int binarySearch(int[] arr, int key) {
+        return BinarySearch.search(arr, key);
     }
 
     public static int insertElementAtEnd(int[] arr, int n, int key, int capacity) {

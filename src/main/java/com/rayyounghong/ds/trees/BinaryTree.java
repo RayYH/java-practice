@@ -38,42 +38,49 @@ import java.util.Stack;
  * @author ray
  */
 public class BinaryTree {
+    /**
+     * root node.
+     */
     Node root;
+
+    /*
+     * ----------------------------------------------------------
+     * Lists for saving results from tree traversals.
+     * ----------------------------------------------------------
+     */
 
     static List<Integer> inorderList = new ArrayList<>();
     static List<Integer> postorderList = new ArrayList<>();
     static List<Integer> preorderList = new ArrayList<>();
 
+    /*
+     * ----------------------------------------------------------
+     * Constructors.
+     * ----------------------------------------------------------
+     */
+
+    /**
+     * Generate a tree with root node.
+     *
+     * @param key
+     *            root key
+     */
     BinaryTree(int key) {
         root = new Node(key);
     }
 
+    /**
+     * Generate a empty tree.
+     */
     BinaryTree() {
         root = null;
     }
 
-    void insert(int key) {
-        Node temp = root;
-        Queue<Node> q = new LinkedList<>();
-        q.add(temp);
-        while (!q.isEmpty()) {
-            temp = q.peek();
-            q.remove();
-            if (temp.left == null) {
-                temp.left = new Node(key);
-                break;
-            } else {
-                q.add(temp.left);
-            }
-
-            if (temp.right == null) {
-                temp.right = new Node(key);
-                break;
-            } else {
-                q.add(temp.right);
-            }
-        }
-    }
+    /*
+     * ----------------------------------------------------------
+     * Get lists update by different traversal ways.
+     * ----------------------------------------------------------
+     */
 
     List<Integer> getInorderLists() {
         inorderList.clear();
@@ -92,6 +99,12 @@ public class BinaryTree {
         postorder(root);
         return postorderList;
     }
+
+    /*
+     * ----------------------------------------------------------
+     * Recursive traversals.
+     * ----------------------------------------------------------
+     */
 
     /**
      * Left, Root, Right.
@@ -134,6 +147,12 @@ public class BinaryTree {
             postorderList.add(node.key);
         }
     }
+
+    /*
+     * ----------------------------------------------------------
+     * Non-recursive traversals.
+     * ----------------------------------------------------------
+     */
 
     List<Integer> iterativePreorder() {
         List<Integer> l = new ArrayList<>();

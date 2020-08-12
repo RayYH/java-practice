@@ -12,6 +12,8 @@ public class BinarySearchTest {
     void testBinarySearch() {
         int[] arr = {2, 3, 4, 10, 40};
         assertEquals(3, BinarySearch.search(arr, 0, arr.length - 1, 10));
+        assertEquals(3, BinarySearch.search(arr, 10));
         assertEquals(-1, BinarySearch.search(arr, 0, arr.length - 1, 100));
+        assertEquals(-1, BinarySearch.search(arr, 100));
     }
 }

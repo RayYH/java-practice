@@ -19,4 +19,8 @@ public class BinarySearch {
 
         return -1;
     }
+
+    public static int search(int[] arr, int key) {
+        return search(arr, 0, arr.length - 1, key);
+    }
 }

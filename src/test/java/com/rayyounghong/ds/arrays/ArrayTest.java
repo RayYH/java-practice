@@ -24,6 +24,10 @@ public class ArrayTest {
         assertEquals(-1, Array.findElement(arr, length, 200));
         assertEquals(0, Array.findElement(arr, length, 12));
         assertEquals(4, Array.findElement(arr, length, 40));
+        assertEquals(-1, Array.findElement(arr, 100));
+        assertEquals(-1, Array.findElement(arr, 200));
+        assertEquals(0, Array.findElement(arr, 12));
+        assertEquals(4, Array.findElement(arr, 40));
     }
 
     @Test
@@ -35,6 +39,11 @@ public class ArrayTest {
         assertEquals(1, Array.binarySearch(arr, 0, length - 1, 12));
         assertEquals(2, Array.binarySearch(arr, 0, length - 1, 40));
         assertEquals(4, Array.binarySearch(arr, 0, length - 1, 130));
+        assertEquals(-1, Array.binarySearch(arr, 100));
+        assertEquals(-1, Array.binarySearch(arr, 200));
+        assertEquals(1, Array.binarySearch(arr, 12));
+        assertEquals(2, Array.binarySearch(arr, 40));
+        assertEquals(4, Array.binarySearch(arr, 130));
     }
 
     @Test
@@ -64,8 +73,8 @@ public class ArrayTest {
         assertEquals(10, Array.min(arr));
         assertEquals(150, Array.sum(arr));
         assertEquals(30, Array.average(arr));
-        assertArrayEquals(new int[]{10, 50, 30, 40, 20}, Array.copy(arr));
+        assertArrayEquals(new int[] {10, 50, 30, 40, 20}, Array.copy(arr));
         Array.reverse(arr);
-        assertArrayEquals(new int[]{20, 40, 30, 50, 10}, arr);
+        assertArrayEquals(new int[] {20, 40, 30, 50, 10}, arr);
     }
 }
