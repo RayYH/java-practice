@@ -22,7 +22,7 @@ public class Selection implements Sortable {
         for (i = 0; i < length; i++) {
             minIndex = i;
             for (j = i + 1; j < length; j++) {
-                if (Utils.less(unsorted[j], unsorted[minIndex])) {
+                if (Utils.lessThan(unsorted[j], unsorted[minIndex])) {
                     minIndex = j;
                 }
             }

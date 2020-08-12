@@ -24,13 +24,13 @@ public class Quick implements Sortable {
         T pivot = unsorted[i];
 
         while (true) {
-            while (Utils.less(unsorted[++i], pivot)) {
+            while (Utils.lessThan(unsorted[++i], pivot)) {
                 if (i == high) {
                     break;
                 }
             }
 
-            while (Utils.less(pivot, unsorted[--j])) {
+            while (Utils.lessThan(pivot, unsorted[--j])) {
                 if (j == low) {
                     break;
                 }

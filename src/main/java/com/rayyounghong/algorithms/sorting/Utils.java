@@ -15,8 +15,24 @@ public final class Utils {
      *            object w
      * @return true if v < w, otherwise false.
      */
-    public static <T extends Comparable<T>> boolean less(T v, T w) {
+    public static <T extends Comparable<T>> boolean lessThan(T v, T w) {
         return v.compareTo(w) < 0;
+    }
+
+    /**
+     * Is a[i] < a[j] ?
+     *
+     * @param a
+     *            given array
+     *
+     * @param i
+     *            index i
+     * @param j
+     *            index j
+     * @return true if a[i] < a[j], otherwise false.
+     */
+    public static <T extends Comparable<T>> boolean lessThan(T[] a, int i, int j) {
+        return lessThan(a[i], a[j]);
     }
 
     /**
@@ -30,7 +46,7 @@ public final class Utils {
      *            object w
      * @return true if v < w, otherwise false.
      */
-    public static <T extends Comparable<T>> boolean less(Comparator<T> comparator, T v, T w) {
+    public static <T extends Comparable<T>> boolean lessThan(Comparator<T> comparator, T v, T w) {
         return comparator.compare(v, w) < 0;
     }
 
@@ -74,7 +90,7 @@ public final class Utils {
      */
     public static <T extends Comparable<T>> boolean isSorted(T[] a, int lo, int hi) {
         for (int i = lo + 1; i <= hi; i++) {
-            if (less(a[i], a[i - 1])) {
+            if (lessThan(a[i], a[i - 1])) {
                 return false;
             }
         }
@@ -109,7 +125,7 @@ public final class Utils {
      */
     public static <T extends Comparable<T>> boolean isSorted(T[] a, Comparator<T> comparator, int lo, int hi) {
         for (int i = lo + 1; i <= hi; i++) {
-            if (less(comparator, a[i], a[i - 1])) {
+            if (lessThan(comparator, a[i], a[i - 1])) {
                 return false;
             }
         }
