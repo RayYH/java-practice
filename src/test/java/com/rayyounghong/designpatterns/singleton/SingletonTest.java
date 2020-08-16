@@ -31,6 +31,8 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTimeout;
 
 /**
+ * PLEASE VIEW licenses/java-design-patterns-license.txt file to get more details of copyrights.
+ *
  * @param <S>
  *            Supplier method generating singletons
  * @author Jeroen Meulemeester

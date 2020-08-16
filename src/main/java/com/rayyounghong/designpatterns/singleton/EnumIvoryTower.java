@@ -1,6 +1,8 @@
 package com.rayyounghong.designpatterns.singleton;
 
 /**
+ * PLEASE VIEW licenses/java-design-patterns-license.txt file to get more details of copyrights.
+ *
  * <p>
  * Enum based singleton implementation. Effective Java 2nd Edition (Joshua Bloch) p. 18
  * </p>

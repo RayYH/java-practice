@@ -24,6 +24,7 @@ repositories {
 dependencies {
     implementation 'commons-beanutils:commons-beanutils:1.9.4'
     implementation 'edu.princeton.cs:algs4:1.0.4'
+    implementation 'org.apache.commons:commons-lang3:3.11'
     testImplementation 'junit:junit:4.13'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.6.2'
     testImplementation 'org.junit.vintage:junit-vintage-engine:5.6.2'
@@ -32,8 +33,6 @@ dependencies {
 group = 'com.rayyounghong'
 version = '1.0-SNAPSHOT'
 description = 'java-practice'
-sourceCompatibility = 14
-targetCompatibility = 14
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
