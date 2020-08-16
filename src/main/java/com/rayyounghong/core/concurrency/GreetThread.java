@@ -1,6 +1,8 @@
 package com.rayyounghong.core.concurrency;
 
 /**
+ * Subclass Thread.
+ *
  * @author ray
  */
 public class GreetThread extends Thread {

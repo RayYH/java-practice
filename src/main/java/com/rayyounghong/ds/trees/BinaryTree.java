@@ -1,37 +1,34 @@
 package com.rayyounghong.ds.trees;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 import java.util.Stack;
 
 /**
+ * <p>
  * Some properties.
+ * </p>
  *
- * Depth: The depth of a node is the number of generations the node is removed from the root. The root has depth 0. The
- * root's children have depth 1. Depth can be defined recursively: the depth of node n is 0 if n is the root, or 1 plus
- * the depth of n's parent otherwise.
- *
- * Height: The height of tree T is the maximum depth of any node of T.
- *
- * Binary Tree: A binary tree is a rooted tree such that every node has at most two children. The children (when
- * present) are known as the left child and right child.
- *
- * Full Binary Tree: A Binary Tree is a full binary tree if every node has 0 or 2 children. We can also say a full
- * binary tree is a binary tree in which all nodes except leaf nodes have two children.
- *
- * Complete Binary Tree: A Binary Tree is a complete Binary Tree if all the levels are completely filled except possibly
- * the last level and the last level has all keys as left as possible.
- *
- * Perfect Binary Tree: A Binary tree is a Perfect Binary Tree in which all the internal nodes have two children and all
- * leaf nodes are at the same level.
- *
- * Balanced Binary Tree: A binary tree is balanced if the height of the tree is O(Log n) where n is the number of nodes.
- * For Example, the AVL tree maintains O(Log n) height by making sure that the difference between the heights of the
- * left and right subtrees is almost 1. Red-Black trees maintain O(Log n) height by making sure that the number of Black
- * nodes on every root to leaf paths is the same and there are no adjacent red nodes. Balanced Binary Search trees are
- * performance-wise good as they provide O(log n) time for search, insert and delete.
+ * <ul>
+ * <li><strong>Depth</strong>: The depth of a node is the number of generations the node is removed from the root. The
+ * root has depth 0. The root's children have depth 1. Depth can be defined recursively: the depth of node n is 0 if n
+ * is the root, or 1 plus the depth of n's parent otherwise.</li>
+ * <li><strong>Height</strong>: The height of tree {@code T} is the maximum depth of any node of {@code T}.</li>
+ * <li><strong>Binary Tree</strong>: A binary tree is a rooted tree such that every node has <i>at most two
+ * children</i>. The children (when present) are known as the left child and right child.</li>
+ * <li><strong>Full Binary Tree</strong>: A Binary Tree is a full binary tree if every node has 0 or 2 children. We can
+ * also say a full binary tree is a binary tree in which all nodes except leaf nodes have two children.</li>
+ * <li><strong>Complete Binary Tree</strong>: A Binary Tree is a complete Binary Tree if all the levels are completely
+ * filled except possibly the last level and the last level has all keys as left as possible.</li>
+ * <li><strong>Perfect Binary Tree</strong>: A Binary tree is a Perfect Binary Tree in which all the internal nodes have
+ * two children and all leaf nodes are at the same level.</li>
+ * <li><strong>Balanced Binary Tree</strong>: A binary tree is balanced if the height of the tree is {@code O(Log n)}
+ * where n is the number of nodes. For Example, the AVL tree maintains {@code O(Log n)} height by making sure that the
+ * difference between the heights of the left and right subtrees is almost 1. Red-Black trees maintain {@code O(Log n)}
+ * height by making sure that the number of Black nodes on every root to leaf paths is the same and there are no
+ * adjacent red nodes. Balanced Binary Search trees are performance-wise good as they provide {@code O(log n)} time for
+ * search, insert and delete.</li>
+ * </ul>
  *
  * @see <a href="https://en.wikipedia.org/wiki/Binary_tree#Types_of_binary_trees">Types of binary trees.</a>
  * @see <a href="https://en.wikipedia.org/wiki/Tree_traversal">Tree traversal.</a>
@@ -78,7 +75,7 @@ public class BinaryTree {
 
     /*
      * ----------------------------------------------------------
-     * Get lists update by different traversal ways.
+     * Get lists updated by different traversal strategies.
      * ----------------------------------------------------------
      */
 

@@ -25,7 +25,6 @@ public class StopRunnable implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
         }
     }
 }

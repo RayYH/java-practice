@@ -4,7 +4,6 @@ package com.rayyounghong.ds.queue;
  * @author ray
  */
 public class EmptyQueueException extends RuntimeException {
-
     private static final long serialVersionUID = -2707033849922874618L;
 
     /**

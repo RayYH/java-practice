@@ -23,16 +23,20 @@ public class ThreadsTest {
         // Thread Subclass
         GreetThread greetThread = new GreetThread();
         greetThread.start();
-        // using anonymous subclass
+
+        // Using anonymous subclass
         Thread anonymousThread = new Thread("Anonymous Thread!") {
             @Override
             public void run() {
-                System.out.println(getName());
+                System.out.println("Thread Name: " + getName());
             }
         };
         anonymousThread.start();
+
         // Runnable Interface Implementation
         GreetRunnable greetRunnable = new GreetRunnable();
+
+        // Using anonymous class
         Runnable anonymousRunnable = new Runnable() {
             @Override
             public void run() {
@@ -40,8 +44,9 @@ public class ThreadsTest {
             }
         };
 
-        // A Java lambda can only implement a single method. You must use a custom class, or a custom interface that
-        // extends Runnable which has the extra methods, and which is implemented by an anonymous class.
+        // A Java lambda can only implement a single method.
+        // You must use a custom class, or a custom interface that extends Runnable which has the extra methods,
+        // and which is implemented by an anonymous class.
         Runnable lambdaRunnable = () -> System.out.println("Lambda Runnable!");
 
         // get current thread name

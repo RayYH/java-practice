@@ -20,6 +20,38 @@ public final class Utils {
     }
 
     /**
+     * get min value.
+     *
+     * @param a
+     *            given array
+     *
+     * @param i
+     *            index i
+     * @param j
+     *            index j
+     * @return true if a[i] < a[j], otherwise false.
+     */
+    public static <T extends Comparable<T>> T min(T[] a, int i, int j) {
+        return lessThan(a[i], a[j]) ? a[i] : a[j];
+    }
+
+    /**
+     * get max value.
+     *
+     * @param a
+     *            given array
+     *
+     * @param i
+     *            index i
+     * @param j
+     *            index j
+     * @return true if a[i] < a[j], otherwise false.
+     */
+    public static <T extends Comparable<T>> T max(T[] a, int i, int j) {
+        return lessThan(a[i], a[j]) ? a[j] : a[i];
+    }
+
+    /**
      * Is a[i] < a[j] ?
      *
      * @param a
