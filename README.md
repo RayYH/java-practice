@@ -7,6 +7,8 @@ Some code about **core java/data structure/algorithms**. This code may be terrib
 + Openjdk version >= 14
 + Gradle
 
+> If you use Docker, you can use provided `docker-compose.yml` file to get a jdk14 environment with gradle 6.6.
+
 ## Scripts
 
 ```bash

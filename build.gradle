@@ -14,10 +14,27 @@ application {
 repositories {
     mavenLocal()
     maven {
+        url 'http://maven.aliyun.com/nexus/content/groups/public/'
+    }
+    maven {
+        url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+    }
+    maven {
         url = uri('https://repo.maven.apache.org/maven2')
     }
     maven {
         url = uri('https://dl.bintray.com/algs4/maven')
+    }
+}
+
+allprojects {
+    repositories {
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+        }
     }
 }
 
