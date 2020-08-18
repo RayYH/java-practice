@@ -41,5 +41,6 @@ public class BinaryTreeTest {
         assertEquals("[1, 2, 4, 5, 3]", Arrays.toString(tree.iterativePreorder().toArray()));
         assertEquals("[4, 5, 2, 3, 1]", Arrays.toString(tree.getPostorderLists().toArray()));
         assertEquals("[4, 5, 2, 3, 1]", Arrays.toString(tree.iterativePostorder().toArray()));
+        assertEquals("[1, 2, 3, 4, 5]", Arrays.toString(tree.levelOrder().toArray()));
     }
 }

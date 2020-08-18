@@ -12,7 +12,7 @@ public class QueueTest {
 
     @Test
     void testQueueBasicOperations() {
-        Queue queue = new Queue(5);
+        Queue<Integer> queue = new Queue<>(5);
         assertTrue(queue.isEmpty());
         queue.enqueue(1);
         assertEquals(1, queue.front());

@@ -1,21 +1,28 @@
 package com.rayyounghong.ds.queue;
 
+import java.lang.reflect.Array;
+
 /**
  * Queue is a linear structure which follows a particular order in which the operations are performed. The order is
  * First In First Out (FIFO).
  *
  * @author ray
  */
-public class Queue {
+public class Queue<E> {
     int front, rear, size;
     int capacity;
-    int[] array;
+    E[] array;
 
-    Queue(int capacity) {
+    @SuppressWarnings("unchecked")
+    public Queue(int capacity) {
         this.capacity = capacity;
         this.front = this.size = 0;
         this.rear = this.capacity - 1;
-        this.array = new int[capacity];
+        this.array = (E[])Array.newInstance(Object.class, capacity);
+    }
+
+    public Queue() {
+        this(1024);
     }
 
     public boolean isFull() {
@@ -32,7 +39,7 @@ public class Queue {
      * @param item
      *            added value
      */
-    public void enqueue(int item) {
+    public void enqueue(E item) {
         if (this.isFull()) {
             throw new QueueOverflowException("Queue Overflow");
         }
@@ -47,12 +54,12 @@ public class Queue {
      *
      * @return the item at front.
      */
-    public int dequeue() {
+    public E dequeue() {
         if (this.isEmpty()) {
             throw new EmptyQueueException("Empty queue");
         }
 
-        int item = this.array[this.front];
+        E item = this.array[this.front];
         this.front = (this.front + 1) % this.capacity;
         this.size = this.size - 1;
         return item;
@@ -63,7 +70,7 @@ public class Queue {
      *
      * @return item at front.
      */
-    public int front() {
+    public E front() {
         if (this.isEmpty()) {
             throw new EmptyQueueException("Empty queue");
         }
@@ -76,7 +83,7 @@ public class Queue {
      *
      * @return item at rear.
      */
-    public int rear() {
+    public E rear() {
         if (this.isEmpty()) {
             throw new EmptyQueueException("Empty queue");
         }

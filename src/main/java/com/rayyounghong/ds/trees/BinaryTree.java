@@ -3,6 +3,7 @@ package com.rayyounghong.ds.trees;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+import com.rayyounghong.ds.queue.Queue;
 
 /**
  * <p>
@@ -42,7 +43,8 @@ public class BinaryTree {
 
     /*
      * ----------------------------------------------------------
-     * Lists for saving results from tree traversals.
+     * Lists for saving results from tree traversals (DFS).
+     * For testing usage.
      * ----------------------------------------------------------
      */
 
@@ -214,6 +216,24 @@ public class BinaryTree {
                     l.add(peekNode.key);
                     lastVisitedNode = s.pop();
                 }
+            }
+        }
+
+        return l;
+    }
+
+    List<Integer> levelOrder() {
+        Queue<Node> q = new Queue<>();
+        List<Integer> l = new ArrayList<>();
+        q.enqueue(root);
+        while (!q.isEmpty()) {
+            Node node = q.dequeue();
+            l.add(node.key);
+            if (node.left != null) {
+                q.enqueue(node.left);
+            }
+            if (node.right != null) {
+                q.enqueue(node.right);
             }
         }
 
