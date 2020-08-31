@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-import com.rayyounghong.helper.DisableInspection;
-
 /**
  * @author ray
  */

@@ -1,4 +1,4 @@
-package com.rayyounghong.core.volatilekeyword;
+package com.rayyounghong.core.concurrency.volatilekeyword;
 
 /**
  * Every read of a {@code volatile} variable will be read from <strong>the computer's main memory</strong>, and not from

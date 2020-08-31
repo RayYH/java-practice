@@ -1,4 +1,4 @@
-package com.rayyounghong.core.volatilekeyword;
+package com.rayyounghong.core.concurrency.volatilekeyword;
 
 import org.junit.jupiter.api.Test;
 

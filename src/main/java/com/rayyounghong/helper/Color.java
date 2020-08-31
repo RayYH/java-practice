@@ -1,5 +1,8 @@
 package com.rayyounghong.helper;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+
 /**
  * Use ANSI escape codes to use color in output, only works for Unix shell prompts. For windows user, you can try
  * <a href="https://github.com/microsoft/terminal"> microsoft terminal. </a>.
@@ -41,9 +44,19 @@ public class Color {
     }
 
     public static void main(String[] args) {
-        System.out.println(ANSI_GREEN + "This text has green text but a default background!" + ANSI_RESET);
-        System.out.println(ANSI_RED + "This text has red text but a default background!" + ANSI_RESET);
-        System.out.println(
-            ANSI_GREEN_BACKGROUND + ANSI_WHITE + "This text has a green background and white text!" + ANSI_RESET);
+        String s = Color.showAllConstants();
+        DisableInspection.doWhatEver(s);
+        try {
+            Field[] fields = Color.class.getDeclaredFields();
+            for (Field f : fields) {
+                if (Modifier.isStatic(f.getModifiers())) {
+                    f.setAccessible(true);
+                    // Here, you can print the constant, but to be cleaner, I disabled it.
+                    System.out.println(f.get(null) + f.getName() + Color.ANSI_RESET);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

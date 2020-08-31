@@ -16,7 +16,7 @@ public class Absolute {
     }
 
     /**
-     * get the value, return the absolute max value.
+     * Return the absolute max value of given values.
      *
      * @param numbers
      *            elements
@@ -26,6 +26,7 @@ public class Absolute {
         if (numbers == null) {
             throw new IllegalArgumentException();
         }
+
         int absMaxValue = numbers[0];
 
         for (int i = 1; i < numbers.length; i++) {
@@ -38,7 +39,7 @@ public class Absolute {
     }
 
     /**
-     * get the value, returns the absolute min value.
+     * Returns the absolute min value of given values.
      *
      * @param numbers
      *            elements

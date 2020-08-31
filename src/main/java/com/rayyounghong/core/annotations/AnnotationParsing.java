@@ -48,4 +48,8 @@ public class AnnotationParsing {
             DisableInspection.doWhatEver(e.toString());
         }
     }
+
+    public static void main(String[] args) {
+        parseAnnotation();
+    }
 }

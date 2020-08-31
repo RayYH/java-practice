@@ -12,6 +12,7 @@ public class BinomialCoefficient {
             throw new IllegalArgumentException("n, k should match the rule: n >= k >= 0");
         }
 
+        // (n, k) = n! / (K! * (n-k)!)
         return PositiveInteger.factorial(n) / (PositiveInteger.factorial(k) * PositiveInteger.factorial(n - k));
     }
 }

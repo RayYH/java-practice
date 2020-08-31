@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
+ * {@link AnnotationParsing#main}
+ *
  * @author ray
  */
 public class AnnotationTest extends StandardIOTest {

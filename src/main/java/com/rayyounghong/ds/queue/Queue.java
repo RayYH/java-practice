@@ -6,6 +6,8 @@ import java.lang.reflect.Array;
  * Queue is a linear structure which follows a particular order in which the operations are performed. The order is
  * First In First Out (FIFO).
  *
+ * @param <E>
+ *            Element
  * @author ray
  */
 public class Queue<E> {
