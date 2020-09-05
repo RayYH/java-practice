@@ -828,4 +828,114 @@ public class SinglyLinkedList {
         }
     }
 
+    /**
+     * Pairwise swap elements of a given linked list.
+     *
+     * Start from the head node and traverse the list. While traversing swap data of each node with its next node’s
+     * data.
+     */
+    public void pairWiseSwap() {
+        Node curr = head;
+        int temp;
+        while (curr != null && curr.next != null) {
+            temp = curr.data;
+            curr.data = curr.next.data;
+            curr.next.data = temp;
+            // note here
+            curr = curr.next.next;
+        }
+    }
+
+    /**
+     * Move last element to front of a given Linked List.
+     */
+    public void moveLastToFront() {
+        // If linked list is empty or it contains only one node then simply return.
+        if (head == null || head.next == null) {
+            return;
+        }
+
+        // Initialize second last and last pointer
+        Node secondLast = null, last = head;
+
+        // After this loop secondLast contains address of second last node and
+        // last contains address of last node in Linked List
+        while (last.next != null) {
+            secondLast = last;
+            last = last.next;
+        }
+
+        assert secondLast != null;
+        secondLast.next = null;
+        last.next = head;
+        head = last;
+    }
+
+    /**
+     * Intersection of two Sorted Linked Lists without remove duplicates.
+     *
+     * @param a
+     *            head node of first list
+     * @param b
+     *            head node of second list
+     * @return the intersect list
+     */
+    public Node sortedIntersect(Node a, Node b) {
+        Node dummy = new Node();
+        Node tail = dummy;
+
+        // Once one or the other list runs out -- we're done
+        while (a != null && b != null) {
+            if (a.data == b.data) {
+                tail.next = new Node(a.data);
+                tail = tail.next;
+                a = a.next;
+                b = b.next;
+            } else if (a.data < b.data) {
+                a = a.next;
+            } else {
+                b = b.next;
+            }
+        }
+        return dummy.next;
+    }
+
+    /**
+     * Intersection of two Sorted Linked Lists without remove duplicates.
+     *
+     * @param a
+     *            head node of first list
+     * @param b
+     *            head node of second list
+     * @return the intersect list
+     */
+    public Node sortedIntersectAndRemoveDuplicates(Node a, Node b) {
+        Node dummy = new Node();
+        Node tail = dummy;
+
+        // Once one or the other list runs out -- we're done
+        while (a != null && b != null) {
+            if (a.data == b.data) {
+                // remove duplicates
+                while (a.next != null && a.next.data == a.data) {
+                    a = a.next;
+                }
+
+                while (b.next != null && b.next.data == b.data) {
+                    b = b.next;
+                }
+
+                tail.next = new Node(a.data);
+                tail = tail.next;
+                a = a.next;
+                b = b.next;
+            } else if (a.data < b.data) {
+                a = a.next;
+            } else {
+                b = b.next;
+            }
+        }
+        return dummy.next;
+    }
+
 }

@@ -389,4 +389,105 @@ public class SinglyLinkedListTest extends StandardIOTest {
         assertEquals(1, singlyLinkedList.getNth(4));
     }
 
+    @Test
+    void testPairWiseSwap() {
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.append(1);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(4);
+        singlyLinkedList.append(5);
+        singlyLinkedList.append(6);
+        singlyLinkedList.append(7);
+        singlyLinkedList.pairWiseSwap();
+        assertEquals(2, singlyLinkedList.getNth(1));
+        assertEquals(1, singlyLinkedList.getNth(2));
+        assertEquals(4, singlyLinkedList.getNth(3));
+        assertEquals(3, singlyLinkedList.getNth(4));
+        assertEquals(6, singlyLinkedList.getNth(5));
+        assertEquals(5, singlyLinkedList.getNth(6));
+        assertEquals(7, singlyLinkedList.getNth(7));
+    }
+
+    @Test
+    void testMoveLastToFront() {
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.append(1);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(4);
+        singlyLinkedList.append(5);
+        singlyLinkedList.append(6);
+        singlyLinkedList.append(7);
+        singlyLinkedList.moveLastToFront();
+        assertEquals(7, singlyLinkedList.getNth(1));
+        assertEquals(1, singlyLinkedList.getNth(2));
+        assertEquals(5, singlyLinkedList.getNth(6));
+        assertEquals(6, singlyLinkedList.getNth(7));
+    }
+
+    @Test
+    void testSortedIntersect() {
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.append(1);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(4);
+        singlyLinkedList.append(4);
+        singlyLinkedList.append(4);
+        singlyLinkedList.append(4);
+        singlyLinkedList.append(5);
+        singlyLinkedList.append(6);
+        singlyLinkedList.append(7);
+        SinglyLinkedList singlyLinkedList2 = new SinglyLinkedList();
+        singlyLinkedList2.append(1);
+        singlyLinkedList2.append(2);
+        singlyLinkedList2.append(2);
+        singlyLinkedList2.append(4);
+        singlyLinkedList2.append(4);
+        singlyLinkedList2.append(4);
+        singlyLinkedList2.append(4);
+        singlyLinkedList2.append(7);
+        Node temp = singlyLinkedList.sortedIntersect(singlyLinkedList.head, singlyLinkedList2.head);
+        SinglyLinkedList singlyLinkedList1 = new SinglyLinkedList();
+        singlyLinkedList1.head = temp;
+        singlyLinkedList1.printList();
+        assertEquals("1->2->2->4->4->4->4->7", outContent.toString());
+    }
+
+    @Test
+    void testSortedIntersectAndRemoveDuplicates() {
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.append(1);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(4);
+        singlyLinkedList.append(4);
+        singlyLinkedList.append(4);
+        singlyLinkedList.append(4);
+        singlyLinkedList.append(5);
+        singlyLinkedList.append(6);
+        singlyLinkedList.append(7);
+        SinglyLinkedList singlyLinkedList2 = new SinglyLinkedList();
+        singlyLinkedList2.append(1);
+        singlyLinkedList2.append(2);
+        singlyLinkedList2.append(2);
+        singlyLinkedList2.append(4);
+        singlyLinkedList2.append(4);
+        singlyLinkedList2.append(4);
+        singlyLinkedList2.append(4);
+        singlyLinkedList2.append(7);
+        Node temp = singlyLinkedList.sortedIntersectAndRemoveDuplicates(singlyLinkedList.head, singlyLinkedList2.head);
+        SinglyLinkedList singlyLinkedList1 = new SinglyLinkedList();
+        singlyLinkedList1.head = temp;
+        singlyLinkedList1.printList();
+        assertEquals("1->2->4->7", outContent.toString());
+    }
+
 }

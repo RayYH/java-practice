@@ -58,6 +58,9 @@
 - [x] Remove duplicates from an unsorted linked list
 - [x] Swap head node and given node's next node
 - [x] Swap nodes in a linked list without swapping data
+- [x] Pairwise swap elements of a given linked list
+- [x] Move last element to front of a given Linked List
+- [x] Intersection of two Sorted Linked Lists
 
 ## Algorithms
 

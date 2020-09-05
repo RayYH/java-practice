@@ -6,9 +6,15 @@ package com.rayyounghong.ds.linkedlist;
  * @author ray
  */
 public class Node {
+
     int data;
 
     Node next;
+
+    Node() {
+        this.data = 0;
+        next = null;
+    }
 
     Node(int d) {
         this.data = d;
@@ -24,4 +30,5 @@ public class Node {
     public int hashCode() {
         return super.hashCode();
     }
+
 }
