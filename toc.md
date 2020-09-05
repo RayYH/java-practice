@@ -54,7 +54,10 @@
 - [x] Find length of loop in linked list
 - [x] Reverse a linked list
 - [x] Check if a singly linked list is palindrome
-
+- [x] Remove duplicates from a sorted linked list
+- [x] Remove duplicates from an unsorted linked list
+- [x] Swap head node and given node's next node
+- [x] Swap nodes in a linked list without swapping data
 
 ## Algorithms
 

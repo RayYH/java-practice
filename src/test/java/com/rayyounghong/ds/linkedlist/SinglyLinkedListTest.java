@@ -285,4 +285,108 @@ public class SinglyLinkedListTest extends StandardIOTest {
         assertEquals(1, singlyLinkedList.getNth(4));
     }
 
+    @Test
+    void testSorted() {
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.append(1);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(4);
+        assertTrue(singlyLinkedList.isAscend());
+        assertFalse(singlyLinkedList.isDescend());
+        singlyLinkedList.reverse();
+        assertTrue(singlyLinkedList.isDescend());
+        assertFalse(singlyLinkedList.isAscend());
+    }
+
+    @Test
+    void testRemoveDuplicatesWhenSorted() {
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.append(1);
+        singlyLinkedList.append(1);
+        singlyLinkedList.append(1);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(4);
+        singlyLinkedList.removeDuplicatesWhenSorted();
+        assertEquals(1, singlyLinkedList.getNth(1));
+        assertEquals(2, singlyLinkedList.getNth(2));
+        assertEquals(3, singlyLinkedList.getNth(3));
+        assertEquals(4, singlyLinkedList.getNth(4));
+        singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.append(1);
+        singlyLinkedList.append(1);
+        singlyLinkedList.append(1);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(4);
+        singlyLinkedList.reverse();
+        singlyLinkedList.removeDuplicatesWhenSorted();
+        assertEquals(4, singlyLinkedList.getNth(1));
+        assertEquals(3, singlyLinkedList.getNth(2));
+        assertEquals(2, singlyLinkedList.getNth(3));
+        assertEquals(1, singlyLinkedList.getNth(4));
+    }
+
+    @Test
+    void testRemoveDuplicatesWhenUnSorted() {
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(1);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(1);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(4);
+        singlyLinkedList.append(1);
+        singlyLinkedList.removeDuplicatesWhenNotSorted();
+        assertEquals(3, singlyLinkedList.getNth(1));
+        assertEquals(1, singlyLinkedList.getNth(2));
+        assertEquals(2, singlyLinkedList.getNth(3));
+        assertEquals(4, singlyLinkedList.getNth(4));
+    }
+
+    @Test
+    void testSwapTheNextNodeAndHead() {
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.append(1);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(4);
+        singlyLinkedList.swapTheNextNodeAndHead(singlyLinkedList.head);
+        assertEquals(2, singlyLinkedList.getNth(1));
+        assertEquals(1, singlyLinkedList.getNth(2));
+    }
+
+    @Test
+    void testSwapNodesViaGivenData() {
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.append(1);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(4);
+        assertEquals(1, singlyLinkedList.getNth(1));
+        assertEquals(2, singlyLinkedList.getNth(2));
+        assertEquals(3, singlyLinkedList.getNth(3));
+        assertEquals(4, singlyLinkedList.getNth(4));
+        singlyLinkedList.swapNodesViaGivenData(1, 4);
+        assertEquals(4, singlyLinkedList.getNth(1));
+        assertEquals(2, singlyLinkedList.getNth(2));
+        assertEquals(3, singlyLinkedList.getNth(3));
+        assertEquals(1, singlyLinkedList.getNth(4));
+    }
+
 }

@@ -1,5 +1,7 @@
 package com.rayyounghong.ds.linkedlist;
 
+import java.util.HashSet;
+
 /**
  * @author ray
  */
@@ -636,6 +638,194 @@ public class SinglyLinkedList {
 
     public void reverse() {
         head = reverse(head);
+    }
+
+    /**
+     * Check if current list is sorted.
+     *
+     * @param asc
+     *            sort asc
+     * @return returns true if current list is sorted, otherwise false
+     */
+    private boolean isSorted(boolean asc) {
+        // no elements
+        if (head == null) {
+            throw new EmptyListException();
+        }
+        // only one node
+        if (head.next == null) {
+            return true;
+        }
+
+        Node first = head;
+        Node second = head.next;
+        while (second.next != null) {
+            if (asc) {
+                if (first.data > second.data) {
+                    return false;
+                }
+            } else {
+                if (first.data < second.data) {
+                    return false;
+                }
+            }
+            first = first.next;
+            second = second.next;
+        }
+
+        return true;
+    }
+
+    /**
+     * Check if current list is sorted.
+     *
+     * @return returns true if current list is ascend, otherwise false
+     */
+    public boolean isAscend() {
+        return isSorted(true);
+    }
+
+    /**
+     * Check if current list is sorted.
+     *
+     * @return returns true if current list is descend, otherwise false
+     */
+    public boolean isDescend() {
+        return isSorted(false);
+    }
+
+    /**
+     * Remove duplicates from a sorted linked list.
+     *
+     * Traverse the list from the head (or start) node. While traversing, compare each node with its next node. If data
+     * of next node is same as current node then delete the next node. Before we delete a node, we need to store next
+     * pointer of the node
+     */
+    public void removeDuplicatesWhenSorted() {
+        assert (isAscend() || isDescend());
+
+        Node curr = head;
+        Node temp;
+        while (curr != null) {
+            temp = curr;
+            // Compare current node with the next node and keep on deleting them until it matches the current node data
+            while (temp != null && temp.data == curr.data) {
+                temp = temp.next;
+            }
+            // Set current node next to the next different element denoted by temp
+            curr.next = temp;
+            curr = curr.next;
+        }
+    }
+
+    /**
+     * Remove duplicates from a unsorted linked list.
+     *
+     * We traverse the link list from head to end. For every newly encountered element, we check whether it is in the
+     * hash table: if yes, we remove it; otherwise we put it in the hash table.
+     */
+    public void removeDuplicatesWhenNotSorted() {
+        HashSet<Integer> h = new HashSet<>();
+
+        Node curr = head;
+        Node prev = null;
+
+        while (curr != null) {
+            // skip current element
+            if (h.contains(curr.data)) {
+                prev.next = curr.next;
+            } else {
+                h.add(curr.data);
+                prev = curr;
+            }
+            curr = curr.next;
+        }
+    }
+
+    /**
+     * Swap head node and given node's next node
+     *
+     * @param n
+     *            given node
+     */
+    public void swapTheNextNodeAndHead(Node n) {
+        // head -> section_one -> n -> n.next -> section_two -> null
+        // n.next -> section_one -> n -> head -> section_two -> null
+        if (n == null || head == null || head.next == null) {
+            return;
+        }
+
+        Node headNode = head, temp;
+
+        if (n == head) {
+            // head -> head.next -> ...
+            // head.next -> head -> ...
+            temp = head.next.next;
+            head = head.next;
+            head.next = headNode;
+            headNode.next = temp;
+            return;
+        }
+
+        Node sectionOne, sectionTwo;
+        sectionOne = head.next;
+        if (n.next == null) {
+            sectionTwo = null;
+        } else {
+            sectionTwo = n.next.next;
+        }
+
+        head = n.next;
+        head.next = sectionOne;
+        n.next = headNode;
+        n.next.next = sectionTwo;
+    }
+
+    /**
+     * Swap nodes in a linked list without swapping data
+     *
+     * @param x
+     *            first value
+     * @param y
+     *            second value
+     */
+    public void swapNodesViaGivenData(int x, int y) {
+        // Nothing to do if x and y are same
+        if (x == y) {
+            return;
+        }
+
+        // search for x and y in the linked list and store their pointer in a and b
+        Node curr = head, temp;
+        Node a = null, b = null;
+        while (curr.next != null) {
+            // a.next.data = x
+            // b.next.data = y
+            if (curr.next.data == x) {
+                a = curr;
+            } else if (curr.next.data == y) {
+                b = curr;
+            }
+            curr = curr.next;
+        }
+
+        if (head.data == x && b != null) {
+            swapTheNextNodeAndHead(b);
+        }
+
+        if (head.data == y && a != null) {
+            swapTheNextNodeAndHead(a);
+        }
+
+        // a -> (x), b -> (y)
+        if (a != null && b != null) {
+            temp = a.next;
+            a.next = b.next;
+            b.next = temp;
+            temp = a.next.next;
+            a.next.next = b.next.next;
+            b.next.next = temp;
+        }
     }
 
 }
