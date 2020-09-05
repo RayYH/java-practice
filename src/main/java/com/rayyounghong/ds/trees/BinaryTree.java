@@ -50,9 +50,7 @@ public class BinaryTree {
      * ----------------------------------------------------------
      */
 
-    static List<Integer> inorderList = new ArrayList<>();
-    static List<Integer> postorderList = new ArrayList<>();
-    static List<Integer> preorderList = new ArrayList<>();
+    static List<Integer> list = new ArrayList<>();
 
     /*
      * ----------------------------------------------------------
@@ -79,26 +77,42 @@ public class BinaryTree {
 
     /*
      * ----------------------------------------------------------
-     * Get lists updated by different traversal strategies.
+     * Get list updated by different traversal strategies.
      * ----------------------------------------------------------
      */
 
     List<Integer> getInorderLists() {
-        inorderList.clear();
+        list.clear();
         inorder(root);
-        return inorderList;
+        return list;
     }
 
     List<Integer> getPreorderLists() {
-        preorderList.clear();
+        list.clear();
         preorder(root);
-        return preorderList;
+        return list;
     }
 
     List<Integer> getPostorderLists() {
-        postorderList.clear();
+        list.clear();
         postorder(root);
-        return postorderList;
+        return list;
+    }
+
+    /*
+     * ----------------------------------------------------------
+     * visit method.
+     * ----------------------------------------------------------
+     */
+
+    /**
+     * Visit element.
+     *
+     * @param node
+     *            node will be visited
+     */
+    static void visit(Node node) {
+        list.add(node.key);
     }
 
     /*
@@ -116,7 +130,7 @@ public class BinaryTree {
     static void inorder(Node node) {
         if (node != null) {
             inorder(node.left);
-            inorderList.add(node.key);
+            visit(node);
             inorder(node.right);
         }
     }
@@ -129,7 +143,7 @@ public class BinaryTree {
      */
     static void preorder(Node node) {
         if (node != null) {
-            preorderList.add(node.key);
+            visit(node);
             preorder(node.left);
             preorder(node.right);
         }
@@ -145,7 +159,7 @@ public class BinaryTree {
         if (node != null) {
             postorder(node.left);
             postorder(node.right);
-            postorderList.add(node.key);
+            visit(node);
         }
     }
 
@@ -223,6 +237,12 @@ public class BinaryTree {
 
         return l;
     }
+
+    /*
+     * ----------------------------------------------------------
+     * BFS traversal..
+     * ----------------------------------------------------------
+     */
 
     List<Integer> levelOrder() {
         Queue<Node> q = new Queue<>();

@@ -137,7 +137,7 @@ public class SinglyLinkedListTest extends StandardIOTest {
         singlyLinkedList.append(2);
         singlyLinkedList.append(3);
 
-        assertEquals(3, singlyLinkedList.getCount());
+        assertEquals(3, singlyLinkedList.getCountOfNodes());
     }
 
     @Test
@@ -149,7 +149,7 @@ public class SinglyLinkedListTest extends StandardIOTest {
 
         singlyLinkedList.deleteList();
 
-        assertEquals(0, singlyLinkedList.getCount());
+        assertEquals(0, singlyLinkedList.getCountOfNodes());
     }
 
     @Test
@@ -172,33 +172,29 @@ public class SinglyLinkedListTest extends StandardIOTest {
     @Test
     public void testGetNth() {
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
-
-        assertThrows(NullPointerException.class, () -> singlyLinkedList.getNth(0));
-
-        assertThrows(NullPointerException.class, () -> singlyLinkedList.getNthFromLast(0));
-
-        assertThrows(NullPointerException.class, () -> SinglyLinkedList.getNth(singlyLinkedList.head, 0));
-
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(NoSuchElementException.class, () -> singlyLinkedList.getNth(1));
+        assertThrows(NoSuchElementException.class, () -> singlyLinkedList.getNthFromLast(1));
+        assertThrows(NullPointerException.class, () -> SinglyLinkedList.getNth(singlyLinkedList.head, 1));
+        assertThrows(NoSuchElementException.class, () -> {
             singlyLinkedList.append(1);
             singlyLinkedList.append(2);
             singlyLinkedList.append(3);
             singlyLinkedList.getNth(-1);
         });
 
-        assertThrows(IllegalArgumentException.class, () -> singlyLinkedList.getNth(5));
+        assertThrows(NoSuchElementException.class, () -> singlyLinkedList.getNth(5));
 
-        assertEquals(1, singlyLinkedList.getNth(0));
-        assertEquals(2, singlyLinkedList.getNth(1));
-        assertEquals(3, singlyLinkedList.getNth(2));
+        assertEquals(1, singlyLinkedList.getNth(1));
+        assertEquals(2, singlyLinkedList.getNth(2));
+        assertEquals(3, singlyLinkedList.getNth(3));
 
-        assertEquals(1, singlyLinkedList.getNthFromLast(2));
-        assertEquals(2, singlyLinkedList.getNthFromLast(1));
-        assertEquals(3, singlyLinkedList.getNthFromLast(0));
+        assertEquals(1, singlyLinkedList.getNthFromLast(3));
+        assertEquals(2, singlyLinkedList.getNthFromLast(2));
+        assertEquals(3, singlyLinkedList.getNthFromLast(1));
 
-        assertEquals(1, SinglyLinkedList.getNth(singlyLinkedList.head, 0));
-        assertEquals(2, SinglyLinkedList.getNth(singlyLinkedList.head, 1));
-        assertEquals(3, SinglyLinkedList.getNth(singlyLinkedList.head, 2));
+        assertEquals(1, SinglyLinkedList.getNth(singlyLinkedList.head, 1));
+        assertEquals(2, SinglyLinkedList.getNth(singlyLinkedList.head, 2));
+        assertEquals(3, SinglyLinkedList.getNth(singlyLinkedList.head, 3));
     }
 
     @Test
@@ -211,12 +207,10 @@ public class SinglyLinkedListTest extends StandardIOTest {
         singlyLinkedList.append(3);
         singlyLinkedList.append(4);
         singlyLinkedList.append(5);
-        assertEquals(3, singlyLinkedList.getMiddleSolution1());
-        assertEquals(3, singlyLinkedList.getMiddleSolution2());
+        assertEquals(3, singlyLinkedList.getMiddleViaTwoPointers());
         assertEquals(3, singlyLinkedList.getMiddle());
         singlyLinkedList.append(6);
-        assertEquals(4, singlyLinkedList.getMiddleSolution1());
-        assertEquals(4, singlyLinkedList.getMiddleSolution2());
+        assertEquals(4, singlyLinkedList.getMiddleViaTwoPointers());
         assertEquals(4, singlyLinkedList.getMiddle());
     }
 
@@ -265,6 +259,30 @@ public class SinglyLinkedListTest extends StandardIOTest {
         assertFalse(SinglyLinkedList.isPalindrome(singlyLinkedList.head));
         singlyLinkedList.push(4);
         assertTrue(SinglyLinkedList.isPalindrome(singlyLinkedList.head));
+    }
+
+    @Test
+    void testReverse() {
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.append(1);
+        singlyLinkedList.append(2);
+        singlyLinkedList.append(3);
+        singlyLinkedList.append(4);
+        singlyLinkedList.reverse();
+        assertEquals(4, singlyLinkedList.getNth(1));
+        assertEquals(3, singlyLinkedList.getNth(2));
+        assertEquals(2, singlyLinkedList.getNth(3));
+        assertEquals(1, singlyLinkedList.getNth(4));
+        singlyLinkedList.head = SinglyLinkedList.reverse(singlyLinkedList.head);
+        assertEquals(1, singlyLinkedList.getNth(1));
+        assertEquals(2, singlyLinkedList.getNth(2));
+        assertEquals(3, singlyLinkedList.getNth(3));
+        assertEquals(4, singlyLinkedList.getNth(4));
+        singlyLinkedList.head = SinglyLinkedList.reverse(singlyLinkedList.head);
+        assertEquals(4, singlyLinkedList.getNth(1));
+        assertEquals(3, singlyLinkedList.getNth(2));
+        assertEquals(2, singlyLinkedList.getNth(3));
+        assertEquals(1, singlyLinkedList.getNth(4));
     }
 
 }

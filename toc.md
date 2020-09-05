@@ -34,6 +34,28 @@
 - [x] creating threads: extends `Thread` class or implement `Runnable` interface
 - [x] wait and notify
 
+## Data Structures
+
+### Singly Linked List
+
+- [x] Insert a new Node at front of the lists
+- [x] Inserts a new node after the given prevNode
+- [x] Appends a new node at the end
+- [x] Linked List Deletion (Deleting a given key)
+- [x] Linked List Deletion (Deleting a key at given position, index starts at 0)
+- [x] Linked List Deletion (Deleting the whole list)
+- [x] Find Length of a Linked List (count of nodes)
+- [x] Search an element in a Linked List (Iterative and Recursive)
+- [x] Get Nth node in a Linked List
+- [x] Get Nth node from the end of a Linked List
+- [x] Get the middle node of a given linked list
+- [x] Counts the number of times a given value occurs in a Linked List
+- [x] Detect loop in a linked list
+- [x] Find length of loop in linked list
+- [x] Reverse a linked list
+- [x] Check if a singly linked list is palindrome
+
+
 ## Algorithms
 
 ### Mathematical
