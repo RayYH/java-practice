@@ -3,12 +3,14 @@ package com.rayyounghong.core.concurrency.examples;
 import com.rayyounghong.StandardIOTest;
 import com.rayyounghong.core.concurrency.examples.evenandodd.Printer;
 import com.rayyounghong.core.concurrency.examples.evenandodd.TaskEvenOdd;
+import com.rayyounghong.helper.OSEnum;
+import com.rayyounghong.helper.Os;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author ray
@@ -31,7 +33,8 @@ public class PrintEvenOddTest extends StandardIOTest {
             e.printStackTrace();
         }
 
-        // windows
-        assertTrue(outContent.toString().contains("1 2 3 4 5 6 7 8 9 10"));
+        if(Os.getOperatingSystem() != OSEnum.WINDOWS) {
+            assertEquals("1 2 3 4 5 6 7 8 9 10 ", outContent.toString());
+        }
     }
 }
