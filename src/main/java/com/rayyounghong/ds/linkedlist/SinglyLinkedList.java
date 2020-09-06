@@ -938,4 +938,71 @@ public class SinglyLinkedList {
         return dummy.next;
     }
 
+    /**
+     * Get the intersection point of two Linked Lists.
+     *
+     * @param a
+     *            first list
+     * @param b
+     *            second list
+     * @return the intersection point
+     */
+    public Node getIntersectionPoint(SinglyLinkedList a, SinglyLinkedList b) {
+        int c1 = a.getCountOfNodes();
+        int c2 = b.getCountOfNodes();
+        int d = c1 - c2;
+
+        if (d > 0) {
+            return getIntersectionNode(d, a, b);
+        }
+
+        return getIntersectionNode(-d, b, a);
+    }
+
+    /**
+     * Function to get the intersection point of two linked lists {@code larger} and {@code shorter} where
+     * {@code larger} has {@code d} more nodes than {@code shorter}.
+     *
+     * @param d
+     *            number of difference
+     * @param larger
+     *            the larger list
+     * @param shorter
+     *            the shorter list
+     * @return the intersection node
+     */
+    private Node getIntersectionNode(int d, SinglyLinkedList larger, SinglyLinkedList shorter) {
+        Node res;
+        Node currentA = larger.head;
+        Node currentB = shorter.head;
+
+        for (int i = 0; i < d; i++) {
+            if (currentA == null) {
+                return null;
+            }
+            currentA = currentA.next;
+        }
+
+        while (currentA != null && currentB != null) {
+            if (currentA.data == currentB.data) {
+                res = currentA;
+                return res;
+            }
+            currentA = currentA.next;
+            currentB = currentB.next;
+        }
+
+        return null;
+    }
+
+    public static void main(String[] args) {
+        SinglyLinkedList singlyLinkedList1 = new SinglyLinkedList();
+        singlyLinkedList1.append(3);
+        singlyLinkedList1.append(5);
+        singlyLinkedList1.append(9);
+        singlyLinkedList1.append(15);
+        singlyLinkedList1.append(30);
+        singlyLinkedList1.printList();
+    }
+
 }

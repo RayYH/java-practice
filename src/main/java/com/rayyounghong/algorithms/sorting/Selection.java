@@ -15,6 +15,7 @@ package com.rayyounghong.algorithms.sorting;
  * @author ray
  */
 public class Selection implements Sortable {
+
     @Override
     public <T extends Comparable<T>> void sort(T[] unsorted) {
         int length = unsorted.length;
@@ -29,4 +30,5 @@ public class Selection implements Sortable {
             Utils.exchange(unsorted, i, minIndex);
         }
     }
+
 }

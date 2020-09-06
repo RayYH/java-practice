@@ -10,6 +10,7 @@ package com.rayyounghong.algorithms.sorting;
  * @author ray
  */
 public class Bubble implements Sortable {
+
     @Override
     public <T extends Comparable<T>> void sort(T[] unsorted) {
         int lastSwappedIndex = unsorted.length - 1;
@@ -31,4 +32,5 @@ public class Bubble implements Sortable {
             lastSwappedIndex = currentSwappedIndex;
         }
     }
+
 }

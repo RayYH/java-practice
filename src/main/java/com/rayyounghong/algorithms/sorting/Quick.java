@@ -4,6 +4,8 @@ package com.rayyounghong.algorithms.sorting;
  * @author ray
  */
 public class Quick implements Sortable {
+
+
     @Override
     public <T extends Comparable<T>> void sort(T[] unsorted) {
         sort(unsorted, 0, unsorted.length - 1);
@@ -47,4 +49,5 @@ public class Quick implements Sortable {
 
         return j;
     }
+
 }

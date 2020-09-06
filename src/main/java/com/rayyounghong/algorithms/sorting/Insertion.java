@@ -9,6 +9,7 @@ package com.rayyounghong.algorithms.sorting;
  * @author ray
  */
 public class Insertion implements Sortable {
+
     @Override
     public <T extends Comparable<T>> void sort(T[] unsorted) {
         int i = 1;
@@ -23,4 +24,5 @@ public class Insertion implements Sortable {
             i++;
         }
     }
+
 }

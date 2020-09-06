@@ -61,6 +61,7 @@
 - [x] Pairwise swap elements of a given linked list
 - [x] Move last element to front of a given Linked List
 - [x] Intersection of two Sorted Linked Lists
+- [x] Get the intersection point of two Linked Lists
 
 ## Algorithms
 

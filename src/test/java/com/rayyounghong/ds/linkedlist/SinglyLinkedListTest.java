@@ -490,4 +490,20 @@ public class SinglyLinkedListTest extends StandardIOTest {
         assertEquals("1->2->4->7", outContent.toString());
     }
 
+    @Test
+    void testGetIntersectionPoint() {
+        SinglyLinkedList singlyLinkedList1 = new SinglyLinkedList();
+        singlyLinkedList1.append(3);
+        singlyLinkedList1.append(5);
+        singlyLinkedList1.append(9);
+        singlyLinkedList1.append(15);
+        singlyLinkedList1.append(30);
+        SinglyLinkedList singlyLinkedList2 = new SinglyLinkedList();
+        singlyLinkedList2.append(10);
+        singlyLinkedList2.append(15);
+        singlyLinkedList2.append(30);
+        Node intersection = singlyLinkedList1.getIntersectionPoint(singlyLinkedList1, singlyLinkedList2);
+        assertEquals(15, intersection.data);
+    }
+
 }
