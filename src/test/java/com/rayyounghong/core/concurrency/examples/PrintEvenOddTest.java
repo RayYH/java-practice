@@ -33,7 +33,7 @@ public class PrintEvenOddTest extends StandardIOTest {
             e.printStackTrace();
         }
 
-        if(Os.getOperatingSystem() != OSEnum.WINDOWS) {
+        if (Os.getOperatingSystem() != OSEnum.WINDOWS) {
             assertEquals("1 2 3 4 5 6 7 8 9 10 ", outContent.toString());
         }
     }

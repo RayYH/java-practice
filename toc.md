@@ -2,23 +2,21 @@
 
 ## Core
 
-- [x] hello world program
-- [x] the `main` method in java
-- [x] variables: instance variables, static variables, default value of variables
-- [x] constants
-- [x] data types, primitive data types, literals/lexical
-- [x] arrays
-- [x] string: literal, `StringBuilder`, `equals`, `==`
-- [x] control flows
-- [x] operators
-- [x] string formatter
-- [x] basic input
-- [x] the `null` keyword
-- [x] rest parameters
-- [x] static block
-- [x] javadoc example
-- [x] the `volatile` keyword
-- [x] enums
+- [x] `main` method in java
+- [x] Variables: instance variables, static variables, default value of variables
+- [x] Constants
+- [x] Data types, primitive data types, literals/lexical
+- [x] Arrays
+- [x] String: literal, `StringBuilder`, `equals`, `==`, formatter
+- [x] Control flows
+- [x] Operators
+- [x] Basic input
+- [x] `null` keyword
+- [x] Rest parameters
+- [x] Static block
+- [x] Javadoc
+- [x] `volatile` keyword
+- [x] Enums
 - [x] Overloading
 - [x] Abstract
 - [x] Final
@@ -67,13 +65,13 @@
 
 ### Mathematical
 
-- [x] [Absolute value, min, max](src/main/java/com/rayyounghong/algorithms/mathematical/Absolute.java).
-- [x] [GCD](src/main/java/com/rayyounghong/algorithms/mathematical/Gcd.java).
-- [x] [Factorial, Catalan number](src/main/java/com/rayyounghong/algorithms/mathematical/PositiveInteger.java).
+- [x] Absolute value, min, max
+- [x] GCD
+- [x] Factorial, Catalan number
 
 ### Sorting
 
-- [x] [Selection Sort](src/main/java/com/rayyounghong/algorithms/sorting/Selection.java)
-- [x] [Quick Sort](src/main/java/com/rayyounghong/algorithms/sorting/Quick.java)
+- [x] Selection Sort
+- [x] Quick Sort
 
 ## Design Patterns

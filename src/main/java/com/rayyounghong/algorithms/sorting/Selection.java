@@ -12,6 +12,18 @@ package com.rayyounghong.algorithms.sorting;
  * the right.
  * </p>
  *
+ * <p>
+ * The algorithm maintains two sub arrays in a given array.
+ * <ol>
+ * The subarray which is already sorted.
+ * </ol>
+ * <ol>
+ * Remaining subarray which is unsorted.
+ * </ol>
+ * In every iteration of selection sort, the minimum element (considering ascending order) from the unsorted subarray is
+ * picked and moved to the sorted subarray.
+ * </p>
+ *
  * @author ray
  */
 public class Selection implements Sortable {
