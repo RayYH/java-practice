@@ -27,17 +27,17 @@ public class SinglyLinkedList {
     }
 
     /**
-     * Insert a new Node at front of the lists.
+     * Insert a new Node at front of the list.
      *
      * @param newData
      *            new data
      */
     public void push(int newData) {
-        // Allocate the Node & Put in the data
+        // allocate the Node & Put in the data
         Node newNode = new Node(newData);
-        // Make next of new Node as head
+        // make next of new Node as head
         newNode.next = head;
-        // Move the head to point to new Node
+        // move the head to point to new Node
         head = newNode;
     }
 
@@ -52,13 +52,13 @@ public class SinglyLinkedList {
      *             when prevNode is null, throws an exception
      */
     public void insertAfter(Node prevNode, int newData) throws IllegalArgumentException {
-        // Check if the given Node is null
+        // check if the given Node is null
         if (prevNode == null) {
             throw new IllegalArgumentException("prev Node is null");
         }
-        // Allocate the Node & Put in the data
+        // allocate the Node & Put in the data
         Node newNode = new Node(newData);
-        // Make next of new Node as next of prevNode
+        // make next of new Node as next of prevNode
         newNode.next = prevNode.next;
         // make next of prevNode as newNode
         prevNode.next = newNode;
@@ -73,8 +73,7 @@ public class SinglyLinkedList {
     public void append(int newData) {
         // newNode.next is default null
         Node newNode = new Node(newData);
-
-        // If the Linked List is empty, then make the new node as head
+        // if the Linked List is empty, then make the new node as head
         if (head == null) {
             head = newNode;
         } else {
@@ -96,7 +95,7 @@ public class SinglyLinkedList {
      * </ol>
      *
      * @param key
-     *            given key.
+     *            given key
      */
     public void deleteNode(int key) {
         // if head matched, move head to next
@@ -111,8 +110,7 @@ public class SinglyLinkedList {
                     prevNode.next = prevNode.next.next;
                     break;
                 }
-
-                // keep original relationship - nothing will be removed
+                // iterate
                 prevNode = prevNode.next;
             }
         }
@@ -148,13 +146,14 @@ public class SinglyLinkedList {
      * Deletes the node at the given position, index starts at 0.
      *
      * @param position
-     *            position index.
+     *            position index
      */
     public void deleteNodeAtGivenPosition(int position) {
         if (head == null) {
             return;
         }
 
+        // current node
         Node currentNode = head;
 
         // if head needs to be removed
@@ -209,7 +208,7 @@ public class SinglyLinkedList {
      *            head node
      * @param needle
      *            given value
-     * @return true if founded, otherwise false.
+     * @return true if founded, otherwise false
      */
     public static boolean has(Node head, int needle) {
         if (head == null) {
@@ -228,7 +227,7 @@ public class SinglyLinkedList {
      *
      * @param needle
      *            given value
-     * @return returns true when founded, otherwise false.
+     * @return returns true when founded, otherwise false
      */
     public boolean has(int needle) {
         Node curr = head;
@@ -329,7 +328,7 @@ public class SinglyLinkedList {
     /**
      * Get middle item of current list.
      *
-     * @return founded value.
+     * @return founded value
      */
     public int getMiddle() {
         return getMiddleViaCounter();
@@ -341,7 +340,7 @@ public class SinglyLinkedList {
      * Traverse linked list using two pointers. Move one pointer by one and other pointer by two. When the fast pointer
      * reaches end slow pointer will reach middle of the linked list.
      *
-     * @return founded value.
+     * @return founded value
      */
     public int getMiddleViaTwoPointers() {
         Node slowPtr = head;
@@ -368,7 +367,7 @@ public class SinglyLinkedList {
      * increment the counter and change mid to mid->next whenever the counter is odd. So the mid will move only half of
      * the total length of the list.
      *
-     * @return founded value.
+     * @return founded value
      */
     public int getMiddleViaCounter() {
         Node mid = head;
@@ -465,7 +464,7 @@ public class SinglyLinkedList {
     /**
      * Detect loop in a linked list.
      *
-     * @return true if exists loop, otherwise false.
+     * @return true if exists loop, otherwise false
      */
     public boolean detectLoop() {
         return detectLoop(head);
@@ -482,7 +481,7 @@ public class SinglyLinkedList {
      * <li>Now the holds the length of loop</li>
      * </ol>
      *
-     * @return 0 or the counts of nodes in loop.
+     * @return 0 or the counts of nodes in loop
      */
     public int countNodesInLoop() {
         Node slowPtr = head, fastPtr = head;
@@ -503,7 +502,7 @@ public class SinglyLinkedList {
      *
      * @param n
      *            given node
-     * @return the count.
+     * @return the count
      */
     public int countNodes(Node n) {
         int count = 1;
@@ -593,7 +592,7 @@ public class SinglyLinkedList {
      *            head1
      * @param head2
      *            head2
-     * @return returns true when two lists are same, otherwise false.
+     * @return returns true when two lists are same, otherwise false
      */
     public static boolean compareLists(Node head1, Node head2) {
         Node temp1 = head1;
@@ -994,6 +993,8 @@ public class SinglyLinkedList {
 
         return null;
     }
+
+
 
     public static void main(String[] args) {
         SinglyLinkedList singlyLinkedList1 = new SinglyLinkedList();
