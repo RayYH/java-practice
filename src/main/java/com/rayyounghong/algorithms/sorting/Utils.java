@@ -3,40 +3,21 @@ package com.rayyounghong.algorithms.sorting;
 import java.util.Comparator;
 
 /**
- *****************************************************************************
- *  Copyright 2002-2018, Robert Sedgewick and Kevin Wayne.
+ * See licenses/algs4-license.txt file for more detailed info about license.
  *
- *  This file is part of algs4.jar, which accompanies the textbook
- *
- *      Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne,
- *      Addison-Wesley Professional, 2011, ISBN 0-321-57351-X.
- *      http://algs4.cs.princeton.edu
- *
- *
- *  algs4.jar is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  algs4.jar is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with algs4.jar.  If not, see http://www.gnu.org/licenses.
- *****************************************************************************
  * @author ray
  */
 public final class Utils {
 
     /**
-     * Is v < w ?
+     * Determine whether v is less than w.
      *
      * @param v
      *            object v
      * @param w
      *            object w
+     * @param <T>
+     *            Type
      * @return true if v < w, otherwise false.
      */
     public static <T extends Comparable<T>> boolean lessThan(T v, T w) {
@@ -44,7 +25,7 @@ public final class Utils {
     }
 
     /**
-     * get min value.
+     * Get min value of two values.
      *
      * @param a
      *            given array
@@ -53,6 +34,8 @@ public final class Utils {
      *            index i
      * @param j
      *            index j
+     * @param <T>
+     *            Type
      * @return true if a[i] < a[j], otherwise false.
      */
     public static <T extends Comparable<T>> T min(T[] a, int i, int j) {
@@ -69,6 +52,8 @@ public final class Utils {
      *            index i
      * @param j
      *            index j
+     * @param <T>
+     *            Type
      * @return true if a[i] < a[j], otherwise false.
      */
     public static <T extends Comparable<T>> T max(T[] a, int i, int j) {
@@ -85,6 +70,8 @@ public final class Utils {
      *            index i
      * @param j
      *            index j
+     * @param <T>
+     *            Type
      * @return true if a[i] < a[j], otherwise false.
      */
     public static <T extends Comparable<T>> boolean lessThan(T[] a, int i, int j) {
@@ -100,6 +87,8 @@ public final class Utils {
      *            object v
      * @param w
      *            object w
+     * @param <T>
+     *            Type
      * @return true if v < w, otherwise false.
      */
     public static <T extends Comparable<T>> boolean lessThan(Comparator<T> comparator, T v, T w) {
@@ -115,6 +104,8 @@ public final class Utils {
      *            the first index
      * @param j
      *            the second index
+     * @param <T>
+     *            Type
      */
     public static <T extends Comparable<T>> void exchange(T[] a, int i, int j) {
         T swap = a[i];
@@ -127,6 +118,8 @@ public final class Utils {
      *
      * @param a
      *            given array
+     * @param <T>
+     *            Type
      * @return true if sorted, otherwise false
      */
     public static <T extends Comparable<T>> boolean isSorted(T[] a) {
@@ -142,6 +135,8 @@ public final class Utils {
      *            low index
      * @param hi
      *            high index
+     * @param <T>
+     *            Type
      * @return true if sorted, otherwise false
      */
     public static <T extends Comparable<T>> boolean isSorted(T[] a, int lo, int hi) {
@@ -160,6 +155,8 @@ public final class Utils {
      *            given array
      * @param comparator
      *            given comparator
+     * @param <T>
+     *            Type
      * @return true if sorted, otherwise false
      */
     public static <T extends Comparable<T>> boolean isSorted(T[] a, Comparator<T> comparator) {
@@ -177,6 +174,8 @@ public final class Utils {
      *            low index
      * @param hi
      *            high index
+     * @param <T>
+     *            Type
      * @return true if sorted, otherwise false
      */
     public static <T extends Comparable<T>> boolean isSorted(T[] a, Comparator<T> comparator, int lo, int hi) {
@@ -193,10 +192,12 @@ public final class Utils {
      *
      * @param a
      *            given array.
+     * @param <T>
+     *            Type
      */
     public static <T extends Comparable<T>> void show(T[] a) {
         for (T objectComparable : a) {
-            System.out.println(objectComparable);
+            System.out.print(objectComparable);
         }
     }
 
