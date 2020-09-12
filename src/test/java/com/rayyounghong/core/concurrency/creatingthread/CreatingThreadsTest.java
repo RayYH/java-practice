@@ -1,11 +1,14 @@
 package com.rayyounghong.core.concurrency.creatingthread;
 
+import com.rayyounghong.StandardIOTest;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * <a href="http://tutorials.jenkov.com/java-concurrency/creating-and-starting-threads.html">Creating and Starting Java
  * Threads</a>
- *
+ * <p>
  * There are no rules about which of the two methods ({@link Runnable} or {@link Thread}) that is the best. Both methods
  * works. Personally though, I prefer implementing {@code Runnable}, and handing an instance of the implementation to a
  * {@code Thread} instance. When having the {@code Runnable}'s executed by a thread pool it is easy to queue up the
@@ -14,7 +17,8 @@ import org.junit.jupiter.api.Test;
  *
  * @author ray
  */
-public class CreatingThreadsTest {
+public class CreatingThreadsTest extends StandardIOTest {
+
     /**
      * the orders of execution are not certain!
      */
@@ -66,5 +70,6 @@ public class CreatingThreadsTest {
         greetRunnableThread.start();
         anonymousRunnableThread.start();
         lambdaRunnableThread.start();
+        assertNotNull(outContent.toString());
     }
 }
