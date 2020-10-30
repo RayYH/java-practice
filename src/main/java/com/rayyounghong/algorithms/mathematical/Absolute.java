@@ -4,6 +4,7 @@ package com.rayyounghong.algorithms.mathematical;
  * @author ray
  */
 public class Absolute {
+
     /**
      * If value is less than zero, make value positive.
      *

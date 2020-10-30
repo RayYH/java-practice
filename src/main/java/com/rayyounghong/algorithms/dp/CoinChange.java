@@ -8,6 +8,7 @@ import java.util.Map;
  * @author ray
  */
 public class CoinChange {
+
     static Map<Integer, Integer> dp = new HashMap<>();
 
     /**

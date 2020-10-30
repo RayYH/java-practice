@@ -13,6 +13,7 @@ import java.util.Set;
  * @author ray
  */
 public class Divisor {
+
     /**
      * Time Complexity: {@code O(sqrt(n))}, Auxiliary Space: {@code O(1)}.
      *
@@ -74,4 +75,5 @@ public class Divisor {
             }
         }
     }
+
 }

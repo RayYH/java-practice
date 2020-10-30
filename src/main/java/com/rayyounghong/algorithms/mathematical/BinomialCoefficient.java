@@ -7,6 +7,7 @@ package com.rayyounghong.algorithms.mathematical;
  * @author ray
  */
 public class BinomialCoefficient {
+
     public static long binomialCoefficient(long n, long k) {
         if (k < 0 || n < k) {
             throw new IllegalArgumentException("n, k should match the rule: n >= k >= 0");
@@ -15,4 +16,5 @@ public class BinomialCoefficient {
         // (n, k) = n! / (K! * (n-k)!)
         return PositiveInteger.factorial(n) / (PositiveInteger.factorial(k) * PositiveInteger.factorial(n - k));
     }
+
 }

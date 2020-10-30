@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author ray
  */
 public class AbsoluteTest {
+
     @Test
     void testAbsValue() {
         assertEquals(34, Absolute.absValue(-34));
@@ -25,4 +26,5 @@ public class AbsoluteTest {
         assertEquals(-1, Absolute.absMin(new int[] {-1, 2, 3, 27, -34}));
         assertEquals(1, Absolute.absMin(new int[] {1, 2, -3, -27, 34}));
     }
+
 }
