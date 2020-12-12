@@ -7,7 +7,8 @@ jobs:
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
-        operating-system: [ubuntu-latest, windows-latest, macos-latest]
+        operating-system: [ ubuntu-latest, windows-latest, macos-latest ]
+        java: [ 14, 15 ]
     name: junit-test
     steps:
       - name: Checkout
@@ -18,7 +19,7 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v1
         with:
-          java-version: 14
+          java-version: ${{ matrix.java }}
 
       - name: gradlw build
         uses: eskatos/gradle-command-action@v1

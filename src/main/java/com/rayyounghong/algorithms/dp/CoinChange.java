@@ -5,14 +5,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * Coin Change Problem.
+ *
+ * I. You are given coins of different denominations and a total amount of money amount. Write a function to compute the
+ * fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any
+ * combination of the coins, return -1. You may assume that you have an infinite number of each kind of coin.
+ *
+ * II. You are given coins of different denominations and a total amount of money. Write a function to compute the
+ * number of combinations that make up that amount. You may assume that you have infinite number of each kind of coin.
+ *
  * @author ray
+ * @see <a href="https://leetcode.com/problems/coin-change/">https://leetcode.com/problems/coin-change/</a>
+ * @see <a href="https://leetcode.com/problems/coin-change-2/">https://leetcode.com/problems/coin-change-2/</a>
  */
 public class CoinChange {
 
-    static Map<Integer, Integer> dp = new HashMap<>();
+    static Map<Integer, Integer> memo = new HashMap<>();
 
     /**
-     * Memoization
+     * Memoization: <code>F(S)=F(S−C)+1</code>.
      *
      * @param coins
      *            coins
@@ -20,14 +31,15 @@ public class CoinChange {
      *            amount
      * @return the minimum coins
      */
-    public static int coinChange(int[] coins, int amount) {
-        if (dp.containsKey(amount)) {
-            return dp.get(amount);
+    public static int minimumCoins(int[] coins, int amount) {
+        if (memo.containsKey(amount)) {
+            return memo.get(amount);
         }
 
         if (amount == 0) {
             return 0;
         }
+
         if (amount < 0) {
             return -1;
         }
@@ -35,7 +47,7 @@ public class CoinChange {
         int res = Integer.MAX_VALUE;
 
         for (int coin : coins) {
-            int subSolution = coinChange(coins, amount - coin);
+            int subSolution = minimumCoins(coins, amount - coin);
             // no solution
             if (subSolution == -1) {
                 continue;
@@ -43,8 +55,8 @@ public class CoinChange {
             res = Math.min(res, 1 + subSolution);
         }
 
-        dp.put(amount, res != Integer.MAX_VALUE ? res : -1);
-        return dp.get(amount);
+        memo.put(amount, res != Integer.MAX_VALUE ? res : -1);
+        return memo.get(amount);
     }
 
     /**
@@ -56,7 +68,7 @@ public class CoinChange {
      *            amount
      * @return the minimum coins
      */
-    public static int coinChangeTabulation(int[] coins, int amount) {
+    public static int minimumCoinsTabulation(int[] coins, int amount) {
         if (amount < 0) {
             return -1;
         }
