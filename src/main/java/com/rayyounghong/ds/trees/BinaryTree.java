@@ -6,30 +6,7 @@ import java.util.Stack;
 import com.rayyounghong.ds.queue.Queue;
 
 /**
- * <p>
- * Some properties.
- * </p>
- *
- * <ul>
- * <li><strong>Depth</strong>: The depth of a node is the number of generations the node is removed from the root. The
- * root has depth 0. The root's children have depth 1. Depth can be defined recursively: the depth of node n is 0 if n
- * is the root, or 1 plus the depth of n's parent otherwise.</li>
- * <li><strong>Height</strong>: The height of tree {@code T} is the maximum depth of any node of {@code T}.</li>
- * <li><strong>Binary Tree</strong>: A binary tree is a rooted tree such that every node has <i>at most two
- * children</i>. The children (when present) are known as the left child and right child.</li>
- * <li><strong>Full Binary Tree</strong>: A Binary Tree is a full binary tree if every node has 0 or 2 children. We can
- * also say a full binary tree is a binary tree in which all nodes except leaf nodes have two children.</li>
- * <li><strong>Complete Binary Tree</strong>: A Binary Tree is a complete Binary Tree if all the levels are completely
- * filled except possibly the last level and the last level has all keys as left as possible.</li>
- * <li><strong>Perfect Binary Tree</strong>: A Binary tree is a Perfect Binary Tree in which all the internal nodes have
- * two children and all leaf nodes are at the same level.</li>
- * <li><strong>Balanced Binary Tree</strong>: A binary tree is balanced if the height of the tree is {@code O(Log n)}
- * where n is the number of nodes. For Example, the AVL tree maintains {@code O(Log n)} height by making sure that the
- * difference between the heights of the left and right subtrees is almost 1. Red-Black trees maintain {@code O(Log n)}
- * height by making sure that the number of Black nodes on every root to leaf paths is the same and there are no
- * adjacent red nodes. Balanced Binary Search trees are performance-wise good as they provide {@code O(log n)} time for
- * search, insert and delete.</li>
- * </ul>
+ * Binary Tree.
  *
  * @see <a href="https://en.wikipedia.org/wiki/Binary_tree#Types_of_binary_trees">Types of binary trees.</a>
  * @see <a href="https://en.wikipedia.org/wiki/Tree_traversal">Tree traversal.</a>
@@ -73,6 +50,44 @@ public class BinaryTree {
      */
     BinaryTree() {
         root = null;
+    }
+
+    /**
+     * Given a binary tree and a key, insert the key into the binary tree at the first position available in level
+     * order.
+     *
+     * The idea is to do iterative level order traversal of the given tree using queue. If we find a node whose left
+     * child is empty, we make new key as left child of the node. Else if we find a node whose right child is empty, we
+     * make the new key as right child. We keep traversing the tree until we find a node whose either left or right is
+     * empty.
+     */
+    void insert(int key) {
+        if (root == null) {
+            root = new Node(key);
+            return;
+        }
+
+        Node temp = root;
+
+        Queue<Node> q = new Queue<>();
+        q.enqueue(temp);
+
+        while (!q.isEmpty()) {
+            temp = q.dequeue();
+            if (temp.left == null) {
+                temp.left = new Node(key);
+                break;
+            } else {
+                q.enqueue(temp.left);
+            }
+
+            if (temp.right == null) {
+                temp.right = new Node(key);
+                break;
+            } else {
+                q.enqueue(temp.right);
+            }
+        }
     }
 
     /*

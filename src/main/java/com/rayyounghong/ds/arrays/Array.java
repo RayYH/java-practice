@@ -116,13 +116,7 @@ public class Array {
 
     public static int[] copy(int[] arr) {
         int[] copied = new int[arr.length];
-
-        // here used system provided array copy method
         System.arraycopy(arr, 0, copied, 0, arr.length);
-        // for (int i = 0; i < arr.length; i++) {
-        // copied[i] = arr[i];
-        // }
-
         return copied;
     }
 

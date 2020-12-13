@@ -43,4 +43,29 @@ public class BinaryTreeTest {
         assertEquals("[4, 5, 2, 3, 1]", Arrays.toString(tree.iterativePostorder().toArray()));
         assertEquals("[1, 2, 3, 4, 5]", Arrays.toString(tree.levelOrder().toArray()));
     }
+
+    @Test
+    void testInsert() {
+        BinaryTree tree = new BinaryTree();
+        tree.root = new Node(10);
+        /*
+         *****************************************
+         *          1
+         *        /  \
+         *       2    3
+         *     /       \
+         *    4         6
+         *****************************************
+         */
+        tree.root = new Node(1);
+        tree.root.left = new Node(2);
+        tree.root.right = new Node(3);
+        tree.root.left.left = new Node(4);
+        tree.root.right.right = new Node(6);
+        assertEquals("[1, 2, 3, 4, 6]", Arrays.toString(tree.levelOrder().toArray()));
+        tree.insert(7);
+        assertEquals("[1, 2, 3, 4, 7, 6]", Arrays.toString(tree.levelOrder().toArray()));
+        tree.insert(5);
+        assertEquals("[1, 2, 3, 4, 7, 5, 6]", Arrays.toString(tree.levelOrder().toArray()));
+    }
 }
