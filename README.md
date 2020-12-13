@@ -22,6 +22,6 @@ Some code about **core java/data structure/algorithms**. This code may be terrib
 gradle tasks
 ```
 
-## LICENSE
+## License
 
 This work is open-sourced and licensed under the [MIT license](LICENSE).

@@ -68,4 +68,29 @@ public class BinaryTreeTest {
         tree.insert(5);
         assertEquals("[1, 2, 3, 4, 7, 5, 6]", Arrays.toString(tree.levelOrder().toArray()));
     }
+
+    @Test
+    void testDelete() {
+        BinaryTree tree = new BinaryTree();
+        tree.root = new Node(10);
+        /*
+         *****************************************
+         *          1
+         *        /  \
+         *       2    3
+         *     /       \
+         *    4         6
+         *****************************************
+         */
+        tree.root = new Node(1);
+        tree.root.left = new Node(2);
+        tree.root.right = new Node(3);
+        tree.root.left.left = new Node(4);
+        tree.root.right.right = new Node(6);
+        assertEquals("[1, 2, 3, 4, 6]", Arrays.toString(tree.levelOrder().toArray()));
+        tree.delete(2);
+        assertEquals("[1, 6, 3, 4]", Arrays.toString(tree.levelOrder().toArray()));
+        tree.delete(1);
+        assertEquals("[4, 6, 3]", Arrays.toString(tree.levelOrder().toArray()));
+    }
 }

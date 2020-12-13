@@ -60,6 +60,8 @@ public class BinaryTree {
      * child is empty, we make new key as left child of the node. Else if we find a node whose right child is empty, we
      * make the new key as right child. We keep traversing the tree until we find a node whose either left or right is
      * empty.
+     *
+     * @see <a href= "https://www.geeksforgeeks.org/deletion-binary-tree/">Deletion in a Binary Tree</a>
      */
     void insert(int key) {
         if (root == null) {
@@ -87,6 +89,73 @@ public class BinaryTree {
             } else {
                 q.enqueue(temp.right);
             }
+        }
+    }
+
+    private void deleteDeepestNode(Node deepestNode) {
+        if (root == null) {
+            return;
+        }
+
+        Queue<Node> q = new Queue<>();
+        Node temp = root;
+        q.enqueue(temp);
+        while (!q.isEmpty()) {
+            temp = q.dequeue();
+            if (temp.right != null) {
+                if (temp.right == deepestNode) {
+                    temp.right = null;
+                    return;
+                } else {
+                    q.enqueue(temp.right);
+                }
+            }
+
+            if (temp.left != null) {
+                if (temp.left == deepestNode) {
+                    temp.left = null;
+                    return;
+                } else {
+                    q.enqueue(temp.left);
+                }
+            }
+        }
+    }
+
+    void delete(int key) {
+        if (root == null) {
+            return;
+        }
+
+        if (root.left == null && root.right == null) {
+            if (root.key == key) {
+                root = null;
+            }
+            return;
+        }
+
+        // find the keyNode and the deepestNode
+        Node temp = root, keyNode = null;
+        Queue<Node> q = new Queue<>();
+        q.enqueue(temp);
+        while (!q.isEmpty()) {
+            temp = q.dequeue();
+            if (temp.key == key) {
+                keyNode = temp;
+            }
+
+            if (temp.left != null) {
+                q.enqueue(temp.left);
+            }
+
+            if (temp.right != null) {
+                q.enqueue(temp.right);
+            }
+        }
+
+        if (keyNode != null) {
+            keyNode.key = temp.key;
+            deleteDeepestNode(temp);
         }
     }
 
