@@ -29,9 +29,9 @@ public class CoinChange {
      *            coins
      * @param amount
      *            amount
-     * @return the minimum coins
+     * @return the minimum number of coins
      */
-    public static int minimumCoins(int[] coins, int amount) {
+    public static int minimumCoinsMemoization(int[] coins, int amount) {
         if (memo.containsKey(amount)) {
             return memo.get(amount);
         }
@@ -47,11 +47,13 @@ public class CoinChange {
         int res = Integer.MAX_VALUE;
 
         for (int coin : coins) {
-            int subSolution = minimumCoins(coins, amount - coin);
+            int subSolution = minimumCoinsMemoization(coins, amount - coin);
+
             // no solution
             if (subSolution == -1) {
                 continue;
             }
+
             res = Math.min(res, 1 + subSolution);
         }
 
@@ -60,13 +62,13 @@ public class CoinChange {
     }
 
     /**
-     * Tabulation
+     * Tabulation.
      *
      * @param coins
      *            coins
      * @param amount
      *            amount
-     * @return the minimum coins
+     * @return the minimum number of coins
      */
     public static int minimumCoinsTabulation(int[] coins, int amount) {
         if (amount < 0) {

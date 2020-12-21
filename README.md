@@ -1,10 +1,10 @@
 # Java Practice
 
-Some code about **core java/data structure/algorithms**. This code may be terrible and buggy, **USE AT YOUR OWN RISK**.
+Some code written in java which may be terrible and buggy, **USE AT YOUR OWN RISK**.
 
 ## Requirements
 
-+ Openjdk version >= 14
++ java version >= 14
 + Gradle
 
 > If you use Docker, you can use provided `docker-compose.yml` file to get a jdk14 environment with gradle 6.6.
@@ -13,10 +13,10 @@ Some code about **core java/data structure/algorithms**. This code may be terrib
 
 ```bash
 # run tests
-./bin/test.sh
+gradle test
 
 # run main method
-./bin/run.sh
+gradle ruun
 
 # get all gradle tasks
 gradle tasks
