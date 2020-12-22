@@ -6,7 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 /**
- * A base class for standard io tests.
+ * A base class which can be extended for standard io tests.
  *
  * @author ray
  */

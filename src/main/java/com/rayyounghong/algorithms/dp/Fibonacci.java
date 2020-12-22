@@ -1,7 +1,7 @@
 package com.rayyounghong.algorithms.dp;
 
 /**
- * Fibonacci number.
+ * Fibonacci numbers.
  *
  * <code>
  * F(0) = 0, F(1) = 1, F(n) = F(n-1) + F(n-2).
@@ -12,7 +12,6 @@ package com.rayyounghong.algorithms.dp;
 public class Fibonacci {
     final int MAX = 100;
     final int NIL = -1;
-
     int[] lookup = new int[MAX];
 
     Fibonacci() {
@@ -21,6 +20,13 @@ public class Fibonacci {
         }
     }
 
+    /**
+     * Recursive solution.
+     *
+     * @param n
+     *            given number
+     * @return the fib
+     */
     public int recursion(int n) {
         if (n <= 1) {
             return n;
@@ -37,6 +43,7 @@ public class Fibonacci {
      * @return the fib
      */
     public int memoization(int n) {
+        // look into the lookup table first
         if (lookup[n] == NIL) {
             if (n <= 1) {
                 lookup[n] = n;

@@ -47,9 +47,10 @@ public class CoinChange {
         int res = Integer.MAX_VALUE;
 
         for (int coin : coins) {
+            // sub problems
             int subSolution = minimumCoinsMemoization(coins, amount - coin);
 
-            // no solution
+            // base cases
             if (subSolution == -1) {
                 continue;
             }
