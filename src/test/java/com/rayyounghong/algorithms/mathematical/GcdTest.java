@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
+ * Review Date: 2020/12/23.
+ *
  * @author ray
  */
 public class GcdTest {

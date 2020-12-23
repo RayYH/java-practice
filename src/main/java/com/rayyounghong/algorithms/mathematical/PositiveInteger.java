@@ -1,6 +1,8 @@
 package com.rayyounghong.algorithms.mathematical;
 
 /**
+ * Review Date: 2020/12/23.
+ *
  * Some functions for getting n-th value.
  *
  * @see <a href="https://en.wikipedia.org/wiki/Factorial">Factorial</a>
@@ -10,11 +12,11 @@ package com.rayyounghong.algorithms.mathematical;
 public class PositiveInteger {
 
     /**
-     * Get the factorial of given number n.
+     * Get the factorial of a positive integer n (n!).
      *
      * @param n
-     *            given number n.
-     * @return return the factorial of n.
+     *            given number n
+     * @return return the factorial of a positive integer n
      */
     public static long factorial(long n) {
         if (n < 0) {
@@ -29,13 +31,13 @@ public class PositiveInteger {
     }
 
     /**
-     * Get the factorial of given number n - Though jvm does not support tail optimization.
+     * Get the factorial of a positive integer n - Though jvm does not support tail optimization.
      *
      * @param n
-     *            given number n.
+     *            given number n
      * @param total
      *            current total
-     * @return return the factorial of n.
+     * @return return the factorial of a positive integer n
      */
     public static long factorial(long n, long total) {
         if (n < 0) {
@@ -50,11 +52,11 @@ public class PositiveInteger {
     }
 
     /**
-     * Get the factorial of given number n.
+     * Get the factorial of a positive integer n.
      *
      * @param n
-     *            given number n.
-     * @return return the factorial of n.
+     *            given number n
+     * @return return the factorial of a positive integer n
      */
     public static long factorialViaIterativeLoops(long n) {
         if (n < 0) {
@@ -89,6 +91,21 @@ public class PositiveInteger {
         }
 
         return res;
+    }
+
+    /**
+     * Find {@code n}-th catalan number.
+     *
+     * @param n
+     *            given number
+     * @return the {@code n}-th catalan number
+     */
+    public static long catalan(long n) {
+        if (n <= 1) {
+            return 1;
+        }
+
+        return (BinomialCoefficient.binomialCoefficient(2 * n, n)) / (n + 1);
     }
 
 }

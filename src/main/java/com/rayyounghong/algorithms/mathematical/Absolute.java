@@ -1,6 +1,8 @@
 package com.rayyounghong.algorithms.mathematical;
 
 /**
+ * Review Date: 2020/12/23.
+ *
  * @author ray
  */
 public class Absolute {
@@ -25,7 +27,7 @@ public class Absolute {
      */
     public static int absMax(int[] numbers) {
         if (numbers == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("given numbers cannot be null");
         }
 
         int absMaxValue = numbers[0];
@@ -60,4 +62,5 @@ public class Absolute {
 
         return absMinValue;
     }
+
 }

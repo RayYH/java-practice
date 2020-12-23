@@ -1,8 +1,8 @@
 package com.rayyounghong.algorithms.mathematical;
 
-import java.util.List;
-
 /**
+ * Review Date: 2020/12/23.
+ *
  * GCD (Greatest Common Divisor) or HCF (Highest Common Factor) of two numbers is the largest number that divides both
  * of them.
  *

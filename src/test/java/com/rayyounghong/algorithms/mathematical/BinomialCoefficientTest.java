@@ -5,17 +5,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
+ * Review Date: 2020/12/23.
+ *
  * @author ray
  */
 public class BinomialCoefficientTest {
+
     @Test
     void testBinomialCoefficient() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            BinomialCoefficient.binomialCoefficient(1, 2);
-        });
-        assertThrows(IllegalArgumentException.class, () -> {
-            BinomialCoefficient.binomialCoefficient(3, -1);
-        });
+        assertThrows(IllegalArgumentException.class, () -> BinomialCoefficient.binomialCoefficient(1, 2));
+        assertThrows(IllegalArgumentException.class, () -> BinomialCoefficient.binomialCoefficient(3, -1));
         /*
          * Pascal's triangle:
          *
@@ -45,4 +44,5 @@ public class BinomialCoefficientTest {
         assertEquals(8, BinomialCoefficient.binomialCoefficient(8, 7));
         assertEquals(1, BinomialCoefficient.binomialCoefficient(8, 8));
     }
+
 }
