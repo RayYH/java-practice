@@ -4,10 +4,10 @@ Some code written in java which may be terrible and buggy, **USE AT YOUR OWN RIS
 
 ## Requirements
 
-+ java version >= 14
-+ Gradle
++ java version >= 15
++ Gradle >= 6.1
 
-> If you use Docker, you can use provided `docker-compose.yml` file to get a jdk14 environment with gradle 6.6.
+> If you use Docker, you can use provided `docker-compose.yml` file to get a jdk15 environment with latest gradle.
 
 ## Scripts
 
