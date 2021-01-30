@@ -3,13 +3,6 @@ package com.rayyounghong.algorithms.leetcode;
 import java.util.HashMap;
 
 /**
- * <p>
- * Given an array of integers, return <strong>indices</strong> of the two numbers such that they add up to a specific
- * target.
- * </p>
- * You may assume that each input would have <strong><i>exactly</i></strong> one solution, and you may not use the
- * <i>same</i> element twice.
- *
  * @see <a href="https://leetcode.com/problems/two-sum/">Two Sum</a>
  * @author ray
  */

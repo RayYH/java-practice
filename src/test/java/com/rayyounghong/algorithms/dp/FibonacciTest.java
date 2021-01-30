@@ -14,7 +14,6 @@ public class FibonacciTest {
         for (int i = 0; i < cases.length; i++) {
             assertEquals(cases[i], f.memoization(i));
             assertEquals(cases[i], f.tabulation(i));
-            assertEquals(cases[i], f.recursion(i));
         }
     }
 }
