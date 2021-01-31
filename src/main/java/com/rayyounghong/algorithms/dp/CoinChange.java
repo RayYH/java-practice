@@ -20,8 +20,6 @@ import java.util.Map;
  */
 public class CoinChange {
 
-    static Map<Integer, Integer> memo = new HashMap<>();
-
     /**
      * Memoization: <code>F(S)=F(S−C)+1</code>.
      *
@@ -32,33 +30,42 @@ public class CoinChange {
      * @return the minimum number of coins
      */
     public static int minimumCoinsMemoization(int[] coins, int amount) {
+        Map<Integer, Integer> memo = new HashMap<>(amount + 1);
+        return minimumCoinsMemo(coins, amount, memo);
+    }
+
+    public static int minimumCoinsMemo(int[] coins, int amount, Map<Integer, Integer> memo) {
+        // check memo
         if (memo.containsKey(amount)) {
             return memo.get(amount);
+        }
+
+        // base case and param validation
+        if (amount < 0) {
+            return -1;
         }
 
         if (amount == 0) {
             return 0;
         }
 
-        if (amount < 0) {
-            return -1;
-        }
-
+        // recursive strategy
         int res = Integer.MAX_VALUE;
-
         for (int coin : coins) {
-            // sub problems
-            int subSolution = minimumCoinsMemoization(coins, amount - coin);
-
-            // base cases
+            int subSolution = minimumCoinsMemo(coins, amount - coin, memo);
             if (subSolution == -1) {
                 continue;
             }
-
-            res = Math.min(res, 1 + subSolution);
+            res = Math.min(res, subSolution + 1);
         }
 
-        memo.put(amount, res != Integer.MAX_VALUE ? res : -1);
+        // update memo (no solution when initial value not changed) and return
+        if (res == Integer.MAX_VALUE) {
+            memo.put(amount, -1);
+        } else {
+            memo.put(amount, res);
+        }
+
         return memo.get(amount);
     }
 
@@ -72,21 +79,29 @@ public class CoinChange {
      * @return the minimum number of coins
      */
     public static int minimumCoinsTabulation(int[] coins, int amount) {
+        // param validation
         if (amount < 0) {
             return -1;
         }
-        int[] dp = new int[amount + 1];
-        Arrays.fill(dp, amount + 1);
-        dp[0] = 0;
-        for (int i = 0; i < dp.length; i++) {
+
+        // int tables
+        int[] tables = new int[amount + 1];
+        Arrays.fill(tables, amount + 1);
+
+        // base case
+        tables[0] = 0;
+
+        // update tables via formula
+        for (int i = 0; i < tables.length; i++) {
             for (int coin : coins) {
                 if (i - coin < 0) {
                     continue;
                 }
-                dp[i] = Math.min(dp[i], 1 + dp[i - coin]);
+                tables[i] = Math.min(tables[i], 1 + tables[i - coin]);
             }
         }
 
-        return (dp[amount] == amount + 1) ? -1 : dp[amount];
+        // return solution stored inside tables (no solution when initial value has not been modified)
+        return (tables[amount] == amount + 1) ? -1 : tables[amount];
     }
 }

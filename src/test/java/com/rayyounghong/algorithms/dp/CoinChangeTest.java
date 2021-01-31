@@ -18,5 +18,9 @@ public class CoinChangeTest {
         assertEquals(2, CoinChange.minimumCoinsTabulation(coins, 10));
         assertEquals(6, CoinChange.minimumCoinsTabulation(coins, 30));
         assertEquals(-1, CoinChange.minimumCoinsTabulation(coins, -1));
+        coins[0] = 7;
+        coins[1] = 8;
+        coins[2] = 9;
+        assertEquals(-1, CoinChange.minimumCoinsMemoization(coins, 4));
     }
 }
