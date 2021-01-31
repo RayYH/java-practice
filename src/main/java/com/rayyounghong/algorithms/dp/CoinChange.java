@@ -20,36 +20,26 @@ import java.util.Map;
  */
 public class CoinChange {
 
-    /**
-     * Memoization: <code>F(S)=F(S−C)+1</code>.
-     *
-     * @param coins
-     *            coins
-     * @param amount
-     *            amount
-     * @return the minimum number of coins
-     */
     public static int minimumCoinsMemoization(int[] coins, int amount) {
         Map<Integer, Integer> memo = new HashMap<>(amount + 1);
         return minimumCoinsMemo(coins, amount, memo);
     }
 
     public static int minimumCoinsMemo(int[] coins, int amount, Map<Integer, Integer> memo) {
-        // check memo
+        // 1. check memo
         if (memo.containsKey(amount)) {
             return memo.get(amount);
         }
 
-        // base case and param validation
+        // 2. base case and param validation
         if (amount < 0) {
             return -1;
         }
-
         if (amount == 0) {
             return 0;
         }
 
-        // recursive strategy
+        // 3. recursive strategy using formula
         int res = Integer.MAX_VALUE;
         for (int coin : coins) {
             int subSolution = minimumCoinsMemo(coins, amount - coin, memo);
@@ -59,7 +49,7 @@ public class CoinChange {
             res = Math.min(res, subSolution + 1);
         }
 
-        // update memo (no solution when initial value not changed) and return
+        // 4. update memo (no solution when initial value not changed) and return
         if (res == Integer.MAX_VALUE) {
             memo.put(amount, -1);
         } else {
@@ -69,29 +59,20 @@ public class CoinChange {
         return memo.get(amount);
     }
 
-    /**
-     * Tabulation.
-     *
-     * @param coins
-     *            coins
-     * @param amount
-     *            amount
-     * @return the minimum number of coins
-     */
     public static int minimumCoinsTabulation(int[] coins, int amount) {
-        // param validation
+        // 1. param validation
         if (amount < 0) {
             return -1;
         }
 
-        // int tables
+        // 2. int tables
         int[] tables = new int[amount + 1];
         Arrays.fill(tables, amount + 1);
 
-        // base case
+        // 3. base case
         tables[0] = 0;
 
-        // update tables via formula
+        // 4. update tables using formula
         for (int i = 0; i < tables.length; i++) {
             for (int coin : coins) {
                 if (i - coin < 0) {
@@ -101,7 +82,70 @@ public class CoinChange {
             }
         }
 
-        // return solution stored inside tables (no solution when initial value has not been modified)
+        // 5. return solution stored inside tables (no solution when initial value has not been modified)
         return (tables[amount] == amount + 1) ? -1 : tables[amount];
+    }
+
+    public static int totalCombinationsMemoization(int[] coins, int amount) {
+        Map<Integer, Integer> memo = new HashMap<>(amount + 1);
+        return totalCombinationsMemo(coins, amount, memo);
+    }
+
+    public static int totalCombinationsMemo(int[] coins, int amount, Map<Integer, Integer> memo) {
+        // 1. check memo
+        if (memo.containsKey(amount)) {
+            return memo.get(amount);
+        }
+
+        // 2. base case and param validation
+        if (amount == 0) {
+            return 1;
+        }
+        if (amount < 0) {
+            return 0;
+        }
+
+        // 3. recursive strategy using formula
+        int res = 0;
+        for (int coin : coins) {
+            int remain = amount - coin;
+            if (remain == coin) {
+                res += 1;
+            }
+
+            if (remain < coin) {
+                continue;
+            }
+
+            res += totalCombinationsMemo(coins, amount - coin, memo);
+        }
+
+        // 4. update memo (no solution when initial value not changed) and return
+        memo.put(amount, res);
+        return res;
+    }
+
+    public static int totalCombinationsTabulation(int[] coins, int amount) {
+        // 1. param validation
+        if (amount < 0) {
+            return 0;
+        }
+
+        // 2. int tables
+        int[] tables = new int[amount + 1];
+        Arrays.fill(tables, 0);
+
+        // 3. base case
+        tables[0] = 1;
+
+        // 4. update tables using formula
+        for (int coin : coins) {
+            for (int i = coin; i <= amount; i++) {
+                tables[i] += tables[i - coin];
+            }
+        }
+
+        // 5. return solution stored inside tables (no solution when initial value has not been modified)
+        return tables[amount];
     }
 }

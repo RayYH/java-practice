@@ -23,4 +23,13 @@ public class CoinChangeTest {
         coins[2] = 9;
         assertEquals(-1, CoinChange.minimumCoinsMemoization(coins, 4));
     }
+
+    @Test
+    void testCoinChangeCombinations() {
+        int[] coins = new int[] {5, 2, 1};
+        assertEquals(4, CoinChange.totalCombinationsTabulation(coins, 5));
+        assertEquals(4, CoinChange.totalCombinationsMemoization(coins, 5));
+        assertEquals(0, CoinChange.totalCombinationsTabulation(new int[] {2}, 3));
+        assertEquals(0, CoinChange.totalCombinationsMemoization(new int[] {2}, 3));
+    }
 }
