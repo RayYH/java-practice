@@ -86,52 +86,13 @@ public class CoinChange {
         return (tables[amount] == amount + 1) ? -1 : tables[amount];
     }
 
-    public static int totalCombinationsMemoization(int[] coins, int amount) {
-        Map<Integer, Integer> memo = new HashMap<>(amount + 1);
-        return totalCombinationsMemo(coins, amount, memo);
-    }
-
-    public static int totalCombinationsMemo(int[] coins, int amount, Map<Integer, Integer> memo) {
-        // 1. check memo
-        if (memo.containsKey(amount)) {
-            return memo.get(amount);
-        }
-
-        // 2. base case and param validation
-        if (amount == 0) {
-            return 1;
-        }
-        if (amount < 0) {
-            return 0;
-        }
-
-        // 3. recursive strategy using formula
-        int res = 0;
-        for (int coin : coins) {
-            int remain = amount - coin;
-            if (remain == coin) {
-                res += 1;
-            }
-
-            if (remain < coin) {
-                continue;
-            }
-
-            res += totalCombinationsMemo(coins, amount - coin, memo);
-        }
-
-        // 4. update memo (no solution when initial value not changed) and return
-        memo.put(amount, res);
-        return res;
-    }
-
     public static int totalCombinationsTabulation(int[] coins, int amount) {
         // 1. param validation
         if (amount < 0) {
             return 0;
         }
 
-        // 2. int tables
+        // 2. init tables
         int[] tables = new int[amount + 1];
         Arrays.fill(tables, 0);
 
