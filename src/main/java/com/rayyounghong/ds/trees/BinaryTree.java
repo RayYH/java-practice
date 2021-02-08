@@ -6,37 +6,24 @@ import java.util.Stack;
 import com.rayyounghong.ds.queue.Queue;
 
 /**
- * Binary Tree.
+ * 二叉树。
  *
- * @see <a href="https://en.wikipedia.org/wiki/Binary_tree#Types_of_binary_trees">Types of binary trees.</a>
- * @see <a href="https://en.wikipedia.org/wiki/Tree_traversal">Tree traversal.</a>
- * @see <a href="http://faculty.cs.niu.edu/~mcmahon/CS241/Notes/Data_Structures/binary_tree_traversals.html">Binary Tree
- *      Traversals</a>
  * @author ray
  */
 public class BinaryTree {
+
     /**
-     * root node.
+     * 根节点。
      */
     Node root;
 
-    /*
-     * ----------------------------------------------------------
-     * Lists for saving results from tree traversals (DFS).
-     * For testing usage.
-     * ----------------------------------------------------------
+    /**
+     * visited 存储了 DFS 遍历的值，方便测试用例编写。
      */
-
-    static List<Integer> list = new ArrayList<>();
-
-    /*
-     * ----------------------------------------------------------
-     * Constructors.
-     * ----------------------------------------------------------
-     */
+    static List<Integer> visited = new ArrayList<>();
 
     /**
-     * Generate a tree with root node.
+     * 创建一个单节点的二叉树。
      *
      * @param key
      *            root key
@@ -46,31 +33,87 @@ public class BinaryTree {
     }
 
     /**
-     * Generate a empty tree.
+     * 创建一个空的二叉树。
      */
     BinaryTree() {
         root = null;
     }
 
     /**
-     * Given a binary tree and a key, insert the key into the binary tree at the first position available in level
-     * order.
+     * 层级遍历元素。
      *
-     * The idea is to do iterative level order traversal of the given tree using queue. If we find a node whose left
-     * child is empty, we make new key as left child of the node. Else if we find a node whose right child is empty, we
-     * make the new key as right child. We keep traversing the tree until we find a node whose either left or right is
-     * empty.
+     * @return 符合层级遍历顺序的元素构成的列表。
+     */
+    List<Integer> levelOrder() {
+        /*
+         *****************************************
+         *          1
+         *        /  \
+         *       2    3
+         *     /  \
+         *    4    5
+         *****************************************
+         */
+
+        // -------------------------------------------------------------------------------------------------------------
+        // 所有的遍历都可以理解为在一个数组中按指定顺序放入原数据结构中的各个元素并且在适当的时候从内存中移除掉该元素。
+        // 根据上面的思想，我们需要解决的问题什么时候从内存中移除掉我们访问过的元素。
+        // 假设我们逐一遍历数组，显然我们访问就可以移除掉访问的元素，因为我们可以根据下标得到下一个元素的位置。
+        // -------------------------------------------------------------------------------------------------------------
+        // 但二叉树的层级遍历则不同，按照遍历要求，我们很自然地有如下的选择措施：
+        // a. 根据根节点直接取出 1 并放入到数组中，内存中有 1
+        // b. 根据内存中已有的 1 取出 2 并放入到数组中，内存中有 1、2
+        // c. 根据内存中已有的 1 取出 3 并放入到数组中，内存中有 1、2、3
+        // d. 根据内存中已有的 2 取出 4 并放入到数组中，内存中有 1、2、3、4
+        // e. 根据内存中已有的 2 取出 5 并放入到数组中，内存中有 1、2、3、4、5
+        // -------------------------------------------------------------------------------------------------------------
+        // 步骤 a 取出了节点 1 - 第 1 层
+        // 步骤 b，c 取出了节点 1 的子节点 - 第 2 层，这一步骤执行完毕，我们可以释放掉节点 1，因为后面不再需要节点 1 了
+        // 步骤 d，e 取出了节点 2 的子节点 - 第 3 层，同理节点 2 可以被释放了
+        // -------------------------------------------------------------------------------------------------------------
+        // 到这里，我们已经基本有了一个方案了，释放节点的时间就是该节点的左右节点都被访问了的时候。
+        // 还有一个问题，我们怎么存储这些暂存的节点？这个问题的解决办法很简单，先访问先释放，使用队列，先访问后释放，使用栈
+        // 看到这里，想必你已豁然开朗，层级遍历使用队列辅助就完事了
+        // -------------------------------------------------------------------------------------------------------------
+
+        // 用列表来存储访问过的元素
+        List<Integer> l = new ArrayList<>();
+        // 用队列来暂存还不能释放的元素
+        Queue<Node> q = new Queue<>();
+        // 根节点加如队列
+        q.enqueue(root);
+        // 只要还有节点未被释放，说明有可能有子节点，则进行访问
+        while (!q.isEmpty()) {
+            // 这里访问节点和从暂存列表中释放节点的顺序与我们前边的讨论相反，因为是同时执行的，所以无关紧要
+            // 从队列中取出节点，并取出其左右节点加入到暂存队列中去
+            Node node = q.dequeue();
+            // 访问该节点
+            l.add(node.key);
+            // 左右节点均加入暂存队列中去
+            if (node.left != null) {
+                q.enqueue(node.left);
+            }
+            if (node.right != null) {
+                q.enqueue(node.right);
+            }
+        }
+
+        return l;
+    }
+
+    /**
+     * 在当前二叉树中插入一个新的节点，节点的位置符合层级遍历顺序，即靠左上方的位置。
      *
-     * @see <a href= "https://www.geeksforgeeks.org/deletion-binary-tree/">Deletion in a Binary Tree</a>
+     * 基本思想就是逐层遍历整棵树，即 BFS 广度优先遍历。如果我们发现一个节点的左节点为空，就将新节点作为该节点的左节点。如果我们发现一个节点的右节点为空，即将新节点作为该节点的右节点。
      */
     void insert(int key) {
+        // 空树直接将新节点作为根节点
         if (root == null) {
             root = new Node(key);
             return;
         }
 
         Node temp = root;
-
         Queue<Node> q = new Queue<>();
         q.enqueue(temp);
 
@@ -166,21 +209,21 @@ public class BinaryTree {
      */
 
     List<Integer> getInorderLists() {
-        list.clear();
+        visited.clear();
         inorder(root);
-        return list;
+        return visited;
     }
 
     List<Integer> getPreorderLists() {
-        list.clear();
+        visited.clear();
         preorder(root);
-        return list;
+        return visited;
     }
 
     List<Integer> getPostorderLists() {
-        list.clear();
+        visited.clear();
         postorder(root);
-        return list;
+        return visited;
     }
 
     /*
@@ -196,7 +239,7 @@ public class BinaryTree {
      *            node will be visited
      */
     static void visit(Node node) {
-        list.add(node.key);
+        visited.add(node.key);
     }
 
     /*
@@ -322,27 +365,4 @@ public class BinaryTree {
         return l;
     }
 
-    /*
-     * ----------------------------------------------------------
-     * BFS traversal..
-     * ----------------------------------------------------------
-     */
-
-    List<Integer> levelOrder() {
-        Queue<Node> q = new Queue<>();
-        List<Integer> l = new ArrayList<>();
-        q.enqueue(root);
-        while (!q.isEmpty()) {
-            Node node = q.dequeue();
-            l.add(node.key);
-            if (node.left != null) {
-                q.enqueue(node.left);
-            }
-            if (node.right != null) {
-                q.enqueue(node.right);
-            }
-        }
-
-        return l;
-    }
 }

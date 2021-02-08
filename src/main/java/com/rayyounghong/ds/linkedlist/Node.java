@@ -9,15 +9,17 @@ public class Node {
 
     int data;
 
-    Node next;
+    Node prev, next;
 
     Node() {
         this.data = 0;
         next = null;
+        prev = null;
     }
 
     Node(int d) {
         this.data = d;
+        prev = null;
         next = null;
     }
 

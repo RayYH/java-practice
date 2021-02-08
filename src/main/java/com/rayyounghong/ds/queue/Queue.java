@@ -4,14 +4,17 @@ import java.lang.reflect.Array;
 
 /**
  * Queue is a linear structure which follows a particular order in which the operations are performed. The order is
- * First In First Out (FIFO).
+ * First In First Out (FIFO). In a stack we remove the item the most recently added; in a queue, we remove the item the
+ * least recently added.
  *
  * @param <E>
  *            Element
  * @author ray
  */
 public class Queue<E> {
-    int front, rear, size;
+
+    int front, rear;
+    int size;
     int capacity;
     E[] array;
 
@@ -27,10 +30,20 @@ public class Queue<E> {
         this(1024);
     }
 
+    /**
+     * Queue is full when size becomes equal to the capacity.
+     *
+     * @return true if queue is full
+     */
     public boolean isFull() {
         return this.size == this.capacity;
     }
 
+    /**
+     * Queue is empty when size is 0.
+     *
+     * @return true if queue is empty.
+     */
     public boolean isEmpty() {
         return this.size == 0;
     }
