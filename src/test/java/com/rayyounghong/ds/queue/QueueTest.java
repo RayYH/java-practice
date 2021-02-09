@@ -9,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @author ray
  */
 public class QueueTest {
-
     @Test
     void testQueueBasicOperations() {
         Queue<Integer> queue = new Queue<>(5);
