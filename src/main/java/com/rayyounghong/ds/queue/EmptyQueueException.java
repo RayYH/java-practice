@@ -1,9 +1,12 @@
 package com.rayyounghong.ds.queue;
 
+import java.io.Serial;
+
 /**
  * @author ray
  */
 public class EmptyQueueException extends RuntimeException {
+    @Serial
     private static final long serialVersionUID = -2707033849922874618L;
 
     /**
