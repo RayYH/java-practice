@@ -1,6 +1,7 @@
 package com.rayyounghong.ds.trees;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 import com.rayyounghong.ds.queue.Queue;
@@ -107,7 +108,7 @@ public class BinaryTree {
     }
 
     /**
-     * 层级遍历二叉树中的所有元素，每一层的元素存放于不同的列表中。
+     * 层级遍历二叉树中的所有元素，每一层的元素自顶往下存放于不同的列表中。
      *
      * @return 存储了遍历结果的二维列表
      */
@@ -120,22 +121,55 @@ public class BinaryTree {
         Queue<Node> q = new Queue<>();
         q.enqueue(root);
         while (!q.isEmpty()) {
-            int currentLevelSize = q.size();
-            List<Integer> levelList = new ArrayList<>();
-            for (int i = 0; i < currentLevelSize; i++) {
-                Node node = q.dequeue();
-                levelList.add(node.key);
-                if (node.left != null) {
-                    q.enqueue(node.left);
-                }
-                if (node.right != null) {
-                    q.enqueue(node.right);
-                }
-            }
+            List<Integer> levelList = getCurrentLevelListFromQueue(q);
             l.add(levelList);
         }
 
         return l;
+    }
+
+    /**
+     * 层级遍历二叉树中的所有元素，每一层的元素自底向上存放于不同的列表中。
+     *
+     * @return 存储了遍历结果的二维列表
+     */
+    List<List<Integer>> levelOrdersBottom() {
+        List<List<Integer>> l = new LinkedList<>();
+        if (root == null) {
+            return l;
+        }
+
+        Queue<Node> q = new Queue<>();
+        q.enqueue(root);
+        while (!q.isEmpty()) {
+            List<Integer> levelList = getCurrentLevelListFromQueue(q);
+            l.add(0, levelList);
+        }
+
+        return l;
+    }
+
+    /**
+     * 遍历队列中当前已存在的元素，并按层级遍历的顺序修改队列。
+     *
+     * @param q
+     *            辅助队列
+     * @return 存放了当前层级元素的列表
+     */
+    private List<Integer> getCurrentLevelListFromQueue(Queue<Node> q) {
+        int currentLevelSize = q.size();
+        List<Integer> levelList = new ArrayList<>();
+        for (int i = 0; i < currentLevelSize; i++) {
+            Node node = q.dequeue();
+            levelList.add(node.key);
+            if (node.left != null) {
+                q.enqueue(node.left);
+            }
+            if (node.right != null) {
+                q.enqueue(node.right);
+            }
+        }
+        return levelList;
     }
 
     /**
@@ -514,5 +548,4 @@ public class BinaryTree {
 
         return l;
     }
-
 }
