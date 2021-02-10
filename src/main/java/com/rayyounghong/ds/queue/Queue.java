@@ -118,4 +118,22 @@ public class Queue<E> {
 
         return this.array[this.rear];
     }
+
+    /**
+     * 获取队列的大小。
+     *
+     * @return 队列大小
+     */
+    public int size() {
+        return this.size;
+    }
+
+    /**
+     * 获取队列的容量。
+     *
+     * @return 队列容量
+     */
+    public int getCapacity() {
+        return this.capacity;
+    }
 }

@@ -107,6 +107,38 @@ public class BinaryTree {
     }
 
     /**
+     * 层级遍历二叉树中的所有元素，每一层的元素存放于不同的列表中。
+     *
+     * @return 存储了遍历结果的二维列表
+     */
+    List<List<Integer>> levelOrders() {
+        List<List<Integer>> l = new ArrayList<>();
+        if (root == null) {
+            return l;
+        }
+
+        Queue<Node> q = new Queue<>();
+        q.enqueue(root);
+        while (!q.isEmpty()) {
+            int currentLevelSize = q.size();
+            List<Integer> levelList = new ArrayList<>();
+            for (int i = 0; i < currentLevelSize; i++) {
+                Node node = q.dequeue();
+                levelList.add(node.key);
+                if (node.left != null) {
+                    q.enqueue(node.left);
+                }
+                if (node.right != null) {
+                    q.enqueue(node.right);
+                }
+            }
+            l.add(levelList);
+        }
+
+        return l;
+    }
+
+    /**
      * 在当前二叉树中插入一个新的节点，节点的位置为层级遍历时第一个可用的位置。基本思想就是逐层遍历整棵树，即 BFS 广度优先遍历。
      * 如果我们发现一个节点的左节点为空，就将新节点作为该节点的左节点。如果我们发现一个节点的右节点为空，即将新节点作为该节点的右节点。
      *
