@@ -1,7 +1,7 @@
 package com.rayyounghong.helper.container;
 
 /**
- * A helper class which can stored two boolean values for test cases.
+ * Boolean 容器，方便测试用例编写。
  *
  * @author ray
  */

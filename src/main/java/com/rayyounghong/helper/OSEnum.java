@@ -9,5 +9,4 @@ public enum OSEnum {
      * Windows Linux OSX Solaris
      */
     WINDOWS, LINUX, MAC, SOLARIS
-
 }

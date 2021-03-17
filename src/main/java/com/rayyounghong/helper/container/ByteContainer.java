@@ -1,7 +1,7 @@
 package com.rayyounghong.helper.container;
 
 /**
- * A helper class which can stored byte values for test cases.
+ * Byte 容器，方便测试用例编写。
  *
  * @author ray
  */

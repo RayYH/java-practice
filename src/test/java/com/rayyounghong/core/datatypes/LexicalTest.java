@@ -11,24 +11,25 @@ import org.junit.jupiter.api.Test;
 class LexicalTest {
     @Test
     void testIntRange() {
-        int maxValue = Integer.MAX_VALUE;
-        int minValue = Integer.MIN_VALUE;
-        int minusOne = maxValue + minValue;
-        assertEquals(0x7fff_ffff, maxValue);
-        assertEquals(0b0111_1111_1111_1111_1111_1111_1111_1111, maxValue);
-        assertEquals(0x8000_0000, minValue);
-        assertEquals(0b1000_0000_0000_0000_0000_0000_0000_0000, minValue);
+        int maxInt = Integer.MAX_VALUE;
+        int minInt = Integer.MIN_VALUE;
+        int minusOne = maxInt + minInt;
+        assertEquals(0x7fff_ffff, maxInt);
+        assertEquals(0b0111_1111_1111_1111_1111_1111_1111_1111, maxInt);
+        assertEquals(0x8000_0000, minInt);
+        assertEquals(0b1000_0000_0000_0000_0000_0000_0000_0000, minInt);
         assertEquals(0xffff_ffff, minusOne);
+        assertEquals(0xffff_ffff, -1);
         assertEquals(0b1111_1111_1111_1111_1111_1111_1111_1111, minusOne);
     }
 
     @Test
     void testLongRange() {
-        long maxValue = Long.MAX_VALUE;
-        long minValue = Long.MIN_VALUE;
-        long minusOne = maxValue + minValue;
-        assertEquals(0x7fff_ffff_ffff_ffffL, maxValue);
-        assertEquals(0x8000_0000_0000_0000L, minValue);
+        long maxLong = Long.MAX_VALUE;
+        long minLong = Long.MIN_VALUE;
+        long minusOne = maxLong + minLong;
+        assertEquals(0x7fff_ffff_ffff_ffffL, maxLong);
+        assertEquals(0x8000_0000_0000_0000L, minLong);
         assertEquals(0xffff_ffff_ffff_ffffL, minusOne);
     }
 
@@ -62,8 +63,8 @@ class LexicalTest {
 
     @Test
     void testUnsignedValue() {
-        // Since Java 8, we can use a unsigned int or long value via some methods provided by
-        // Wrapper class
+        // 从 Java 8 开始，我们可以使用 int/long 类型对应的包装类 (Integer/Long) 中的一些方法
+        // 来声明一个无符号整数，该无符号整数所能表示的最大值要大于对应类型的有符号整数中的最大值
         long longValue = Long.parseUnsignedLong("1234567890123456789");
         assertEquals(Long.toUnsignedString(longValue), "1234567890123456789");
     }
