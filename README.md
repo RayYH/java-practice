@@ -16,7 +16,7 @@ Some code written in java which may be terrible and buggy, **USE AT YOUR OWN RIS
 gradle test
 
 # run main method
-gradle ruun
+gradle run
 
 # get all gradle tasks
 gradle tasks
