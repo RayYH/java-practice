@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
-import com.rayyounghong.ds.queue.Queue;
+import java.util.Queue;
 
 /**
  * 二叉树。
@@ -41,66 +41,18 @@ public class BinaryTree {
      * @return 符合层序遍历顺序的元素构成的列表
      */
     List<Integer> levelOrder() {
-        // -------------------------------------------------------------------------------------------------------------
-        // 遍历，即按照某种特定的顺序依次访问指定数据结构中的各个元素，解决这种问题的关键点在于如何保证我们的『访问』顺序。
-        // 为了形象化，我们将原数据结构称为『来源』，遍历结果的最终存放位置称为『目标』，『来源』中所取元素的暂存位置我们称之为『缓存』。
-        // 那么所有的遍历问题都可以描述为两个主要步骤：
-        // 1. 从『来源』中逐一取出元素存放于『缓存』
-        // 2. 从『缓存』中逐一取出元素输出到『目标』
-        // 由于『缓存』的大小一般不是无限大的，因此我们必须要在合适的时机清除掉『缓存』中无用的元素，而这才是大多数遍历算法的核心所在。
-        // -------------------------------------------------------------------------------------------------------------
-        // 在开始介绍二叉树的层序遍历之前，我们先讲解一下一维数组的遍历。
-        // 假设有一个数组 A 为 int[]{1, 2, 3, 4, 5}，并且我们有一个从零开始自增的索引值 i。
-        // 首先，我们取出第一个元素 1，由于后面的元素都不依赖于 1 这个值，因为它们可以通过数组 A[i] 直接获得。
-        // 所以这时候我们可以直接释放 A 或者说我们根本就不建立一个所谓的『缓冲』。
-        // -------------------------------------------------------------------------------------------------------------
-        /*
-         *****************************************
-         *          1
-         *        /  \
-         *       2    3
-         *     /  \
-         *    4    5
-         *****************************************
-         * 层序遍历结果 1 2 3 4 5
-         *****************************************
-         */
-        // -------------------------------------------------------------------------------------------------------------
-        // 但二叉树的层序遍历则不同，对于上面这棵树，按照『层级』的要求，我们很自然地有如下的选择措施：
-        // a. 从『来源』中根据 root 直接取出 1 并输出到『目标』，『缓存』中有 1
-        // b. 根据『缓存』中已有的 1 取出 2 并输出到『目标』，『缓存』中有 1、2
-        // c. 根据『缓存』中已有的 1 取出 3 并输出到『目标』，『缓存』中有 1、2、3
-        // d. 根据『缓存』中已有的 2 取出 4 并输出到『目标』，『缓存』中有 1、2、3、4
-        // e. 根据『缓存』中已有的 2 取出 5 并输出到『目标』，『缓存』中有 1、2、3、4、5
-        // -------------------------------------------------------------------------------------------------------------
-        // 步骤 a 取出了节点 1 - 第 1 层元素输出完毕
-        // 步骤 b，c 取出了节点 1 的子节点 - 第 2 层元素输出完毕，此时我们可以从『缓存』中清除掉节点 1，因为后面不再需要节点 1 了
-        // 步骤 d，e 取出了节点 2 的子节点 - 第 3 层元素输出完毕，同理我们可以从『缓冲』中清除掉节点 2
-        // -------------------------------------------------------------------------------------------------------------
-        // 到这里，我们已经可以明确，在一个节点的左右子节点都输出到『目标』之后，我们便可以从『缓存』中清除掉该节点。
-        // 但还有一个问题需要解决，我们如何定义『缓存』的数据结构。
-        // 解决这个问题的解决办法很简单，『缓存』中先来的元素先释放则使用队列，『缓存』中后来的元素先释放则使用栈。
-        // 显然，左边的子节点先加入『缓存』中，也率先从『缓存』中移除，二叉树的层序遍历使用队列即可。
-        // -------------------------------------------------------------------------------------------------------------
-
-        // 用列表来存储『目标』
         List<Integer> l = new ArrayList<>();
-        // 用队列来作为『缓存』
-        Queue<Node> q = new Queue<>();
-        // 取出根节点并加入到『缓存』
-        q.enqueue(root);
-        // 因为『缓存』的大小非 0，因此只要『缓存』中还有节点，说明『来源』中取出来的元素并未全部输出到『目标』
+        Queue<Node> q = new LinkedList<>();
+        q.offer(root);
+
         while (!q.isEmpty()) {
-            // 从『缓存』中取出元素
-            Node node = q.dequeue();
-            // 『缓存』中取出的元素输出到『目标』中
+            Node node = q.poll();
             l.add(node.key);
-            // 『来源』中取出的元素添加到『缓存』中
             if (node.left != null) {
-                q.enqueue(node.left);
+                q.offer(node.left);
             }
             if (node.right != null) {
-                q.enqueue(node.right);
+                q.offer(node.right);
             }
         }
 
@@ -118,8 +70,8 @@ public class BinaryTree {
             return l;
         }
 
-        Queue<Node> q = new Queue<>();
-        q.enqueue(root);
+        Queue<Node> q = new LinkedList<>();
+        q.offer(root);
         while (!q.isEmpty()) {
             List<Integer> levelList = getCurrentLevelListFromQueue(q);
             l.add(levelList);
@@ -139,8 +91,8 @@ public class BinaryTree {
             return l;
         }
 
-        Queue<Node> q = new Queue<>();
-        q.enqueue(root);
+        Queue<Node> q = new LinkedList<>();
+        q.offer(root);
         while (!q.isEmpty()) {
             List<Integer> levelList = getCurrentLevelListFromQueue(q);
             l.add(0, levelList);
@@ -160,13 +112,14 @@ public class BinaryTree {
         int currentLevelSize = q.size();
         List<Integer> levelList = new ArrayList<>();
         for (int i = 0; i < currentLevelSize; i++) {
-            Node node = q.dequeue();
+            Node node = q.poll();
+            assert node != null;
             levelList.add(node.key);
             if (node.left != null) {
-                q.enqueue(node.left);
+                q.offer(node.left);
             }
             if (node.right != null) {
-                q.enqueue(node.right);
+                q.offer(node.right);
             }
         }
         return levelList;
@@ -186,17 +139,17 @@ public class BinaryTree {
             return;
         }
         // 否则采用层序遍历的策略
-        Queue<Node> q = new Queue<>();
-        q.enqueue(root);
+        Queue<Node> q = new LinkedList<>();
+        q.offer(root);
         while (!q.isEmpty()) {
-            Node temp = q.dequeue();
+            Node temp = q.poll();
             // 左子节点为空，直接插入到该位置
             if (temp.left == null) {
                 temp.left = new Node(key);
                 break;
             } else {
                 // 不为空则添加到『缓存』
-                q.enqueue(temp.left);
+                q.offer(temp.left);
             }
             // 右子节点为空，直接插入到该位置
             if (temp.right == null) {
@@ -204,7 +157,7 @@ public class BinaryTree {
                 break;
             } else {
                 // 不为空则添加到『缓存』
-                q.enqueue(temp.right);
+                q.offer(temp.right);
             }
         }
     }
@@ -238,10 +191,10 @@ public class BinaryTree {
 
         // 层序遍历
         Node temp = root, keyNode = null;
-        Queue<Node> q = new Queue<>();
-        q.enqueue(temp);
+        Queue<Node> q = new LinkedList<>();
+        q.offer(temp);
         while (!q.isEmpty()) {
-            temp = q.dequeue();
+            temp = q.poll();
             // 这里没有 break，因为我们需要找到位于最深层最右边的节点
             // 如果只需要找到第一个满足条件的的节点，这里 break 即可
             if (temp.key == key) {
@@ -249,10 +202,10 @@ public class BinaryTree {
             }
             // 左右非空子节点加入队列
             if (temp.left != null) {
-                q.enqueue(temp.left);
+                q.offer(temp.left);
             }
             if (temp.right != null) {
-                q.enqueue(temp.right);
+                q.offer(temp.right);
             }
         }
 
@@ -278,17 +231,17 @@ public class BinaryTree {
         }
 
         // 层序遍历
-        Queue<Node> q = new Queue<>();
+        Queue<Node> q = new LinkedList<>();
         Node temp = root;
-        q.enqueue(temp);
+        q.offer(temp);
         while (!q.isEmpty()) {
-            temp = q.dequeue();
+            temp = q.poll();
             if (temp.right != null) {
                 if (temp.right == deepestNode) {
                     temp.right = null;
                     return;
                 } else {
-                    q.enqueue(temp.right);
+                    q.offer(temp.right);
                 }
             }
             if (temp.left != null) {
@@ -296,7 +249,7 @@ public class BinaryTree {
                     temp.left = null;
                     return;
                 } else {
-                    q.enqueue(temp.left);
+                    q.offer(temp.left);
                 }
             }
         }
