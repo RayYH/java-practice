@@ -8,12 +8,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author ray
  */
-public class TwoSumTest {
+public class L0001Test {
     @Test
     void testSolution() throws IllegalAccessException {
-        TwoSum twoSum = new TwoSum();
+        L0001 l0001 = new L0001();
         int[] arr = {2, 7, 11, 15};
-        assertEquals(Arrays.toString(twoSum.twoSum(arr, 9)), "[0, 1]");
-        assertEquals(Arrays.toString(twoSum.twoSum(arr, 18)), "[1, 2]");
+        assertEquals(Arrays.toString(l0001.twoSum(arr, 9)), "[0, 1]");
+        assertEquals(Arrays.toString(l0001.twoSum(arr, 18)), "[1, 2]");
     }
 }

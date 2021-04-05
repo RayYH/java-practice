@@ -236,20 +236,20 @@ public class BinaryTree {
         q.offer(temp);
         while (!q.isEmpty()) {
             temp = q.poll();
-            if (temp.right != null) {
-                if (temp.right == deepestNode) {
-                    temp.right = null;
-                    return;
-                } else {
-                    q.offer(temp.right);
-                }
-            }
             if (temp.left != null) {
                 if (temp.left == deepestNode) {
                     temp.left = null;
                     return;
                 } else {
                     q.offer(temp.left);
+                }
+            }
+            if (temp.right != null) {
+                if (temp.right == deepestNode) {
+                    temp.right = null;
+                    return;
+                } else {
+                    q.offer(temp.right);
                 }
             }
         }
