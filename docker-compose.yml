@@ -8,6 +8,5 @@ services:
     working_dir: /code
     tty: true
     stdin_open: true
-    # override since we want to execute more gradle tasks
     entrypoint: tail
     command: -f /dev/null
