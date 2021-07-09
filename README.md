@@ -1,5 +1,7 @@
 # Java Practice
 
+**WARNING: This project is not supported nor maintained anymore, please refer to [rayyh/practice](https://github.com/RayYH/practice) for more info.**
+
 Some code written in java which may be terrible and buggy, **USE AT YOUR OWN RISK**.
 
 ## Requirements
